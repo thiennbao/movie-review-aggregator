@@ -9,7 +9,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Movie Review Aggregator",
+  title: "Rotten Potatoes",
   description: "A tool for collecting and statisticizing movie reviews from IMDb, Rotten Tomatoes and Metacritic",
 };
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} antialiased`}>
+      <body className={`${montserrat.className} antialiased overflow-hidden`}>
         <Header />
         {children}
       </body>

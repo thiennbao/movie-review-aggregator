@@ -1,4 +1,10 @@
+import UrlInput from "@/components/url-input";
+
 export default function Home() {
-  return <main>Main</main>;
+  return (
+    <main>
+      <UrlInput />
+    </main>
+  );
 }
 
