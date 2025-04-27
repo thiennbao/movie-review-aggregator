@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} antialiased overflow-hidden`}>
+      <body className={`${montserrat.className} antialiased overflow-x-hidden`}>
         <Header />
         {children}
       </body>

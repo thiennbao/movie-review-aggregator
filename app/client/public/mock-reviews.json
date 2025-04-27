@@ -1,0 +1,5675 @@
+{
+  "name": "Mickey 17",
+  "reviews": [
+    {
+      "id": 0,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Its a nodern remake, love that disney is keeping up with the diversity in the world. People cling too much to the original and do not see the importance of a little modernization.The dark forest was a little to much, in my opinion, it gave me a little Alice in wonderland vibes. Didn't have a lot of added value. Would have loved a little more of the storyline about the witch and the ways that she tried to kill Snow White.But overall, an amazing production. It showed a good storyline and showed al the important thing out of the original fairytail.Really loved the taks on the Dwarfs and the bandits in the Forest.",
+      "aspects": [
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 13,
+            "end": 19
+          },
+          "content": "Its a nodern remake"
+        },
+        {
+          "term": "character",
+          "polarity": "positive",
+          "position": {
+            "start": 31,
+            "end": 37
+          },
+          "content": "love that disney is keeping up with the diversity in the world"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 61,
+            "end": 70
+          },
+          "content": "love that disney is keeping up with the diversity in the world"
+        },
+        {
+          "term": "plot",
+          "polarity": "neutral",
+          "position": {
+            "start": 78,
+            "end": 83
+          },
+          "content": "love that disney is keeping up with the diversity in the world"
+        },
+        {
+          "term": "",
+          "polarity": "neutral",
+          "position": {
+            "start": 114,
+            "end": 122
+          },
+          "content": "People cling too much to the original and do not see the importance of a little modernization"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 165,
+            "end": 178
+          },
+          "content": "People cling too much to the original and do not see the importance of a little modernization"
+        },
+        {
+          "term": "",
+          "polarity": "negative",
+          "position": {
+            "start": 183,
+            "end": 194
+          },
+          "content": "The dark forest was a little to much"
+        },
+        {
+          "term": "",
+          "polarity": "neutral",
+          "position": {
+            "start": 252,
+            "end": 277
+          },
+          "content": "it gave me a little Alice in wonderland vibes"
+        },
+        {
+          "term": "",
+          "polarity": "negative",
+          "position": {
+            "start": 300,
+            "end": 311
+          },
+          "content": "Didn't have a lot of added value"
+        },
+        {
+          "term": "",
+          "polarity": "neutral",
+          "position": {
+            "start": 351,
+            "end": 360
+          },
+          "content": "Would have loved a little more of the storyline about the witch and the ways that she tried to kill Snow White"
+        },
+        {
+          "term": "character",
+          "polarity": "neutral",
+          "position": {
+            "start": 371,
+            "end": 376
+          },
+          "content": "Would have loved a little more of the storyline about the witch and the ways that she tried to kill Snow White"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 413,
+            "end": 423
+          },
+          "content": "Would have loved a little more of the storyline about the witch and the ways that she tried to kill Snow White"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 448,
+            "end": 458
+          },
+          "content": "an amazing production"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 477,
+            "end": 486
+          },
+          "content": "It showed a good storyline and showed al the important thing out of the original fairytail"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 532,
+            "end": 550
+          },
+          "content": "It showed a good storyline and showed al the important thing out of the original fairytail"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 580,
+            "end": 586
+          },
+          "content": "Really loved the taks on the Dwarfs and the bandits in the Forest"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 595,
+            "end": 602
+          },
+          "content": "Really loved the taks on the Dwarfs and the bandits in the Forest"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 188,
+            "end": 194
+          },
+          "content": "The dark forest was a little to much"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Disney's latest Snow White movie leaves behind a sense of disappointment, particularly for fans of the original 1937 animated film. The magical, Bavarian elements of the classic film, such as Snow White's traditional dirndl dress, the castle that resembles Neuschwanstein, the Black Forest setting, the Bavarian wood carvings in the dwarfs' cottage are all missing in the new adaptation. Even the Evil Queen's potion glass, a Bavarian wine glass in the original, was part of the charm that connected the film to its Southern German roots. The Yodel Song was also drastically shortened in the new film. This cultural richness contributed to the original's charm, and its absence makes the new version feel \"hollow.\"Gal Gadot has a strong presence in the film, but the brief and not-scary transformation scene of the Evil Queen was a letdown, as it was one of the standout moments in the animated film.The reason I'm giving this a 2 instead of a 1 is that the new soundtrack is actually pretty catchy. Still, even though the new film has some redeeming qualities, it overall fails to capture the magic, atmosphere, and rich German cultural elements that made the 1937 movie so beloved.",
+      "aspects": [
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 0,
+            "end": 6
+          },
+          "content": "Disney's latest Snow White movie leaves behind a sense of disappointment"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 16,
+            "end": 32
+          },
+          "content": "Disney's latest Snow White movie leaves behind a sense of disappointment"
+        },
+        {
+          "term": "",
+          "polarity": "negative",
+          "position": {
+            "start": 49,
+            "end": 72
+          },
+          "content": "Disney's latest Snow White movie leaves behind a sense of disappointment"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 91,
+            "end": 95
+          },
+          "content": "particularly for fans of the original 1937 animated film"
+        },
+        {
+          "term": "",
+          "polarity": "neutral",
+          "position": {
+            "start": 103,
+            "end": 130
+          },
+          "content": "particularly for fans of the original 1937 animated film"
+        },
+        {
+          "term": "Bavarian sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 145,
+            "end": 162
+          },
+          "content": "Bavarian elements of the classic film"
+        },
+        {
+          "term": "classic sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 170,
+            "end": 182
+          },
+          "content": "Bavarian elements of the classic film"
+        },
+        {
+          "term": "Snow White's traditional dirndl sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 192,
+            "end": 229
+          },
+          "content": "such as Snow White's traditional dirndl dress"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 235,
+            "end": 241
+          },
+          "content": "the castle that resembles Neuschwanstein"
+        },
+        {
+          "term": "Black Forest sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 277,
+            "end": 297
+          },
+          "content": "the Black Forest setting"
+        },
+        {
+          "term": "Bavarian wood sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 303,
+            "end": 325
+          },
+          "content": "the Bavarian wood carvings in the dwarfs' cottage are all missing in the new adaptation"
+        },
+        {
+          "term": "dwarfs' sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 333,
+            "end": 348
+          },
+          "content": "the Bavarian wood carvings in the dwarfs' cottage are all missing in the new adaptation"
+        },
+        {
+          "term": "new plottion",
+          "polarity": "negative",
+          "position": {
+            "start": 372,
+            "end": 386
+          },
+          "content": "the Bavarian wood carvings in the dwarfs' cottage are all missing in the new adaptation"
+        },
+        {
+          "term": "Evil Queen's potion sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 397,
+            "end": 422
+          },
+          "content": "Even the Evil Queen's potion glass"
+        },
+        {
+          "term": "Bavarian wine sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 426,
+            "end": 445
+          },
+          "content": "a Bavarian wine glass in the original"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 126,
+            "end": 130
+          },
+          "content": "particularly for fans of the original 1937 animated film"
+        },
+        {
+          "term": "Southern German sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 516,
+            "end": 537
+          },
+          "content": "was part of the charm that connected the film to its Southern German roots"
+        },
+        {
+          "term": "Yodel plot",
+          "polarity": "negative",
+          "position": {
+            "start": 543,
+            "end": 553
+          },
+          "content": "The Yodel Song was also drastically shortened in the new film"
+        },
+        {
+          "term": "new plot",
+          "polarity": "negative",
+          "position": {
+            "start": 592,
+            "end": 600
+          },
+          "content": "The Yodel Song was also drastically shortened in the new film"
+        },
+        {
+          "term": "cultural sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 607,
+            "end": 624
+          },
+          "content": "This cultural richness contributed to the original's charm"
+        },
+        {
+          "term": "original's sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 644,
+            "end": 660
+          },
+          "content": "This cultural richness contributed to the original's charm"
+        },
+        {
+          "term": "new plotn",
+          "polarity": "negative",
+          "position": {
+            "start": 688,
+            "end": 699
+          },
+          "content": "and its absence makes the new version feel \"hollow"
+        },
+        {
+          "term": "Gal ",
+          "polarity": "positive",
+          "position": {
+            "start": 714,
+            "end": 723
+          },
+          "content": "\"Gal Gadot has a strong presence in the film"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 178,
+            "end": 182
+          },
+          "content": "Bavarian elements of the classic film"
+        },
+        {
+          "term": "plottion scene",
+          "polarity": "negative",
+          "position": {
+            "start": 787,
+            "end": 807
+          },
+          "content": "but the brief and not-scary transformation scene of the Evil Queen was a letdown"
+        },
+        {
+          "term": "Evil plot",
+          "polarity": "negative",
+          "position": {
+            "start": 397,
+            "end": 407
+          },
+          "content": "Even the Evil Queen's potion glass"
+        },
+        {
+          "term": "animated sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 117,
+            "end": 130
+          },
+          "content": "particularly for fans of the original 1937 animated film"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 962,
+            "end": 972
+          },
+          "content": "The reason I'm giving this a 2 instead of a 1 is that the new soundtrack is actually pretty catchy"
+        },
+        {
+          "term": "new plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1023,
+            "end": 1031
+          },
+          "content": "even though the new film has some redeeming qualities"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 136,
+            "end": 141
+          },
+          "content": "The magical"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1101,
+            "end": 1111
+          },
+          "content": "atmosphere"
+        },
+        {
+          "term": "German cultural sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1122,
+            "end": 1146
+          },
+          "content": "and rich German cultural elements that made the 1937 movie so beloved"
+        },
+        {
+          "term": "1937 sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1161,
+            "end": 1171
+          },
+          "content": "and rich German cultural elements that made the 1937 movie so beloved"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "It Gets 1 Star For Being Perfunctory As Hell.This isn't ItHere's my main 2 problems with the Film.\ud83d\udca4 1. The Build and Execution of the entire thing went like this \"This Happens, and then this Happens and then That Happened\"\ud83d\ude10 2. Because of that, the film for vast Parts of it literally felt like it was going through the motions, just Unengaging & Lackluster as Hell.Bonus Reason -\ud83c\udf1f - And Here's a Bonus Reason, I Saw Wicked Twice, There's a Few Songs and Dance Routines In that Film that completely Blow anything in Snow White out of the Water. And that Ceiling Hitting High at the Very End of Wicked was Amazing to Experience.You cannot Go From that to this, it's Pointless.And Quite Frankly, Putting that into Perspective and in Comparison, this film is Almost an Absolute Disaster.",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 93,
+            "end": 97
+          },
+          "content": "This isn't ItHere's my main 2 problems with the Film"
+        },
+        {
+          "term": "Build plotExecution",
+          "polarity": "negative",
+          "position": {
+            "start": 107,
+            "end": 126
+          },
+          "content": "The Build and Execution of the entire thing went like this \"This Happens"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 93,
+            "end": 97
+          },
+          "content": "This isn't ItHere's my main 2 problems with the Film"
+        },
+        {
+          "term": "Bonus sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 365,
+            "end": 377
+          },
+          "content": "Bonus Reason -\ud83c\udf1f - And Here's a Bonus Reason"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 416,
+            "end": 422
+          },
+          "content": "I Saw Wicked Twice"
+        },
+        {
+          "term": "Songs and Dance ",
+          "polarity": "positive",
+          "position": {
+            "start": 444,
+            "end": 468
+          },
+          "content": "There's a Few Songs and Dance Routines In that Film that completely Blow anything in Snow White out of the Water"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 248,
+            "end": 252
+          },
+          "content": "the film for vast Parts of it literally felt like it was going through the motions"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 515,
+            "end": 525
+          },
+          "content": "There's a Few Songs and Dance Routines In that Film that completely Blow anything in Snow White out of the Water"
+        },
+        {
+          "term": "Ceiling Hitting ",
+          "polarity": "positive",
+          "position": {
+            "start": 553,
+            "end": 573
+          },
+          "content": "And that Ceiling Hitting High at the Very End of Wicked was Amazing to Experience"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 593,
+            "end": 599
+          },
+          "content": "And that Ceiling Hitting High at the Very End of Wicked was Amazing to Experience"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 248,
+            "end": 252
+          },
+          "content": "the film for vast Parts of it literally felt like it was going through the motions"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "This might just be the worst Disney live-action remake ever. The script is a total disaster-nothing makes sense, and it honestly feels like they were rewriting scenes on the spot without any real direction. The pacing is all over the place, the dialogue is cringey, and the whole thing feels like a rushed, half-baked mess.Not a single moment in this Snow White feels engaging. It's not just that the lead actress seems totally miscast-the entire movie is filled with forced, unrealistic moments that completely pull you out of the story. Instead of creating something magical or meaningful, they shove in so many unnecessary changes and heavy-handed messaging that it's just exhausting to sit through. The balance between updating the story and keeping the heart of the original is completely off, making it feel more like a lecture than an actual movie.Nothing flows naturally, and the lack of coherence makes it hard to care about anything happening on screen. The forced attempts to be modern feel incredibly awkward, and rather than feeling progressive or fresh, it just comes off as hollow and unnatural. It's hard to feel invested when everything feels like it was thrown together without much thought. In the end, this Snow White isn't just a disappointment-it's a complete misfire.",
+      "aspects": [
+        {
+          "term": "Disney plote-action remake",
+          "polarity": "negative",
+          "position": {
+            "start": 29,
+            "end": 54
+          },
+          "content": "This might just be the worst Disney live-action remake ever"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 65,
+            "end": 71
+          },
+          "content": "The script is a total disaster-nothing makes sense"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 160,
+            "end": 166
+          },
+          "content": "and it honestly feels like they were rewriting scenes on the spot without any real direction"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 196,
+            "end": 205
+          },
+          "content": "and it honestly feels like they were rewriting scenes on the spot without any real direction"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 211,
+            "end": 217
+          },
+          "content": "The pacing is all over the place"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 245,
+            "end": 253
+          },
+          "content": "the dialogue is cringey"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 351,
+            "end": 361
+          },
+          "content": "Not a single moment in this Snow White feels engaging"
+        },
+        {
+          "term": "lead plotss",
+          "polarity": "negative",
+          "position": {
+            "start": 401,
+            "end": 413
+          },
+          "content": "It's not just that the lead actress seems totally miscast-the entire movie is filled with forced"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 447,
+            "end": 452
+          },
+          "content": "It's not just that the lead actress seems totally miscast-the entire movie is filled with forced"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 488,
+            "end": 495
+          },
+          "content": "unrealistic moments that completely pull you out of the story"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 532,
+            "end": 537
+          },
+          "content": "unrealistic moments that completely pull you out of the story"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 626,
+            "end": 633
+          },
+          "content": "they shove in so many unnecessary changes and heavy-handed messaging that it's just exhausting to sit through"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 651,
+            "end": 660
+          },
+          "content": "they shove in so many unnecessary changes and heavy-handed messaging that it's just exhausting to sit through"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 707,
+            "end": 714
+          },
+          "content": "The balance between updating the story and keeping the heart of the original is completely off"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 736,
+            "end": 741
+          },
+          "content": "The balance between updating the story and keeping the heart of the original is completely off"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 771,
+            "end": 779
+          },
+          "content": "The balance between updating the story and keeping the heart of the original is completely off"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 849,
+            "end": 854
+          },
+          "content": "making it feel more like a lecture than an actual movie"
+        },
+        {
+          "term": "lack of plotherence",
+          "polarity": "negative",
+          "position": {
+            "start": 888,
+            "end": 905
+          },
+          "content": "and the lack of coherence makes it hard to care about anything happening on screen"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 975,
+            "end": 983
+          },
+          "content": "The forced attempts to be modern feel incredibly awkward"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1227,
+            "end": 1237
+          },
+          "content": "this Snow White isn't just a disappointment-it's a complete misfire"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "I'm a longtime Disney fan, even live next to Walt Disney World. But Snow White is just awful. The acting is terrible and the scene and CGI seems really cheaply done. I never thought would root for the apple, but Snow White is just so bad, it would have been better to have put her out of her misery.The evil queen is much more attractive and doesn't make sense that she would even be remotely envious of the actress who plays Snow White. My son was bored and said they could have used any of the Snow White characters from the theme parks to use instead of this actress. Why does Disney keep ruining every classic they remake?",
+      "aspects": [
+        {
+          "term": "Disney sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 15,
+            "end": 25
+          },
+          "content": "I'm a longtime Disney fan"
+        },
+        {
+          "term": "Walt Disney sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 45,
+            "end": 62
+          },
+          "content": "even live next to Walt Disney World"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 68,
+            "end": 78
+          },
+          "content": "But Snow White is just awful"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 98,
+            "end": 104
+          },
+          "content": "The acting is terrible and the scene and CGI seems really cheaply done"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 125,
+            "end": 130
+          },
+          "content": "The acting is terrible and the scene and CGI seems really cheaply done"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 135,
+            "end": 138
+          },
+          "content": "The acting is terrible and the scene and CGI seems really cheaply done"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 201,
+            "end": 206
+          },
+          "content": "I never thought would root for the apple"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 212,
+            "end": 222
+          },
+          "content": "but Snow White is just so bad"
+        },
+        {
+          "term": "evil ",
+          "polarity": "positive",
+          "position": {
+            "start": 303,
+            "end": 313
+          },
+          "content": "The evil queen is much more attractive and doesn't make sense that she would even be remotely envious of the actress who plays Snow White"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 408,
+            "end": 415
+          },
+          "content": "The evil queen is much more attractive and doesn't make sense that she would even be remotely envious of the actress who plays Snow White"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 426,
+            "end": 436
+          },
+          "content": "The evil queen is much more attractive and doesn't make sense that she would even be remotely envious of the actress who plays Snow White"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 441,
+            "end": 444
+          },
+          "content": "My son was bored and said they could have used any of the Snow White characters from the theme parks to use instead of this actress"
+        },
+        {
+          "term": "Snow White sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 496,
+            "end": 517
+          },
+          "content": "My son was bored and said they could have used any of the Snow White characters from the theme parks to use instead of this actress"
+        },
+        {
+          "term": "theme sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 527,
+            "end": 538
+          },
+          "content": "My son was bored and said they could have used any of the Snow White characters from the theme parks to use instead of this actress"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 562,
+            "end": 569
+          },
+          "content": "My son was bored and said they could have used any of the Snow White characters from the theme parks to use instead of this actress"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 15,
+            "end": 21
+          },
+          "content": "I'm a longtime Disney fan"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 606,
+            "end": 613
+          },
+          "content": "Why does Disney keep ruining every classic they remake"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "I had high hopes for Snow White, but unfortunately, it was a major disappointment. The original Disney film was full of heart, charm, and magic-none of which made it into this dull and uninspired remake.The acting was lackluster, with performances that felt forced and devoid of emotion. The lead actress failed to capture the warmth and innocence that made the original Snow White so beloved. Instead of feeling enchanted by the story, I found myself completely disconnected from the characters.Beyond the acting, the film itself lacked the wonder and whimsy that made the classic so special. The visuals were uninspired, and the attempts to modernize the story only stripped it of its charm. Rather than bringing fresh life to a beloved tale, this remake felt like a soulless cash grab.If you're hoping for a nostalgic trip back to the magic of Snow White, this movie will only leave you disappointed. Save your time and rewatch the original instead.",
+      "aspects": [
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 21,
+            "end": 31
+          },
+          "content": "I had high hopes for Snow White"
+        },
+        {
+          "term": "plotment",
+          "polarity": "negative",
+          "position": {
+            "start": 67,
+            "end": 81
+          },
+          "content": "it was a major disappointment"
+        },
+        {
+          "term": "original Disney ",
+          "polarity": "positive",
+          "position": {
+            "start": 87,
+            "end": 107
+          },
+          "content": "The original Disney film was full of heart"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 120,
+            "end": 125
+          },
+          "content": "The original Disney film was full of heart"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 127,
+            "end": 132
+          },
+          "content": "charm"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 138,
+            "end": 143
+          },
+          "content": "and magic-none of which made it into this dull and uninspired remake"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 196,
+            "end": 202
+          },
+          "content": "and magic-none of which made it into this dull and uninspired remake"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 207,
+            "end": 213
+          },
+          "content": "The acting was lackluster"
+        },
+        {
+          "term": "plotes",
+          "polarity": "negative",
+          "position": {
+            "start": 235,
+            "end": 247
+          },
+          "content": "with performances that felt forced and devoid of emotion"
+        },
+        {
+          "term": "lead plotss",
+          "polarity": "negative",
+          "position": {
+            "start": 292,
+            "end": 304
+          },
+          "content": "The lead actress failed to capture the warmth and innocence that made the original Snow White so beloved"
+        },
+        {
+          "term": "original Snow ",
+          "polarity": "positive",
+          "position": {
+            "start": 362,
+            "end": 381
+          },
+          "content": "The lead actress failed to capture the warmth and innocence that made the original Snow White so beloved"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 430,
+            "end": 435
+          },
+          "content": "Instead of feeling enchanted by the story"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 485,
+            "end": 495
+          },
+          "content": "I found myself completely disconnected from the characters"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 103,
+            "end": 107
+          },
+          "content": "The original Disney film was full of heart"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 542,
+            "end": 548
+          },
+          "content": "the film itself lacked the wonder and whimsy that made the classic so special"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 553,
+            "end": 559
+          },
+          "content": "the film itself lacked the wonder and whimsy that made the classic so special"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 574,
+            "end": 581
+          },
+          "content": "the film itself lacked the wonder and whimsy that made the classic so special"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 598,
+            "end": 605
+          },
+          "content": "The visuals were uninspired"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 631,
+            "end": 639
+          },
+          "content": "and the attempts to modernize the story only stripped it of its charm"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 657,
+            "end": 662
+          },
+          "content": "and the attempts to modernize the story only stripped it of its charm"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 687,
+            "end": 692
+          },
+          "content": "and the attempts to modernize the story only stripped it of its charm"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 750,
+            "end": 756
+          },
+          "content": "this remake felt like a soulless cash grab"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 739,
+            "end": 743
+          },
+          "content": "Rather than bringing fresh life to a beloved tale"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 838,
+            "end": 843
+          },
+          "content": "If you're hoping for a nostalgic trip back to the magic of Snow White"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 371,
+            "end": 381
+          },
+          "content": "The lead actress failed to capture the warmth and innocence that made the original Snow White so beloved"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 864,
+            "end": 869
+          },
+          "content": "this movie will only leave you disappointed"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 87,
+            "end": 95
+          },
+          "content": "The original Disney film was full of heart"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Disney's 2025 live-action Snow White is an absolute trainwreck-easily one of the worst films I've ever seen. It manages to butcher a beloved classic with uninspired performances, baffling creative choices, and some of the worst casting decisions in recent memory.Let's start with the biggest disaster of them all: Gal Gadot. Somehow, she delivers an even worse performance than in Wonder Woman 1984-which I didn't think was possible. As the Evil Queen, she's neither menacing nor captivating; she's just painfully bad. Her line delivery is wooden, her facial expressions are awkward, and her attempt at villainous charm is laughable. At times, it feels like she's struggling just to remember her lines, and her singing? It's borderline offensive. She completely lacks the gravitas needed for the role, making every scene she's in a chore to sit through. Disney needs to do everyone a favor and never cast her in a major role again.Rachel Zegler, as Snow White, is equally lifeless. She doesn't embody the warmth or charm of the original character, instead coming off as entitled and irritating. The chemistry between her and the Prince (or whatever they tried to turn the love interest into) is non-existent. The film's attempt to modernize Snow White by removing core elements of her story makes her character feel directionless, further dragging the already weak script down.Visually, the movie is an eyesore. The CGI dwarfs look atrocious, the sets lack any kind of magical charm, and the whole film has this weird, cheap, over-processed aesthetic that makes it look more like a straight-to-streaming knockoff than a $200+ million Disney blockbuster.And let's not forget the music. The new songs are completely forgettable, adding nothing of value to the film. Meanwhile, any attempt at nostalgia with the classic songs is ruined by poor arrangements and even worse performances.If Disney was hoping this would breathe new life into their live-action remakes, they've failed miserably. Snow White (2025) is an insult to the original and a complete waste of time. Do yourself a favor and avoid it at all costs.",
+      "aspects": [
+        {
+          "term": "Disney's plot025 live-action Snow White",
+          "polarity": "negative",
+          "position": {
+            "start": 0,
+            "end": 36
+          },
+          "content": "Disney's 2025 live-action Snow White is an absolute trainwreck-easily one of the worst films I've ever seen"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 87,
+            "end": 92
+          },
+          "content": "Disney's 2025 live-action Snow White is an absolute trainwreck-easily one of the worst films I've ever seen"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 141,
+            "end": 148
+          },
+          "content": "It manages to butcher a beloved classic with uninspired performances"
+        },
+        {
+          "term": "plotes",
+          "polarity": "negative",
+          "position": {
+            "start": 165,
+            "end": 177
+          },
+          "content": "It manages to butcher a beloved classic with uninspired performances"
+        },
+        {
+          "term": "creative plothoices",
+          "polarity": "negative",
+          "position": {
+            "start": 188,
+            "end": 204
+          },
+          "content": "baffling creative choices"
+        },
+        {
+          "term": "casting plotcisions",
+          "polarity": "negative",
+          "position": {
+            "start": 228,
+            "end": 245
+          },
+          "content": "and some of the worst casting decisions in recent memory"
+        },
+        {
+          "term": "Gal plot",
+          "polarity": "negative",
+          "position": {
+            "start": 314,
+            "end": 323
+          },
+          "content": "Let's start with the biggest disaster of them all: Gal Gadot"
+        },
+        {
+          "term": "plote",
+          "polarity": "negative",
+          "position": {
+            "start": 165,
+            "end": 176
+          },
+          "content": "It manages to butcher a beloved classic with uninspired performances"
+        },
+        {
+          "term": "Wonder plotan 1984",
+          "polarity": "negative",
+          "position": {
+            "start": 381,
+            "end": 398
+          },
+          "content": "she delivers an even worse performance than in Wonder Woman 1984-which I didn't think was possible"
+        },
+        {
+          "term": "Evil plot",
+          "polarity": "negative",
+          "position": {
+            "start": 441,
+            "end": 451
+          },
+          "content": "As the Evil Queen"
+        },
+        {
+          "term": "line plotery",
+          "polarity": "negative",
+          "position": {
+            "start": 523,
+            "end": 536
+          },
+          "content": "Her line delivery is wooden"
+        },
+        {
+          "term": "facial plotressions",
+          "polarity": "negative",
+          "position": {
+            "start": 552,
+            "end": 570
+          },
+          "content": "her facial expressions are awkward"
+        },
+        {
+          "term": "plot charm",
+          "polarity": "negative",
+          "position": {
+            "start": 603,
+            "end": 619
+          },
+          "content": "and her attempt at villainous charm is laughable"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 711,
+            "end": 718
+          },
+          "content": "and her singing"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 772,
+            "end": 780
+          },
+          "content": "She completely lacks the gravitas needed for the role"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 796,
+            "end": 800
+          },
+          "content": "She completely lacks the gravitas needed for the role"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 815,
+            "end": 820
+          },
+          "content": "making every scene she's in a chore to sit through"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 0,
+            "end": 6
+          },
+          "content": "Disney's 2025 live-action Snow White is an absolute trainwreck-easily one of the worst films I've ever seen"
+        },
+        {
+          "term": "major sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 914,
+            "end": 924
+          },
+          "content": "Disney needs to do everyone a favor and never cast her in a major role again"
+        },
+        {
+          "term": "Rachel plotler",
+          "polarity": "negative",
+          "position": {
+            "start": 931,
+            "end": 944
+          },
+          "content": "Rachel Zegler"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 26,
+            "end": 36
+          },
+          "content": "Disney's 2025 live-action Snow White is an absolute trainwreck-easily one of the worst films I've ever seen"
+        },
+        {
+          "term": "original sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1028,
+            "end": 1046
+          },
+          "content": "She doesn't embody the warmth or charm of the original character"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1099,
+            "end": 1108
+          },
+          "content": "The chemistry between her and the Prince (or whatever they tried to turn the love interest into) is non-existent"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1129,
+            "end": 1135
+          },
+          "content": "The chemistry between her and the Prince (or whatever they tried to turn the love interest into) is non-existent"
+        },
+        {
+          "term": "love sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1172,
+            "end": 1185
+          },
+          "content": "The chemistry between her and the Prince (or whatever they tried to turn the love interest into) is non-existent"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 87,
+            "end": 91
+          },
+          "content": "Disney's 2025 live-action Snow White is an absolute trainwreck-easily one of the worst films I've ever seen"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 949,
+            "end": 959
+          },
+          "content": "as Snow White"
+        },
+        {
+          "term": "core sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1264,
+            "end": 1277
+          },
+          "content": "The film's attempt to modernize Snow White by removing core elements of her story makes her character feel directionless"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1285,
+            "end": 1290
+          },
+          "content": "The film's attempt to modernize Snow White by removing core elements of her story makes her character feel directionless"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1037,
+            "end": 1046
+          },
+          "content": "She doesn't embody the warmth or charm of the original character"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1365,
+            "end": 1371
+          },
+          "content": "further dragging the already weak script down"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1391,
+            "end": 1396
+          },
+          "content": "the movie is an eyesore"
+        },
+        {
+          "term": "CGI plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1416,
+            "end": 1426
+          },
+          "content": "The CGI dwarfs look atrocious"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1447,
+            "end": 1451
+          },
+          "content": "the sets lack any kind of magical charm"
+        },
+        {
+          "term": "magical plotarm",
+          "polarity": "negative",
+          "position": {
+            "start": 1469,
+            "end": 1482
+          },
+          "content": "the sets lack any kind of magical charm"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1213,
+            "end": 1217
+          },
+          "content": "The film's attempt to modernize Snow White by removing core elements of her story makes her character feel directionless"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1541,
+            "end": 1550
+          },
+          "content": "over-processed aesthetic that makes it look more like a straight-to-streaming knockoff than a $200+ million Disney blockbuster"
+        },
+        {
+          "term": "Disney sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1634,
+            "end": 1652
+          },
+          "content": "over-processed aesthetic that makes it look more like a straight-to-streaming knockoff than a $200+ million Disney blockbuster"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1678,
+            "end": 1683
+          },
+          "content": "And let's not forget the music"
+        },
+        {
+          "term": "new plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1689,
+            "end": 1698
+          },
+          "content": "The new songs are completely forgettable"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1498,
+            "end": 1502
+          },
+          "content": "and the whole film has this weird"
+        },
+        {
+          "term": "classic plotngs",
+          "polarity": "negative",
+          "position": {
+            "start": 1809,
+            "end": 1822
+          },
+          "content": "any attempt at nostalgia with the classic songs is ruined by poor arrangements and even worse performances"
+        },
+        {
+          "term": "plotts",
+          "polarity": "negative",
+          "position": {
+            "start": 1841,
+            "end": 1853
+          },
+          "content": "any attempt at nostalgia with the classic songs is ruined by poor arrangements and even worse performances"
+        },
+        {
+          "term": "plotes",
+          "polarity": "negative",
+          "position": {
+            "start": 1869,
+            "end": 1881
+          },
+          "content": "any attempt at nostalgia with the classic songs is ruined by poor arrangements and even worse performances"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 854,
+            "end": 860
+          },
+          "content": "Disney needs to do everyone a favor and never cast her in a major role again"
+        },
+        {
+          "term": "live-plotn remakes",
+          "polarity": "negative",
+          "position": {
+            "start": 1942,
+            "end": 1961
+          },
+          "content": "If Disney was hoping this would breathe new life into their live-action remakes"
+        },
+        {
+          "term": "Snow plot (2025)",
+          "polarity": "negative",
+          "position": {
+            "start": 1989,
+            "end": 2006
+          },
+          "content": "Snow White (2025) is an insult to the original and a complete waste of time"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1028,
+            "end": 1036
+          },
+          "content": "She doesn't embody the warmth or charm of the original character"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Didn't like the mixture of actors and animation and the storyline wasn't good and not impressed with Rachel Zegler performance, didn't think she was trying. I thought Hal Gadot was awesome and did a fantastic job, she really impressed me.Didn't like the dwarves and how they looked. I know that's they are just characters but they were to cartoony and their personalities were not like the biome i read as a kid. I wish they would have been more realistic and they used real actors not the cgi stuff they use all the time, very disappointing if you ask me. I wish they would have used Tim Burton.......",
+      "aspects": [
+        {
+          "term": "mixture plot actors and animation",
+          "polarity": "negative",
+          "position": {
+            "start": 16,
+            "end": 47
+          },
+          "content": "Didn't like the mixture of actors and animation and the storyline wasn't good and not impressed with Rachel Zegler performance"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 56,
+            "end": 65
+          },
+          "content": "Didn't like the mixture of actors and animation and the storyline wasn't good and not impressed with Rachel Zegler performance"
+        },
+        {
+          "term": "Rachel plotler performance",
+          "polarity": "negative",
+          "position": {
+            "start": 101,
+            "end": 126
+          },
+          "content": "Didn't like the mixture of actors and animation and the storyline wasn't good and not impressed with Rachel Zegler performance"
+        },
+        {
+          "term": "Hal ",
+          "polarity": "positive",
+          "position": {
+            "start": 167,
+            "end": 176
+          },
+          "content": "I thought Hal Gadot was awesome and did a fantastic job"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 209,
+            "end": 212
+          },
+          "content": "I thought Hal Gadot was awesome and did a fantastic job"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 254,
+            "end": 261
+          },
+          "content": "Didn't like the dwarves and how they looked"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 311,
+            "end": 321
+          },
+          "content": "I know that's they are just characters but they were to cartoony and their personalities were not like the biome i read as a kid"
+        },
+        {
+          "term": "ploties",
+          "polarity": "negative",
+          "position": {
+            "start": 358,
+            "end": 371
+          },
+          "content": "I know that's they are just characters but they were to cartoony and their personalities were not like the biome i read as a kid"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 390,
+            "end": 395
+          },
+          "content": "I know that's they are just characters but they were to cartoony and their personalities were not like the biome i read as a kid"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 27,
+            "end": 33
+          },
+          "content": "Didn't like the mixture of actors and animation and the storyline wasn't good and not impressed with Rachel Zegler performance"
+        },
+        {
+          "term": "cgi plot",
+          "polarity": "negative",
+          "position": {
+            "start": 490,
+            "end": 499
+          },
+          "content": "I wish they would have been more realistic and they used real actors not the cgi stuff they use all the time"
+        },
+        {
+          "term": "Tim sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 585,
+            "end": 595
+          },
+          "content": "I wish they would have used Tim Burton"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "This definitely was a great experience because, i got a refund WITHOUT QUESTIONS. There was a group of 10 children with some parents and ALL also asked for their money back. IT is very sad that Disney decided to damage such a beautiful story line. \"Quoting Zegler: WEIRD.... WEIRD\" exactly. She was weird, and I expected Galdot to make a big difference, but i was disappointed. The face snow white made in front of the Stairs at 18 minutes.... was the culmination of my lunch. I am happy that the Theater staff was understanding with the refund, they gave us a pass to enjoy a different movie. It was disappointing but the refund and FREE ticket to watch something else made up for it. The story line was damaged with this new \"TREND\" and it failed to deliver the expected outcome. I advise that if you wish to stay for more than 30 minutes, GO with the understanding that it is NOT going to be good, the story wont make sense, the changes done by the cast are horrible and the CGI......well...i will let you guys decide for yourselves.",
+      "aspects": [
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 28,
+            "end": 38
+          },
+          "content": "This definitely was a great experience because"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 56,
+            "end": 62
+          },
+          "content": "i got a refund WITHOUT QUESTIONS"
+        },
+        {
+          "term": "group of 10 sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 94,
+            "end": 114
+          },
+          "content": "There was a group of 10 children with some parents and ALL also asked for their money back"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 125,
+            "end": 132
+          },
+          "content": "There was a group of 10 children with some parents and ALL also asked for their money back"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 162,
+            "end": 167
+          },
+          "content": "There was a group of 10 children with some parents and ALL also asked for their money back"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 194,
+            "end": 200
+          },
+          "content": "IT is very sad that Disney decided to damage such a beautiful story line"
+        },
+        {
+          "term": "story plot",
+          "polarity": "negative",
+          "position": {
+            "start": 236,
+            "end": 246
+          },
+          "content": "IT is very sad that Disney decided to damage such a beautiful story line"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 257,
+            "end": 263
+          },
+          "content": "\"Quoting Zegler: WEIRD"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 321,
+            "end": 327
+          },
+          "content": "and I expected Galdot to make a big difference"
+        },
+        {
+          "term": "snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 387,
+            "end": 397
+          },
+          "content": "The face snow white made in front of the Stairs at 18 minutes"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 419,
+            "end": 425
+          },
+          "content": "The face snow white made in front of the Stairs at 18 minutes"
+        },
+        {
+          "term": "Theater ",
+          "polarity": "positive",
+          "position": {
+            "start": 497,
+            "end": 510
+          },
+          "content": "I am happy that the Theater staff was understanding with the refund"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 538,
+            "end": 544
+          },
+          "content": "I am happy that the Theater staff was understanding with the refund"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 587,
+            "end": 592
+          },
+          "content": "they gave us a pass to enjoy a different movie"
+        },
+        {
+          "term": "FREE ",
+          "polarity": "positive",
+          "position": {
+            "start": 634,
+            "end": 645
+          },
+          "content": "It was disappointing but the refund and FREE ticket to watch something else made up for it"
+        },
+        {
+          "term": "story plot",
+          "polarity": "negative",
+          "position": {
+            "start": 690,
+            "end": 700
+          },
+          "content": "The story line was damaged with this new \"TREND\" and it failed to deliver the expected outcome"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 728,
+            "end": 733
+          },
+          "content": "The story line was damaged with this new \"TREND\" and it failed to deliver the expected outcome"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 773,
+            "end": 780
+          },
+          "content": "The story line was damaged with this new \"TREND\" and it failed to deliver the expected outcome"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 236,
+            "end": 241
+          },
+          "content": "IT is very sad that Disney decided to damage such a beautiful story line"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 932,
+            "end": 939
+          },
+          "content": "the changes done by the cast are horrible and the CGI"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 952,
+            "end": 956
+          },
+          "content": "the changes done by the cast are horrible and the CGI"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 978,
+            "end": 981
+          },
+          "content": "the changes done by the cast are horrible and the CGI"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Sorry to see so many negative reviews. I liked the movie. I loved the music the updated story and most of all the Queen's crown, jewelry and her robes. The Queen was a fun character. I am happy to see Snow White fight and not expect someone to rescue her. The dwarves were funny and dopey was my favorite. He looked like the Mad character. Like the movie for what it is and update on an old classic tale. I understand if it is not for everyone. I have been enjoying the sound track very much. I hope a collection of the jewelry come out. I would buy her crown and as much rings I could afford. Have a great day.",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 30,
+            "end": 37
+          },
+          "content": "Sorry to see so many negative reviews"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 51,
+            "end": 56
+          },
+          "content": "I liked the movie"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 70,
+            "end": 75
+          },
+          "content": "I loved the music the updated story and most of all the Queen's crown"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 88,
+            "end": 93
+          },
+          "content": "I loved the music the updated story and most of all the Queen's crown"
+        },
+        {
+          "term": "Queen's ",
+          "polarity": "positive",
+          "position": {
+            "start": 114,
+            "end": 127
+          },
+          "content": "I loved the music the updated story and most of all the Queen's crown"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 129,
+            "end": 136
+          },
+          "content": "jewelry and her robes"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 145,
+            "end": 150
+          },
+          "content": "jewelry and her robes"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 114,
+            "end": 119
+          },
+          "content": "I loved the music the updated story and most of all the Queen's crown"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 172,
+            "end": 181
+          },
+          "content": "The Queen was a fun character"
+        },
+        {
+          "term": "Snow ",
+          "polarity": "positive",
+          "position": {
+            "start": 201,
+            "end": 211
+          },
+          "content": "I am happy to see Snow White fight and not expect someone to rescue her"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 260,
+            "end": 267
+          },
+          "content": "The dwarves were funny and dopey was my favorite"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 283,
+            "end": 288
+          },
+          "content": "The dwarves were funny and dopey was my favorite"
+        },
+        {
+          "term": "Mad sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 325,
+            "end": 338
+          },
+          "content": "He looked like the Mad character"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 349,
+            "end": 354
+          },
+          "content": "Like the movie for what it is and update on an old classic tale"
+        },
+        {
+          "term": "classic sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 391,
+            "end": 403
+          },
+          "content": "Like the movie for what it is and update on an old classic tale"
+        },
+        {
+          "term": "sound ",
+          "polarity": "positive",
+          "position": {
+            "start": 470,
+            "end": 481
+          },
+          "content": "I have been enjoying the sound track very much"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 520,
+            "end": 527
+          },
+          "content": "I hope a collection of the jewelry come out"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 122,
+            "end": 127
+          },
+          "content": "I loved the music the updated story and most of all the Queen's crown"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 572,
+            "end": 577
+          },
+          "content": "I would buy her crown and as much rings I could afford"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "When the Queen looks at her magic mirror it clearly is faulty and probably delivered from a cheap knock-off from the real thing.Gal Gadot is a goddess in every sense a beautiful woman, who should have no issues getting jealous of another woman's looks.Rachel Zegler is just average, not someone I'd crawl over broken glass with my flies open to try and bag a kiss from.Here the fundamental flaws in the films logic are laid bare, Rachel can sing .. but that's about it.The film after its disastrous reshoots which meant it was delayed for over a year, it manages to shoehorn in some horrendous cgi dwarves along with bandits ???. Bandits ????, now forgive me but I do not recall these being in the original. It's pretty evident that these were the original magical beings or poor substitutes for the dwarves and the film couldn't structurally exist without them due to the footage that had already been filmed.The film follows certain beats from the original initially before deciding it wants to be something else, and the mediocre songs do not help either.You also know there's a massive issue with the film when they've literally dropped the 'Seven Dwarfs' from the title and simply called it 'Snow White'. The holy grail of the Disney legacy is subsequently crucified in the name of a modern re-invention of the classic and believe me I am furious that Disney didn't have the respect for the original and hired an actress in the lead who has nothing but contempt for it. Rachel has made that clear from her big mouth in numerous press junkets where they let her open it.This film is exhaustedly terrible and has no right to exist.",
+      "aspects": [
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 9,
+            "end": 14
+          },
+          "content": "When the Queen looks at her magic mirror it clearly is faulty and probably delivered from a cheap knock-off from the real thing"
+        },
+        {
+          "term": "magic plotor",
+          "polarity": "negative",
+          "position": {
+            "start": 28,
+            "end": 40
+          },
+          "content": "When the Queen looks at her magic mirror it clearly is faulty and probably delivered from a cheap knock-off from the real thing"
+        },
+        {
+          "term": "Gal ",
+          "polarity": "positive",
+          "position": {
+            "start": 128,
+            "end": 137
+          },
+          "content": "Gal Gadot is a goddess in every sense a beautiful woman"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 178,
+            "end": 183
+          },
+          "content": "Gal Gadot is a goddess in every sense a beautiful woman"
+        },
+        {
+          "term": "Rachel plotler",
+          "polarity": "negative",
+          "position": {
+            "start": 252,
+            "end": 265
+          },
+          "content": "Rachel Zegler is just average"
+        },
+        {
+          "term": "woman's sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 238,
+            "end": 251
+          },
+          "content": "who should have no issues getting jealous of another woman's looks"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 390,
+            "end": 395
+          },
+          "content": "Here the fundamental flaws in the films logic are laid bare"
+        },
+        {
+          "term": "films plotc",
+          "polarity": "negative",
+          "position": {
+            "start": 403,
+            "end": 414
+          },
+          "content": "Here the fundamental flaws in the films logic are laid bare"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 252,
+            "end": 258
+          },
+          "content": "Rachel Zegler is just average"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 403,
+            "end": 407
+          },
+          "content": "Here the fundamental flaws in the films logic are laid bare"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 499,
+            "end": 507
+          },
+          "content": "The film after its disastrous reshoots which meant it was delayed for over a year"
+        },
+        {
+          "term": "cgi plots",
+          "polarity": "negative",
+          "position": {
+            "start": 594,
+            "end": 605
+          },
+          "content": "it manages to shoehorn in some horrendous cgi dwarves along with bandits"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 617,
+            "end": 624
+          },
+          "content": "it manages to shoehorn in some horrendous cgi dwarves along with bandits"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 698,
+            "end": 706
+          },
+          "content": "now forgive me but I do not recall these being in the original"
+        },
+        {
+          "term": "magical sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 757,
+            "end": 771
+          },
+          "content": "It's pretty evident that these were the original magical beings or poor substitutes for the dwarves and the film couldn't structurally exist without them due to the footage that had already been filmed"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 598,
+            "end": 605
+          },
+          "content": "it manages to shoehorn in some horrendous cgi dwarves along with bandits"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 473,
+            "end": 477
+          },
+          "content": "The film after its disastrous reshoots which meant it was delayed for over a year"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 873,
+            "end": 880
+          },
+          "content": "It's pretty evident that these were the original magical beings or poor substitutes for the dwarves and the film couldn't structurally exist without them due to the footage that had already been filmed"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 816,
+            "end": 820
+          },
+          "content": "It's pretty evident that these were the original magical beings or poor substitutes for the dwarves and the film couldn't structurally exist without them due to the footage that had already been filmed"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 748,
+            "end": 756
+          },
+          "content": "It's pretty evident that these were the original magical beings or poor substitutes for the dwarves and the film couldn't structurally exist without them due to the footage that had already been filmed"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1033,
+            "end": 1038
+          },
+          "content": "and the mediocre songs do not help either"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 903,
+            "end": 907
+          },
+          "content": "It's pretty evident that these were the original magical beings or poor substitutes for the dwarves and the film couldn't structurally exist without them due to the footage that had already been filmed"
+        },
+        {
+          "term": "Seven sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1146,
+            "end": 1158
+          },
+          "content": "You also know there's a massive issue with the film when they've literally dropped the 'Seven Dwarfs' from the title and simply called it 'Snow White'"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1169,
+            "end": 1174
+          },
+          "content": "You also know there's a massive issue with the film when they've literally dropped the 'Seven Dwarfs' from the title and simply called it 'Snow White'"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1197,
+            "end": 1207
+          },
+          "content": "You also know there's a massive issue with the film when they've literally dropped the 'Seven Dwarfs' from the title and simply called it 'Snow White'"
+        },
+        {
+          "term": "Disney sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1232,
+            "end": 1245
+          },
+          "content": "The holy grail of the Disney legacy is subsequently crucified in the name of a modern re-invention of the classic and believe me I am furious that Disney didn't have the respect for the original and hired an actress in the lead who has nothing but contempt for it"
+        },
+        {
+          "term": "re-ploton",
+          "polarity": "negative",
+          "position": {
+            "start": 1296,
+            "end": 1308
+          },
+          "content": "The holy grail of the Disney legacy is subsequently crucified in the name of a modern re-invention of the classic and believe me I am furious that Disney didn't have the respect for the original and hired an actress in the lead who has nothing but contempt for it"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1316,
+            "end": 1323
+          },
+          "content": "The holy grail of the Disney legacy is subsequently crucified in the name of a modern re-invention of the classic and believe me I am furious that Disney didn't have the respect for the original and hired an actress in the lead who has nothing but contempt for it"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1232,
+            "end": 1238
+          },
+          "content": "The holy grail of the Disney legacy is subsequently crucified in the name of a modern re-invention of the classic and believe me I am furious that Disney didn't have the respect for the original and hired an actress in the lead who has nothing but contempt for it"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 950,
+            "end": 958
+          },
+          "content": "The film follows certain beats from the original initially before deciding it wants to be something else"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1418,
+            "end": 1425
+          },
+          "content": "The holy grail of the Disney legacy is subsequently crucified in the name of a modern re-invention of the classic and believe me I am furious that Disney didn't have the respect for the original and hired an actress in the lead who has nothing but contempt for it"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 430,
+            "end": 436
+          },
+          "content": "Rachel can sing"
+        },
+        {
+          "term": "press sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1533,
+            "end": 1546
+          },
+          "content": "Rachel has made that clear from her big mouth in numerous press junkets where they let her open it"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 914,
+            "end": 918
+          },
+          "content": "The film follows certain beats from the original initially before deciding it wants to be something else"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "I can't even begin to express how infuriated I am after watching the latest adaptation of Snow White. This movie is an absolute travesty that fails on every level!Instead of celebrating the traditional elements that made Snow White beloved for generations, the filmmakers decided to completely alter the character dynamics in an attempt to be \"progressive.\" Newsflash: changing the essence of characters just for the sake of social commentary does NOT equal good storytelling!Snow White herself feels more like a caricature than a character. She's portrayed as a rebellious teenager, full of angst, and completely dismisses the charm that made her story enchanting. The whimsical love story is reduced to a tired trope of \"I don't need a prince,\" diminishing the emotional core of the original tale. It's like they set out to remove every ounce of magic in favor of some misguided notion of empowerment.And let's talk about the dwarfs. They've been re-imagined in a way that's not only ridiculous but also insulting. Instead of being endearing side characters, they come off as a jumbled mess of stereotypes with zero development. Their jokes fall flat, and it's clear that the writers were more focused on pseudo humor than crafting an engaging narrative.The plot twists are not only predictable but also devoid of any real stakes. By the time we got to the climax, I found myself rolling my eyes rather than feeling any tension or excitement.And the ending? Don't even get me started! It's a slap in the face to anyone who cherishes the original story.If you're looking for the magic and wonder that Snow White used to bring, you won't find it here. This adaptation has completely misunderstood the heart of the story.Save your time and money-this is not the Snow White you've been hoping for!",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 76,
+            "end": 86
+          },
+          "content": "I can't even begin to express how infuriated I am after watching the latest adaptation of Snow White"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 90,
+            "end": 100
+          },
+          "content": "I can't even begin to express how infuriated I am after watching the latest adaptation of Snow White"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 107,
+            "end": 112
+          },
+          "content": "This movie is an absolute travesty that fails on every level"
+        },
+        {
+          "term": "traditional sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 190,
+            "end": 210
+          },
+          "content": "Instead of celebrating the traditional elements that made Snow White beloved for generations"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 221,
+            "end": 231
+          },
+          "content": "Instead of celebrating the traditional elements that made Snow White beloved for generations"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 261,
+            "end": 271
+          },
+          "content": "the filmmakers decided to completely alter the character dynamics in an attempt to be \"progressive"
+        },
+        {
+          "term": "plotdynamics",
+          "polarity": "negative",
+          "position": {
+            "start": 304,
+            "end": 322
+          },
+          "content": "the filmmakers decided to completely alter the character dynamics in an attempt to be \"progressive"
+        },
+        {
+          "term": "social plotmentary",
+          "polarity": "negative",
+          "position": {
+            "start": 425,
+            "end": 442
+          },
+          "content": "\" Newsflash: changing the essence of characters just for the sake of social commentary does NOT equal good storytelling"
+        },
+        {
+          "term": "plotng",
+          "polarity": "negative",
+          "position": {
+            "start": 463,
+            "end": 475
+          },
+          "content": "\" Newsflash: changing the essence of characters just for the sake of social commentary does NOT equal good storytelling"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 476,
+            "end": 486
+          },
+          "content": "Snow White herself feels more like a caricature than a character"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 304,
+            "end": 313
+          },
+          "content": "the filmmakers decided to completely alter the character dynamics in an attempt to be \"progressive"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 574,
+            "end": 582
+          },
+          "content": "She's portrayed as a rebellious teenager"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 628,
+            "end": 633
+          },
+          "content": "and completely dismisses the charm that made her story enchanting"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 463,
+            "end": 468
+          },
+          "content": "\" Newsflash: changing the essence of characters just for the sake of social commentary does NOT equal good storytelling"
+        },
+        {
+          "term": "love plot",
+          "polarity": "negative",
+          "position": {
+            "start": 680,
+            "end": 690
+          },
+          "content": "The whimsical love story is reduced to a tired trope of \"I don't need a prince"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 713,
+            "end": 718
+          },
+          "content": "The whimsical love story is reduced to a tired trope of \"I don't need a prince"
+        },
+        {
+          "term": "original sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 785,
+            "end": 798
+          },
+          "content": "\" diminishing the emotional core of the original tale"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 848,
+            "end": 853
+          },
+          "content": "It's like they set out to remove every ounce of magic in favor of some misguided notion of empowerment"
+        },
+        {
+          "term": "notion plotempowerment",
+          "polarity": "negative",
+          "position": {
+            "start": 881,
+            "end": 902
+          },
+          "content": "It's like they set out to remove every ounce of magic in favor of some misguided notion of empowerment"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 928,
+            "end": 934
+          },
+          "content": "And let's talk about the dwarfs"
+        },
+        {
+          "term": "side sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1044,
+            "end": 1059
+          },
+          "content": "Instead of being endearing side characters"
+        },
+        {
+          "term": "plots",
+          "polarity": "negative",
+          "position": {
+            "start": 1096,
+            "end": 1107
+          },
+          "content": "they come off as a jumbled mess of stereotypes with zero development"
+        },
+        {
+          "term": "plott",
+          "polarity": "negative",
+          "position": {
+            "start": 1118,
+            "end": 1129
+          },
+          "content": "they come off as a jumbled mess of stereotypes with zero development"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1137,
+            "end": 1142
+          },
+          "content": "Their jokes fall flat"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1178,
+            "end": 1185
+          },
+          "content": "and it's clear that the writers were more focused on pseudo humor than crafting an engaging narrative"
+        },
+        {
+          "term": "pseudo plotor",
+          "polarity": "negative",
+          "position": {
+            "start": 1207,
+            "end": 1219
+          },
+          "content": "and it's clear that the writers were more focused on pseudo humor than crafting an engaging narrative"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1246,
+            "end": 1255
+          },
+          "content": "and it's clear that the writers were more focused on pseudo humor than crafting an engaging narrative"
+        },
+        {
+          "term": "plot plots",
+          "polarity": "negative",
+          "position": {
+            "start": 1260,
+            "end": 1271
+          },
+          "content": "The plot twists are not only predictable but also devoid of any real stakes"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1325,
+            "end": 1331
+          },
+          "content": "The plot twists are not only predictable but also devoid of any real stakes"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1359,
+            "end": 1365
+          },
+          "content": "By the time we got to the climax"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1422,
+            "end": 1429
+          },
+          "content": "I found myself rolling my eyes rather than feeling any tension or excitement"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1433,
+            "end": 1443
+          },
+          "content": "I found myself rolling my eyes rather than feeling any tension or excitement"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1452,
+            "end": 1458
+          },
+          "content": "And the ending"
+        },
+        {
+          "term": "original sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1539,
+            "end": 1553
+          },
+          "content": "It's a slap in the face to anyone who cherishes the original story"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1580,
+            "end": 1585
+          },
+          "content": "If you're looking for the magic and wonder that Snow White used to bring"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1590,
+            "end": 1596
+          },
+          "content": "If you're looking for the magic and wonder that Snow White used to bring"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1602,
+            "end": 1612
+          },
+          "content": "If you're looking for the magic and wonder that Snow White used to bring"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1657,
+            "end": 1667
+          },
+          "content": "This adaptation has completely misunderstood the heart of the story"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 648,
+            "end": 653
+          },
+          "content": "and completely dismisses the charm that made her story enchanting"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1761,
+            "end": 1771
+          },
+          "content": "Save your time and money-this is not the Snow White you've been hoping for"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "This movie failed to capture my attention from start to finish.The acting felt uninspired, and the storyline lacked cohesion, making it difficult to feel any emotional connection. While the dwarfs were entertaining at times, their presence still felt somewhat off.The_animation seemed low-quality, as if the budget wasn't used effectively. That said, the Mirror was an interesting character, and the thief had some redeeming moments.It's disappointing because this had the potential to be great-especially considering Disney's success with Mufasa.Overall, this movie was a disappointment and could have been done a lot better..",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 5,
+            "end": 10
+          },
+          "content": "This movie failed to capture my attention from start to finish"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 67,
+            "end": 73
+          },
+          "content": "The acting felt uninspired"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 99,
+            "end": 108
+          },
+          "content": "and the storyline lacked cohesion"
+        },
+        {
+          "term": "plotconnection",
+          "polarity": "negative",
+          "position": {
+            "start": 158,
+            "end": 178
+          },
+          "content": "making it difficult to feel any emotional connection"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 190,
+            "end": 196
+          },
+          "content": "While the dwarfs were entertaining at times"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 231,
+            "end": 239
+          },
+          "content": "their presence still felt somewhat off"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 268,
+            "end": 277
+          },
+          "content": "The_animation seemed low-quality"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 308,
+            "end": 314
+          },
+          "content": "as if the budget wasn't used effectively"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 355,
+            "end": 361
+          },
+          "content": "the Mirror was an interesting character"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 381,
+            "end": 390
+          },
+          "content": "the Mirror was an interesting character"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 400,
+            "end": 405
+          },
+          "content": "and the thief had some redeeming moments"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 425,
+            "end": 432
+          },
+          "content": "and the thief had some redeeming moments"
+        },
+        {
+          "term": "Disney's ",
+          "polarity": "positive",
+          "position": {
+            "start": 518,
+            "end": 534
+          },
+          "content": "It's disappointing because this had the potential to be great-especially considering Disney's success with Mufasa"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 540,
+            "end": 546
+          },
+          "content": "It's disappointing because this had the potential to be great-especially considering Disney's success with Mufasa"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 561,
+            "end": 566
+          },
+          "content": "this movie was a disappointment and could have been done a lot better"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "I thought Snow White was supposed to be attractive inside and out. Terrible choice to play the lead in this classic. Fair looking but nowhere close to beautiful or even pretty enough to align with the dynamic that a beautiful queen would be jealous of her. A rough mediocre personality comes through in her acting as well. Bad CGI. Absolute fail on Disneys part. Disney just needs to clean house and start over again. It's been one bad movie after another. You'd think with all of the money that Disney is losing in their films and at their theme parks, they would get rid of the toxic employees and start fresh.",
+      "aspects": [
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 10,
+            "end": 20
+          },
+          "content": "I thought Snow White was supposed to be attractive inside and out"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 76,
+            "end": 82
+          },
+          "content": "Terrible choice to play the lead in this classic"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 108,
+            "end": 115
+          },
+          "content": "Terrible choice to play the lead in this classic"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 201,
+            "end": 208
+          },
+          "content": "Fair looking but nowhere close to beautiful or even pretty enough to align with the dynamic that a beautiful queen would be jealous of her"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 226,
+            "end": 231
+          },
+          "content": "Fair looking but nowhere close to beautiful or even pretty enough to align with the dynamic that a beautiful queen would be jealous of her"
+        },
+        {
+          "term": "ploty",
+          "polarity": "negative",
+          "position": {
+            "start": 274,
+            "end": 285
+          },
+          "content": "A rough mediocre personality comes through in her acting as well"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 307,
+            "end": 313
+          },
+          "content": "A rough mediocre personality comes through in her acting as well"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 327,
+            "end": 330
+          },
+          "content": "Bad CGI"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 349,
+            "end": 355
+          },
+          "content": "Absolute fail on Disneys part"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 436,
+            "end": 441
+          },
+          "content": "It's been one bad movie after another"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 522,
+            "end": 527
+          },
+          "content": "You'd think with all of the money that Disney is losing in their films and at their theme parks"
+        },
+        {
+          "term": "theme sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 541,
+            "end": 552
+          },
+          "content": "You'd think with all of the money that Disney is losing in their films and at their theme parks"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 586,
+            "end": 595
+          },
+          "content": "they would get rid of the toxic employees and start fresh"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "This live action remake of Snow White is nothing like the original Snow White movie, they put a bunch of new songs in there that sucked and they even changed most of the lyrics to the original songs. The plot was different in many ways and there is no prince Florian, just a bandit named Jonathan. Both actresses were terrible in this movie and I even like Gal Gadot but it was a very poor casting decision. It felt like the movie unnecessarily dragged on halfway through and the ending was awful. I was so bored and just waiting for it to end. I had low expectations going into the movie and it was worse than that.",
+      "aspects": [
+        {
+          "term": "live plotn remake",
+          "polarity": "negative",
+          "position": {
+            "start": 5,
+            "end": 23
+          },
+          "content": "This live action remake of Snow White is nothing like the original Snow White movie"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 27,
+            "end": 37
+          },
+          "content": "This live action remake of Snow White is nothing like the original Snow White movie"
+        },
+        {
+          "term": "original Snow White sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 58,
+            "end": 83
+          },
+          "content": "This live action remake of Snow White is nothing like the original Snow White movie"
+        },
+        {
+          "term": "new plot",
+          "polarity": "negative",
+          "position": {
+            "start": 105,
+            "end": 114
+          },
+          "content": "they put a bunch of new songs in there that sucked and they even changed most of the lyrics to the original songs"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 170,
+            "end": 176
+          },
+          "content": "they put a bunch of new songs in there that sucked and they even changed most of the lyrics to the original songs"
+        },
+        {
+          "term": "original sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 184,
+            "end": 198
+          },
+          "content": "they put a bunch of new songs in there that sucked and they even changed most of the lyrics to the original songs"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 204,
+            "end": 208
+          },
+          "content": "The plot was different in many ways and there is no prince Florian"
+        },
+        {
+          "term": "prince sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 252,
+            "end": 266
+          },
+          "content": "The plot was different in many ways and there is no prince Florian"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 275,
+            "end": 281
+          },
+          "content": "just a bandit named Jonathan"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 288,
+            "end": 296
+          },
+          "content": "just a bandit named Jonathan"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 303,
+            "end": 312
+          },
+          "content": "Both actresses were terrible in this movie and I even like Gal Gadot but it was a very poor casting decision"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 78,
+            "end": 83
+          },
+          "content": "This live action remake of Snow White is nothing like the original Snow White movie"
+        },
+        {
+          "term": "Gal plot",
+          "polarity": "negative",
+          "position": {
+            "start": 357,
+            "end": 366
+          },
+          "content": "Both actresses were terrible in this movie and I even like Gal Gadot but it was a very poor casting decision"
+        },
+        {
+          "term": "casting plotcision",
+          "polarity": "negative",
+          "position": {
+            "start": 390,
+            "end": 406
+          },
+          "content": "Both actresses were terrible in this movie and I even like Gal Gadot but it was a very poor casting decision"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 335,
+            "end": 340
+          },
+          "content": "Both actresses were terrible in this movie and I even like Gal Gadot but it was a very poor casting decision"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 480,
+            "end": 486
+          },
+          "content": "It felt like the movie unnecessarily dragged on halfway through and the ending was awful"
+        },
+        {
+          "term": "plotns",
+          "polarity": "negative",
+          "position": {
+            "start": 555,
+            "end": 567
+          },
+          "content": "I had low expectations going into the movie and it was worse than that"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 425,
+            "end": 430
+          },
+          "content": "It felt like the movie unnecessarily dragged on halfway through and the ending was awful"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "This was worse than I expected and I expected it would be puss filled moldy garbage. Instead of wasting time and money on this garbage, Disney should have re-released the original. That would have been much cheaper. It would be an incredible marketing idea for Disney to re-release all of their classic movies; a new one every couple of months or so. The cost would be minimal so any sells would be almost entirely profit and they would not piss of the fans. And it might be a boon for the theater industry. Even if Disney doesn't want to re-release their classics, they should stop with effing remakes. The remakes are horrid because the \"entertainment\" industry is filled with incompetent buffoons. Stop with the remakes! Also, the modern audience is a lie. It doesn't exist.",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 76,
+            "end": 83
+          },
+          "content": "This was worse than I expected and I expected it would be puss filled moldy garbage"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 136,
+            "end": 142
+          },
+          "content": "Disney should have re-released the original"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 171,
+            "end": 179
+          },
+          "content": "Disney should have re-released the original"
+        },
+        {
+          "term": "marketing ",
+          "polarity": "positive",
+          "position": {
+            "start": 242,
+            "end": 256
+          },
+          "content": "It would be an incredible marketing idea for Disney to re-release all of their classic movies"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 261,
+            "end": 267
+          },
+          "content": "It would be an incredible marketing idea for Disney to re-release all of their classic movies"
+        },
+        {
+          "term": "classic sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 295,
+            "end": 309
+          },
+          "content": "It would be an incredible marketing idea for Disney to re-release all of their classic movies"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 355,
+            "end": 359
+          },
+          "content": "The cost would be minimal so any sells would be almost entirely profit and they would not piss of the fans"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 415,
+            "end": 421
+          },
+          "content": "The cost would be minimal so any sells would be almost entirely profit and they would not piss of the fans"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 453,
+            "end": 457
+          },
+          "content": "The cost would be minimal so any sells would be almost entirely profit and they would not piss of the fans"
+        },
+        {
+          "term": "theater sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 490,
+            "end": 506
+          },
+          "content": "And it might be a boon for the theater industry"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 516,
+            "end": 522
+          },
+          "content": "Even if Disney doesn't want to re-release their classics"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 556,
+            "end": 564
+          },
+          "content": "Even if Disney doesn't want to re-release their classics"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 595,
+            "end": 602
+          },
+          "content": "they should stop with effing remakes"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 691,
+            "end": 699
+          },
+          "content": "The remakes are horrid because the \"entertainment\" industry is filled with incompetent buffoons"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 608,
+            "end": 615
+          },
+          "content": "The remakes are horrid because the \"entertainment\" industry is filled with incompetent buffoons"
+        },
+        {
+          "term": "modern plotience",
+          "polarity": "negative",
+          "position": {
+            "start": 734,
+            "end": 749
+          },
+          "content": "the modern audience is a lie"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "How does Disney manage to set the bar lower than the ground? You walk in with expectations six feet under and they still manage to limbo under them. Rachel Zegler is grating and looks like Lord Farquad, Gal Gadot can't act to save her life, and the CGI looks unfinished. The plot is there, but they butchered the source material beyond recognition. It is not just bad, it is hollow, lazy, and painfully out of touch. Just when you think they have hit bottom, they grab a shovel and keep digging.Honestly, this type of failure needs to be admired for it's sheer stupidity. There's an entire fanbase screaming at Disney for what they want so they can throw billions of dollars at them, and they're like \"naw, we're good\".",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 9,
+            "end": 15
+          },
+          "content": "How does Disney manage to set the bar lower than the ground"
+        },
+        {
+          "term": "plotns",
+          "polarity": "negative",
+          "position": {
+            "start": 78,
+            "end": 90
+          },
+          "content": "You walk in with expectations six feet under and they still manage to limbo under them"
+        },
+        {
+          "term": "Rachel plotler",
+          "polarity": "negative",
+          "position": {
+            "start": 149,
+            "end": 162
+          },
+          "content": "Rachel Zegler is grating and looks like Lord Farquad"
+        },
+        {
+          "term": "Lord plotad",
+          "polarity": "negative",
+          "position": {
+            "start": 189,
+            "end": 201
+          },
+          "content": "Rachel Zegler is grating and looks like Lord Farquad"
+        },
+        {
+          "term": "Gal plot",
+          "polarity": "negative",
+          "position": {
+            "start": 203,
+            "end": 212
+          },
+          "content": "Gal Gadot can't act to save her life"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 249,
+            "end": 252
+          },
+          "content": "and the CGI looks unfinished"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 275,
+            "end": 279
+          },
+          "content": "The plot is there"
+        },
+        {
+          "term": "source ploterial",
+          "polarity": "negative",
+          "position": {
+            "start": 313,
+            "end": 328
+          },
+          "content": "but they butchered the source material beyond recognition"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 518,
+            "end": 525
+          },
+          "content": "this type of failure needs to be admired for it's sheer stupidity"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 590,
+            "end": 597
+          },
+          "content": "There's an entire fanbase screaming at Disney for what they want so they can throw billions of dollars at them"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 611,
+            "end": 617
+          },
+          "content": "There's an entire fanbase screaming at Disney for what they want so they can throw billions of dollars at them"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Once upon a time, in a land where Hollywood still understood storytelling, Snow White was a beloved fairy tale about beauty, magic, and the perils of vanity. Fast forward to today, and we now have this-a cinematic train wreck that takes a pickaxe to nostalgia and buries it in an unmarked grave.Let's start with the most baffling issue: the Evil Queen is more beautiful than Snow White. That's not just a nitpick; it obliterates the entire premise. Why is she jealous? Does she have self-esteem issues? Did her magic mirror get hacked? Watching this film, you'd think the real villain is common sense itself.Then there's the protagonist. Now, I don't care who plays Snow White, but at the very least, make the story make sense. The original description-skin as white as snow, lips as red as blood, hair as black as ebony-isn't just some throwaway line; it's the reason the story exists. Ignoring that detail makes it feel like the writers skimmed the Wikipedia summary and said, \"Eh, close enough.\" Spoiler: It wasn't.The film is also hilariously devoid of charm. No whimsy, no heart, just a dull, self-important slog that takes itself way too seriously while simultaneously treating the source material like garbage. It's like watching a birthday clown perform Shakespeare-awkward, painful, and fundamentally wrong.The only joy I got from this experience was the memes mocking it, which ironically had more creativity than the entire film. If you want to enjoy Snow White, do yourself a favor: stick to the animated classic or, better yet, just stare at a blank wall for two hours. You'll get the same amount of plot development, but at least you won't leave feeling personally attacked.",
+      "aspects": [
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 34,
+            "end": 43
+          },
+          "content": "in a land where Hollywood still understood storytelling"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 61,
+            "end": 73
+          },
+          "content": "in a land where Hollywood still understood storytelling"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 75,
+            "end": 85
+          },
+          "content": "Snow White was a beloved fairy tale about beauty"
+        },
+        {
+          "term": "fairy sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 100,
+            "end": 110
+          },
+          "content": "Snow White was a beloved fairy tale about beauty"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 117,
+            "end": 123
+          },
+          "content": "Snow White was a beloved fairy tale about beauty"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 125,
+            "end": 130
+          },
+          "content": "magic"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 150,
+            "end": 156
+          },
+          "content": "and the perils of vanity"
+        },
+        {
+          "term": "train plotk",
+          "polarity": "negative",
+          "position": {
+            "start": 214,
+            "end": 225
+          },
+          "content": "and we now have this-a cinematic train wreck that takes a pickaxe to nostalgia and buries it in an unmarked grave"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 250,
+            "end": 259
+          },
+          "content": "and we now have this-a cinematic train wreck that takes a pickaxe to nostalgia and buries it in an unmarked grave"
+        },
+        {
+          "term": "Evil ",
+          "polarity": "positive",
+          "position": {
+            "start": 341,
+            "end": 351
+          },
+          "content": "Let's start with the most baffling issue: the Evil Queen is more beautiful than Snow White"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 375,
+            "end": 385
+          },
+          "content": "Let's start with the most baffling issue: the Evil Queen is more beautiful than Snow White"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 440,
+            "end": 447
+          },
+          "content": "it obliterates the entire premise"
+        },
+        {
+          "term": "magic sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 511,
+            "end": 523
+          },
+          "content": "Did her magic mirror get hacked"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 550,
+            "end": 554
+          },
+          "content": "Watching this film"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 577,
+            "end": 584
+          },
+          "content": "you'd think the real villain is common sense itself"
+        },
+        {
+          "term": "plott",
+          "polarity": "negative",
+          "position": {
+            "start": 625,
+            "end": 636
+          },
+          "content": "Then there's the protagonist"
+        },
+        {
+          "term": "Snow plot",
+          "polarity": "negative",
+          "position": {
+            "start": 666,
+            "end": 676
+          },
+          "content": "I don't care who plays Snow White"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 61,
+            "end": 66
+          },
+          "content": "in a land where Hollywood still understood storytelling"
+        },
+        {
+          "term": "original sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 732,
+            "end": 752
+          },
+          "content": "The original description-skin as white as snow"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 931,
+            "end": 938
+          },
+          "content": "Ignoring that detail makes it feel like the writers skimmed the Wikipedia summary and said"
+        },
+        {
+          "term": "Wikipedia sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 951,
+            "end": 968
+          },
+          "content": "Ignoring that detail makes it feel like the writers skimmed the Wikipedia summary and said"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1022,
+            "end": 1026
+          },
+          "content": "The film is also hilariously devoid of charm"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1057,
+            "end": 1062
+          },
+          "content": "The film is also hilariously devoid of charm"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1067,
+            "end": 1073
+          },
+          "content": "No whimsy"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1078,
+            "end": 1083
+          },
+          "content": "no heart"
+        },
+        {
+          "term": "source ploterial",
+          "polarity": "negative",
+          "position": {
+            "start": 1188,
+            "end": 1203
+          },
+          "content": "self-important slog that takes itself way too seriously while simultaneously treating the source material like garbage"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1345,
+            "end": 1355
+          },
+          "content": "The only joy I got from this experience was the memes mocking it"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 1364,
+            "end": 1369
+          },
+          "content": "The only joy I got from this experience was the memes mocking it"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1435,
+            "end": 1439
+          },
+          "content": "which ironically had more creativity than the entire film"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1462,
+            "end": 1472
+          },
+          "content": "If you want to enjoy Snow White"
+        },
+        {
+          "term": "animated sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1508,
+            "end": 1524
+          },
+          "content": "do yourself a favor: stick to the animated classic or"
+        },
+        {
+          "term": "plot plotopment",
+          "polarity": "negative",
+          "position": {
+            "start": 1613,
+            "end": 1629
+          },
+          "content": "You'll get the same amount of plot development"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "First of all, I didn't have high expectations (as many of you probably didn't either). But, my partner and I actually really enjoyed it.Definitely not a masterpiece but It's a decent remake. Charming, magical, with a great cinematography and the songs are lovely. Aside from the CGI dwarfs (which you get used to quickly), it works well.Gal did an incredible job, but Rachel was the biggest surprise! As a fan of the original, I was initially disappointed when she was cast as Snow White, but she's incredibly TALENTED, both in acting and singing.I insist, it's not that bad. I encourage others to watch it before judging, overall if you're a Disney fan.",
+      "aspects": [
+        {
+          "term": "plotns",
+          "polarity": "negative",
+          "position": {
+            "start": 33,
+            "end": 45
+          },
+          "content": "I didn't have high expectations (as many of you probably didn't either)"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 95,
+            "end": 102
+          },
+          "content": "my partner and I actually really enjoyed it"
+        },
+        {
+          "term": "plote",
+          "polarity": "negative",
+          "position": {
+            "start": 153,
+            "end": 164
+          },
+          "content": "Definitely not a masterpiece but It's a decent remake"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 183,
+            "end": 189
+          },
+          "content": "Definitely not a masterpiece but It's a decent remake"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 223,
+            "end": 237
+          },
+          "content": "with a great cinematography and the songs are lovely"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 246,
+            "end": 251
+          },
+          "content": "with a great cinematography and the songs are lovely"
+        },
+        {
+          "term": "CGI sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 279,
+            "end": 289
+          },
+          "content": "Aside from the CGI dwarfs (which you get used to quickly)"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 337,
+            "end": 340
+          },
+          "content": "Gal did an incredible job"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 368,
+            "end": 374
+          },
+          "content": "but Rachel was the biggest surprise"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 417,
+            "end": 425
+          },
+          "content": "As a fan of the original"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 477,
+            "end": 487
+          },
+          "content": "I was initially disappointed when she was cast as Snow White"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 528,
+            "end": 534
+          },
+          "content": "both in acting and singing"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 539,
+            "end": 546
+          },
+          "content": "both in acting and singing"
+        },
+        {
+          "term": "Disney sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 643,
+            "end": 653
+          },
+          "content": "overall if you're a Disney fan"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Snow White is not a bad movie. It is hardly a masterpiece either. The movie, although beautifully made, lacks the gentle beauty of the classic 1937 animation. The good intentions in making this movie and the goal to modernize it for younger audiences can be well seen, but was it really necessary?From a song in which Snow White actually gives consent to the \"prince\" character prior to her eating the poison apple, to poor character development, inclusion of pointless characters and toning down of the Evil Queen's scary and devilish looming presence, the movie seems to be a patchwork quilt of some politically correct behavior, a not very deep story (although it tries to be), characters we know and love and some new ones we're introduced to and don't really get to know (and never do).Rachel Zeggler both acts and sings beautifully and her theme song is a show stopper. Her vocals I dare say are clearer than Halle's Part of Your World. Now, Gal Gadot (oh boy) plays a flowy and way too over the top Evil Queen, that unfortunately is but a far dying echo of the Evil Queen in the animation.Production problems and reshoots can be clearly seen when Snow White's hair distractingly changes both length and style, sometimes in the very same music sequence.Speaking of music sequence, the Evil Queen absolutely did not need songs of her own, what breaks her character and makes us lose credibility in her evilness. She just feels...goofy.I personally also felt a slight little political theme here and there, but that might just be me.That being said, again the movie is not bad. It's CUTE and endearing but a little stale, like a cookie that's not very well baked, but it still ok. The visuals and CGI are stunning and, yes, I can see some uncanny valley happening with the dwarfes but nothing distracting or creepy at all. They look amazing nonetheless and the details are jaw dropping (Dopey was actually my favorite character in the movie).However, it trying too hard to be politically correct (\"and evidently so\") and to please everyone are what make the experience only a little less enjoyable.",
+      "aspects": [
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 0,
+            "end": 10
+          },
+          "content": "Snow White is not a bad movie"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 24,
+            "end": 29
+          },
+          "content": "Snow White is not a bad movie"
+        },
+        {
+          "term": "plote",
+          "polarity": "negative",
+          "position": {
+            "start": 46,
+            "end": 57
+          },
+          "content": "It is hardly a masterpiece either"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 70,
+            "end": 75
+          },
+          "content": "The movie"
+        },
+        {
+          "term": "classic 1937 ",
+          "polarity": "positive",
+          "position": {
+            "start": 135,
+            "end": 157
+          },
+          "content": "lacks the gentle beauty of the classic 1937 animation"
+        },
+        {
+          "term": "good ",
+          "polarity": "positive",
+          "position": {
+            "start": 163,
+            "end": 178
+          },
+          "content": "The good intentions in making this movie and the goal to modernize it for younger audiences can be well seen"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 194,
+            "end": 199
+          },
+          "content": "The good intentions in making this movie and the goal to modernize it for younger audiences can be well seen"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 241,
+            "end": 250
+          },
+          "content": "The good intentions in making this movie and the goal to modernize it for younger audiences can be well seen"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 304,
+            "end": 308
+          },
+          "content": "From a song in which Snow White actually gives consent to the \"prince\" character prior to her eating the poison apple"
+        },
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 318,
+            "end": 328
+          },
+          "content": "From a song in which Snow White actually gives consent to the \"prince\" character prior to her eating the poison apple"
+        },
+        {
+          "term": "poison sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 402,
+            "end": 414
+          },
+          "content": "From a song in which Snow White actually gives consent to the \"prince\" character prior to her eating the poison apple"
+        },
+        {
+          "term": "plotdevelopment",
+          "polarity": "negative",
+          "position": {
+            "start": 424,
+            "end": 445
+          },
+          "content": "to poor character development"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 470,
+            "end": 480
+          },
+          "content": "inclusion of pointless characters and toning down of the Evil Queen's scary and devilish looming presence"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 558,
+            "end": 563
+          },
+          "content": "the movie seems to be a patchwork quilt of some politically correct behavior"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 622,
+            "end": 630
+          },
+          "content": "the movie seems to be a patchwork quilt of some politically correct behavior"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 648,
+            "end": 653
+          },
+          "content": "a not very deep story (although it tries to be)"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 681,
+            "end": 691
+          },
+          "content": "characters we know and love and some new ones we're introduced to and don't really get to know (and never do)"
+        },
+        {
+          "term": "Rachel ",
+          "polarity": "positive",
+          "position": {
+            "start": 791,
+            "end": 805
+          },
+          "content": "Rachel Zeggler both acts and sings beautifully and her theme song is a show stopper"
+        },
+        {
+          "term": "theme ",
+          "polarity": "positive",
+          "position": {
+            "start": 846,
+            "end": 856
+          },
+          "content": "Rachel Zeggler both acts and sings beautifully and her theme song is a show stopper"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 880,
+            "end": 886
+          },
+          "content": "Her vocals I dare say are clearer than Halle's Part of Your World"
+        },
+        {
+          "term": "Halle's Part of Your sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 915,
+            "end": 941
+          },
+          "content": "Her vocals I dare say are clearer than Halle's Part of Your World"
+        },
+        {
+          "term": "Gal plot",
+          "polarity": "negative",
+          "position": {
+            "start": 948,
+            "end": 957
+          },
+          "content": "Gal Gadot (oh boy) plays a flowy and way too over the top Evil Queen"
+        },
+        {
+          "term": "Evil plot",
+          "polarity": "negative",
+          "position": {
+            "start": 504,
+            "end": 514
+          },
+          "content": "inclusion of pointless characters and toning down of the Evil Queen's scary and devilish looming presence"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 148,
+            "end": 157
+          },
+          "content": "lacks the gentle beauty of the classic 1937 animation"
+        },
+        {
+          "term": "plot problems",
+          "polarity": "negative",
+          "position": {
+            "start": 1096,
+            "end": 1115
+          },
+          "content": "Production problems and reshoots can be clearly seen when Snow White's hair distractingly changes both length and style"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1120,
+            "end": 1128
+          },
+          "content": "Production problems and reshoots can be clearly seen when Snow White's hair distractingly changes both length and style"
+        },
+        {
+          "term": "Snow plot's hair",
+          "polarity": "negative",
+          "position": {
+            "start": 1154,
+            "end": 1171
+          },
+          "content": "Production problems and reshoots can be clearly seen when Snow White's hair distractingly changes both length and style"
+        },
+        {
+          "term": "music sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1244,
+            "end": 1258
+          },
+          "content": "sometimes in the very same music sequence"
+        },
+        {
+          "term": "Evil plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1006,
+            "end": 1016
+          },
+          "content": "Gal Gadot (oh boy) plays a flowy and way too over the top Evil Queen"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1326,
+            "end": 1331
+          },
+          "content": "the Evil Queen absolutely did not need songs of her own"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 368,
+            "end": 377
+          },
+          "content": "From a song in which Snow White actually gives consent to the \"prince\" character prior to her eating the poison apple"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1407,
+            "end": 1415
+          },
+          "content": "what breaks her character and makes us lose credibility in her evilness"
+        },
+        {
+          "term": "political sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1479,
+            "end": 1494
+          },
+          "content": "I personally also felt a slight little political theme here and there"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 1564,
+            "end": 1569
+          },
+          "content": "again the movie is not bad"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 1689,
+            "end": 1696
+          },
+          "content": "The visuals and CGI are stunning and"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 1701,
+            "end": 1704
+          },
+          "content": "The visuals and CGI are stunning and"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 1777,
+            "end": 1784
+          },
+          "content": "I can see some uncanny valley happening with the dwarfes but nothing distracting or creepy at all"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 1891,
+            "end": 1896
+          },
+          "content": "They look amazing nonetheless and the details are jaw dropping (Dopey was actually my favorite character in the movie)"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 424,
+            "end": 433
+          },
+          "content": "to poor character development"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 2062,
+            "end": 2072
+          },
+          "content": "it trying too hard to be politically correct (\"and evidently so\") and to please everyone are what make the experience only a little less enjoyable"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Snow White is the foundation of an Empire. This \"reimagining\" has cost Disney dearly. Hundreds of millions have gone into this project. The finished product is laughable at best. The only positive to come out of this debacle was Gal Gadot performance. Rachel Zegler's performance was forced and fell flat. The costumes and design was amateurish and felt like a low-budget indie film. The constant rewrites and shooting drove up the costs to the point that this was guaranteed to be a failure but one can only wonder how the House of Mouse could fumble a product with all their resources. The Rachel Zegler Press Tour was a complete disaster and I truly feel sorry for all the actors that suffered along the way. I think viewers can find a much better way to spend 1hr 49min of their life.",
+      "aspects": [
+        {
+          "term": "Snow sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 0,
+            "end": 10
+          },
+          "content": "Snow White is the foundation of an Empire"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 35,
+            "end": 41
+          },
+          "content": "Snow White is the foundation of an Empire"
+        },
+        {
+          "term": "plotg",
+          "polarity": "negative",
+          "position": {
+            "start": 49,
+            "end": 60
+          },
+          "content": "This \"reimagining\" has cost Disney dearly"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 71,
+            "end": 77
+          },
+          "content": "This \"reimagining\" has cost Disney dearly"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 127,
+            "end": 134
+          },
+          "content": "Hundreds of millions have gone into this project"
+        },
+        {
+          "term": "finished plotroduct",
+          "polarity": "negative",
+          "position": {
+            "start": 140,
+            "end": 156
+          },
+          "content": "The finished product is laughable at best"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 217,
+            "end": 224
+          },
+          "content": "The only positive to come out of this debacle was Gal Gadot performance"
+        },
+        {
+          "term": "Gal Gadot ",
+          "polarity": "positive",
+          "position": {
+            "start": 229,
+            "end": 250
+          },
+          "content": "The only positive to come out of this debacle was Gal Gadot performance"
+        },
+        {
+          "term": "Rachel plotler's performance",
+          "polarity": "negative",
+          "position": {
+            "start": 252,
+            "end": 279
+          },
+          "content": "Rachel Zegler's performance was forced and fell flat"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 310,
+            "end": 318
+          },
+          "content": "The costumes and design was amateurish and felt like a low-budget indie film"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 323,
+            "end": 329
+          },
+          "content": "The costumes and design was amateurish and felt like a low-budget indie film"
+        },
+        {
+          "term": "indie plot",
+          "polarity": "negative",
+          "position": {
+            "start": 372,
+            "end": 382
+          },
+          "content": "The costumes and design was amateurish and felt like a low-budget indie film"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 397,
+            "end": 405
+          },
+          "content": "The constant rewrites and shooting drove up the costs to the point that this was guaranteed to be a failure but one can only wonder how the House of Mouse could fumble a product with all their resources"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 410,
+            "end": 418
+          },
+          "content": "The constant rewrites and shooting drove up the costs to the point that this was guaranteed to be a failure but one can only wonder how the House of Mouse could fumble a product with all their resources"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 432,
+            "end": 437
+          },
+          "content": "The constant rewrites and shooting drove up the costs to the point that this was guaranteed to be a failure but one can only wonder how the House of Mouse could fumble a product with all their resources"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 484,
+            "end": 491
+          },
+          "content": "The constant rewrites and shooting drove up the costs to the point that this was guaranteed to be a failure but one can only wonder how the House of Mouse could fumble a product with all their resources"
+        },
+        {
+          "term": "House of sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 524,
+            "end": 538
+          },
+          "content": "The constant rewrites and shooting drove up the costs to the point that this was guaranteed to be a failure but one can only wonder how the House of Mouse could fumble a product with all their resources"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 149,
+            "end": 156
+          },
+          "content": "The finished product is laughable at best"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 577,
+            "end": 586
+          },
+          "content": "The constant rewrites and shooting drove up the costs to the point that this was guaranteed to be a failure but one can only wonder how the House of Mouse could fumble a product with all their resources"
+        },
+        {
+          "term": "Rachel plotler Press Tour",
+          "polarity": "negative",
+          "position": {
+            "start": 592,
+            "end": 616
+          },
+          "content": "The Rachel Zegler Press Tour was a complete disaster and I truly feel sorry for all the actors that suffered along the way"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 676,
+            "end": 682
+          },
+          "content": "The Rachel Zegler Press Tour was a complete disaster and I truly feel sorry for all the actors that suffered along the way"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 720,
+            "end": 727
+          },
+          "content": "I think viewers can find a much better way to spend 1hr 49min of their life"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "The film is very bad. The protagonist is not convincing in the role and the use of artificial graphic effects to replace the dwarves are the main problems. The script update is also terrible!There is no reason for a new version of a classic work with so many modifications. They will never surpass the original version from the 1930s.Even though a lot of money was invested, they were unable to bring the characters to life, which seem to be part of a B-grade music video, such is the lack of skill of the actors and the disconnect with the computer-created characters.Not even the soundtrack saves the day, making the film a very weak musical and a tasteless remake.",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 4,
+            "end": 8
+          },
+          "content": "The film is very bad"
+        },
+        {
+          "term": "plott",
+          "polarity": "negative",
+          "position": {
+            "start": 26,
+            "end": 37
+          },
+          "content": "The protagonist is not convincing in the role and the use of artificial graphic effects to replace the dwarves are the main problems"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 63,
+            "end": 67
+          },
+          "content": "The protagonist is not convincing in the role and the use of artificial graphic effects to replace the dwarves are the main problems"
+        },
+        {
+          "term": "graphic plotfects",
+          "polarity": "negative",
+          "position": {
+            "start": 94,
+            "end": 109
+          },
+          "content": "The protagonist is not convincing in the role and the use of artificial graphic effects to replace the dwarves are the main problems"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 125,
+            "end": 132
+          },
+          "content": "The protagonist is not convincing in the role and the use of artificial graphic effects to replace the dwarves are the main problems"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 146,
+            "end": 154
+          },
+          "content": "The protagonist is not convincing in the role and the use of artificial graphic effects to replace the dwarves are the main problems"
+        },
+        {
+          "term": "script plotate",
+          "polarity": "negative",
+          "position": {
+            "start": 160,
+            "end": 173
+          },
+          "content": "The script update is also terrible"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 220,
+            "end": 227
+          },
+          "content": "There is no reason for a new version of a classic work with so many modifications"
+        },
+        {
+          "term": "classic sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 233,
+            "end": 245
+          },
+          "content": "There is no reason for a new version of a classic work with so many modifications"
+        },
+        {
+          "term": "plotons",
+          "polarity": "negative",
+          "position": {
+            "start": 259,
+            "end": 272
+          },
+          "content": "There is no reason for a new version of a classic work with so many modifications"
+        },
+        {
+          "term": "original sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 302,
+            "end": 318
+          },
+          "content": "They will never surpass the original version from the 1930s"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 355,
+            "end": 360
+          },
+          "content": "Even though a lot of money was invested"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 405,
+            "end": 415
+          },
+          "content": "they were unable to bring the characters to life"
+        },
+        {
+          "term": "music ploto",
+          "polarity": "negative",
+          "position": {
+            "start": 460,
+            "end": 471
+          },
+          "content": "which seem to be part of a B-grade music video"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 493,
+            "end": 498
+          },
+          "content": "such is the lack of skill of the actors and the disconnect with the computer-created characters"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 506,
+            "end": 512
+          },
+          "content": "such is the lack of skill of the actors and the disconnect with the computer-created characters"
+        },
+        {
+          "term": "computer-plotreated characters",
+          "polarity": "negative",
+          "position": {
+            "start": 541,
+            "end": 568
+          },
+          "content": "such is the lack of skill of the actors and the disconnect with the computer-created characters"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 582,
+            "end": 592
+          },
+          "content": "Not even the soundtrack saves the day"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 619,
+            "end": 623
+          },
+          "content": "making the film a very weak musical and a tasteless remake"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 636,
+            "end": 643
+          },
+          "content": "making the film a very weak musical and a tasteless remake"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 660,
+            "end": 666
+          },
+          "content": "making the film a very weak musical and a tasteless remake"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Disney's Snow White 2025 is a baffling misfire that strips the classic tale of its charm, replacing it with lifeless CGI and hollow messaging. Rachel Zegler's Snow White lacks presence, the Prince is barely relevant, and the so called bandits are uninspired replacements for the original dwarves. Worse, the CGI dwarves look nightmarish, stuck deep in the uncanny valley, making every scene with them unsettling. The film tries to modernize the story but feels soulless and confused. The visuals are bland, the music is forgettable, and the magic is completely gone. It is a dull and joyless attempt to fix what was never broken.",
+      "aspects": [
+        {
+          "term": "Disney's plotnow White 2025",
+          "polarity": "negative",
+          "position": {
+            "start": 0,
+            "end": 24
+          },
+          "content": "Disney's Snow White 2025 is a baffling misfire that strips the classic tale of its charm"
+        },
+        {
+          "term": "classic sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 63,
+            "end": 75
+          },
+          "content": "Disney's Snow White 2025 is a baffling misfire that strips the classic tale of its charm"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 83,
+            "end": 88
+          },
+          "content": "Disney's Snow White 2025 is a baffling misfire that strips the classic tale of its charm"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 117,
+            "end": 120
+          },
+          "content": "replacing it with lifeless CGI and hollow messaging"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 132,
+            "end": 141
+          },
+          "content": "replacing it with lifeless CGI and hollow messaging"
+        },
+        {
+          "term": "Rachel plotler's Snow White",
+          "polarity": "negative",
+          "position": {
+            "start": 143,
+            "end": 169
+          },
+          "content": "Rachel Zegler's Snow White lacks presence"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 190,
+            "end": 196
+          },
+          "content": "the Prince is barely relevant"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 235,
+            "end": 242
+          },
+          "content": "and the so called bandits are uninspired replacements for the original dwarves"
+        },
+        {
+          "term": "original sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 279,
+            "end": 295
+          },
+          "content": "and the so called bandits are uninspired replacements for the original dwarves"
+        },
+        {
+          "term": "CGI plots",
+          "polarity": "negative",
+          "position": {
+            "start": 308,
+            "end": 319
+          },
+          "content": "the CGI dwarves look nightmarish"
+        },
+        {
+          "term": "uncanny plotlley",
+          "polarity": "negative",
+          "position": {
+            "start": 356,
+            "end": 370
+          },
+          "content": "stuck deep in the uncanny valley"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 385,
+            "end": 390
+          },
+          "content": "making every scene with them unsettling"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 417,
+            "end": 421
+          },
+          "content": "The film tries to modernize the story but feels soulless and confused"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 445,
+            "end": 450
+          },
+          "content": "The film tries to modernize the story but feels soulless and confused"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 488,
+            "end": 495
+          },
+          "content": "The visuals are bland"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 511,
+            "end": 516
+          },
+          "content": "the music is forgettable"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 541,
+            "end": 546
+          },
+          "content": "and the magic is completely gone"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 592,
+            "end": 599
+          },
+          "content": "It is a dull and joyless attempt to fix what was never broken"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "Even though I hated the cast, especially Rachel, I tried to watch the movie because I really love the classic Snow White story. I think this movie was a bit forced. Mismatched casts, weird CGI, and inconsistencies with the original story. I feel this movie did not live up to the expectations of the audience and Disney lovers.I couldn't even stand to watch it until the end because the story was boring. When I realized this was a waste of budget , says nothing.Note to Disney : Choose actors whose appearance matches the original story. Our imaginations are at play here. Sorry, Disney, disappointing.",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 24,
+            "end": 28
+          },
+          "content": "Even though I hated the cast"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 41,
+            "end": 47
+          },
+          "content": "especially Rachel"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 70,
+            "end": 75
+          },
+          "content": "I tried to watch the movie because I really love the classic Snow White story"
+        },
+        {
+          "term": "classic Snow White ",
+          "polarity": "positive",
+          "position": {
+            "start": 102,
+            "end": 126
+          },
+          "content": "I tried to watch the movie because I really love the classic Snow White story"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 141,
+            "end": 146
+          },
+          "content": "I think this movie was a bit forced"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 176,
+            "end": 181
+          },
+          "content": "Mismatched casts"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 189,
+            "end": 192
+          },
+          "content": "weird CGI"
+        },
+        {
+          "term": "plotncies",
+          "polarity": "negative",
+          "position": {
+            "start": 198,
+            "end": 213
+          },
+          "content": "and inconsistencies with the original story"
+        },
+        {
+          "term": "original sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 223,
+            "end": 237
+          },
+          "content": "and inconsistencies with the original story"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 251,
+            "end": 256
+          },
+          "content": "I feel this movie did not live up to the expectations of the audience and Disney lovers"
+        },
+        {
+          "term": "plotns",
+          "polarity": "negative",
+          "position": {
+            "start": 280,
+            "end": 292
+          },
+          "content": "I feel this movie did not live up to the expectations of the audience and Disney lovers"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 300,
+            "end": 308
+          },
+          "content": "I feel this movie did not live up to the expectations of the audience and Disney lovers"
+        },
+        {
+          "term": "Disney sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 313,
+            "end": 326
+          },
+          "content": "I feel this movie did not live up to the expectations of the audience and Disney lovers"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 121,
+            "end": 126
+          },
+          "content": "I tried to watch the movie because I really love the classic Snow White story"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 441,
+            "end": 447
+          },
+          "content": "When I realized this was a waste of budget"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 313,
+            "end": 319
+          },
+          "content": "I feel this movie did not live up to the expectations of the audience and Disney lovers"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 487,
+            "end": 493
+          },
+          "content": "Note to Disney : Choose actors whose appearance matches the original story"
+        },
+        {
+          "term": "original sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 523,
+            "end": 537
+          },
+          "content": "Note to Disney : Choose actors whose appearance matches the original story"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 543,
+            "end": 555
+          },
+          "content": "Our imaginations are at play here"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 471,
+            "end": 477
+          },
+          "content": "Note to Disney : Choose actors whose appearance matches the original story"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "They changed the story instead of writing, a new one, the story has been around forever. There was no need for this. As well as casting a controversial actor to play the main character and the terrible costume design overall bad movie Disney really messed up with this one. I really don't have much else to say don't waste your time or money, but they need me to write more so I can submit this. I have never been one to review something unless I've seen it for myself and this one definitely deserved a bad review. Disney needs to stop redoing iconic story's and write something new this is pure laziness and a lack of creativity no one wanted this or is happy this came out leave things the way they were.",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 17,
+            "end": 22
+          },
+          "content": "They changed the story instead of writing"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 152,
+            "end": 157
+          },
+          "content": "As well as casting a controversial actor to play the main character and the terrible costume design overall bad movie Disney really messed up with this one"
+        },
+        {
+          "term": "main sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 170,
+            "end": 184
+          },
+          "content": "As well as casting a controversial actor to play the main character and the terrible costume design overall bad movie Disney really messed up with this one"
+        },
+        {
+          "term": "costume plotsign",
+          "polarity": "negative",
+          "position": {
+            "start": 202,
+            "end": 216
+          },
+          "content": "As well as casting a controversial actor to play the main character and the terrible costume design overall bad movie Disney really messed up with this one"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 229,
+            "end": 234
+          },
+          "content": "As well as casting a controversial actor to play the main character and the terrible costume design overall bad movie Disney really messed up with this one"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 235,
+            "end": 241
+          },
+          "content": "As well as casting a controversial actor to play the main character and the terrible costume design overall bad movie Disney really messed up with this one"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 421,
+            "end": 427
+          },
+          "content": "I have never been one to review something unless I've seen it for myself and this one definitely deserved a bad review"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 516,
+            "end": 522
+          },
+          "content": "Disney needs to stop redoing iconic story's and write something new this is pure laziness and a lack of creativity no one wanted this or is happy this came out leave things the way they were"
+        },
+        {
+          "term": "story'sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 552,
+            "end": 559
+          },
+          "content": "Disney needs to stop redoing iconic story's and write something new this is pure laziness and a lack of creativity no one wanted this or is happy this came out leave things the way they were"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 597,
+            "end": 605
+          },
+          "content": "Disney needs to stop redoing iconic story's and write something new this is pure laziness and a lack of creativity no one wanted this or is happy this came out leave things the way they were"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 620,
+            "end": 630
+          },
+          "content": "Disney needs to stop redoing iconic story's and write something new this is pure laziness and a lack of creativity no one wanted this or is happy this came out leave things the way they were"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "This is one of the funniest movies I have ever seen. Not the first 20min or so which is almost okay, but the rest is unintentionally hilarious. I have not laughed this much in a long time at a movie.A couple of little less negative things are that the first part of the movie is almost watchable. Mainly because it is decently true to the original. Zegler is not as bad as I thought, she can actually sing. And... uh... well, that is pretty much it.Ignoring the Dwarfs for sanity reasons: Around the 30min mark or so this movie takes a very weird turn. Suddenly we are introduced to a bunch of characters (not the Dwarfs...) that will forever go down in history as the worst ever portrait on film. And from meeting those empty shells of characters it is all downhill.Although Zegler is surprisingly not completely awful for most of the film, the rest of the cast are all so bad they make The Acolyte acting look masterful in comparison. The prince, whom is not a prince at all, just a robber and thief, he kisses snow like she has the plague, and Gadot is just Gadot trying to be... I dunno, some parody of an evil queen I guess.This is about 50% true to the original, but the things they changed are so out there and so hilariously unpleasant I could not contain my laughter. This is so inapt and so badly done I cannot understand why Disney didn't shelf it or postponed it for 2 years to remake the whole thing. Someone actually approved this for the theatre. Wow. Disney... what are you doing?I give this a 2/10 because the first 20min was almost okay and because Zegler was not as horrible as I thought she would be. But make no mistake, this is one of the worst movies you will ever see. My advice is to drink a bottle or sixteen before watching because I had a pretty fun time with this movie. Do not bring the kids though, they will not like this at all.",
+      "aspects": [
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 28,
+            "end": 34
+          },
+          "content": "This is one of the funniest movies I have ever seen"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 28,
+            "end": 33
+          },
+          "content": "This is one of the funniest movies I have ever seen"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 258,
+            "end": 262
+          },
+          "content": "A couple of little less negative things are that the first part of the movie is almost watchable"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 339,
+            "end": 347
+          },
+          "content": "Mainly because it is decently true to the original"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 349,
+            "end": 355
+          },
+          "content": "Zegler is not as bad as I thought"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 462,
+            "end": 468
+          },
+          "content": "Ignoring the Dwarfs for sanity reasons: Around the 30min mark or so this movie takes a very weird turn"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 193,
+            "end": 198
+          },
+          "content": "I have not laughed this much in a long time at a movie"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 594,
+            "end": 604
+          },
+          "content": "Suddenly we are introduced to a bunch of characters (not the Dwarfs"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 692,
+            "end": 696
+          },
+          "content": ") that will forever go down in history as the worst ever portrait on film"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 737,
+            "end": 747
+          },
+          "content": "And from meeting those empty shells of characters it is all downhill"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 776,
+            "end": 782
+          },
+          "content": "Although Zegler is surprisingly not completely awful for most of the film"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 836,
+            "end": 840
+          },
+          "content": "Although Zegler is surprisingly not completely awful for most of the film"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 858,
+            "end": 862
+          },
+          "content": "the rest of the cast are all so bad they make The Acolyte acting look masterful in comparison"
+        },
+        {
+          "term": "The Acolyte ",
+          "polarity": "positive",
+          "position": {
+            "start": 888,
+            "end": 906
+          },
+          "content": "the rest of the cast are all so bad they make The Acolyte acting look masterful in comparison"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 941,
+            "end": 947
+          },
+          "content": "The prince"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 985,
+            "end": 991
+          },
+          "content": "just a robber and thief"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 996,
+            "end": 1001
+          },
+          "content": "just a robber and thief"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1013,
+            "end": 1017
+          },
+          "content": "he kisses snow like she has the plague"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1047,
+            "end": 1052
+          },
+          "content": "and Gadot is just Gadot trying to be"
+        },
+        {
+          "term": "evil plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1110,
+            "end": 1120
+          },
+          "content": "some parody of an evil queen I guess"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1159,
+            "end": 1167
+          },
+          "content": "This is about 50% true to the original"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 232,
+            "end": 238
+          },
+          "content": "A couple of little less negative things are that the first part of the movie is almost watchable"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1336,
+            "end": 1342
+          },
+          "content": "This is so inapt and so badly done I cannot understand why Disney didn't shelf it or postponed it for 2 years to remake the whole thing"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 1453,
+            "end": 1460
+          },
+          "content": "Someone actually approved this for the theatre"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1467,
+            "end": 1473
+          },
+          "content": ""
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 1567,
+            "end": 1573
+          },
+          "content": "I give this a 2/10 because the first 20min was almost okay and because Zegler was not as horrible as I thought she would be"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1667,
+            "end": 1673
+          },
+          "content": "this is one of the worst movies you will ever see"
+        },
+        {
+          "term": "",
+          "polarity": "positive",
+          "position": {
+            "start": 270,
+            "end": 275
+          },
+          "content": "A couple of little less negative things are that the first part of the movie is almost watchable"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 1817,
+            "end": 1821
+          },
+          "content": "Do not bring the kids though"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "date": "2005-11-21",
+      "user": "EyeDunno",
+      "role": "critic",
+      "user_score": "8",
+      "sentence": "I had high hopes for this movie, but unfortunately, it fell flat in almost every way. The plot was convoluted and poorly paced, leaving me confused and bored rather than engaged. The characters were one-dimensional, with no depth or development, making it impossible to care about their fates.The dialogue was cringe-worthy at times, filled with clich\u00e9s and awkward exchanges that felt forced. The acting didn't help either-some performances were so wooden, it was hard to believe the actors were even trying.Visually, the movie was underwhelming. The special effects looked cheap and outdated, and the cinematography lacked any creativity or flair. Even the soundtrack felt out of place, often distracting rather than enhancing the scenes.Overall, this film was a waste of time and money. I wouldn't recommend it to anyone unless they're looking for a prime example of how not to make a movie.",
+      "aspects": [
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 26,
+            "end": 31
+          },
+          "content": "I had high hopes for this movie"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 90,
+            "end": 94
+          },
+          "content": "The plot was convoluted and poorly paced"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 183,
+            "end": 193
+          },
+          "content": "The characters were one-dimensional"
+        },
+        {
+          "term": "plott",
+          "polarity": "negative",
+          "position": {
+            "start": 233,
+            "end": 244
+          },
+          "content": "with no depth or development"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 287,
+            "end": 292
+          },
+          "content": "making it impossible to care about their fates"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 297,
+            "end": 305
+          },
+          "content": "The dialogue was cringe-worthy at times"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 346,
+            "end": 353
+          },
+          "content": "filled with clich\u00e9s and awkward exchanges that felt forced"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 366,
+            "end": 375
+          },
+          "content": "filled with clich\u00e9s and awkward exchanges that felt forced"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 398,
+            "end": 404
+          },
+          "content": "The acting didn't help either-some performances were so wooden"
+        },
+        {
+          "term": "plotes",
+          "polarity": "negative",
+          "position": {
+            "start": 429,
+            "end": 441
+          },
+          "content": "The acting didn't help either-some performances were so wooden"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 485,
+            "end": 491
+          },
+          "content": "it was hard to believe the actors were even trying"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 523,
+            "end": 528
+          },
+          "content": "the movie was underwhelming"
+        },
+        {
+          "term": "special plotfects",
+          "polarity": "negative",
+          "position": {
+            "start": 552,
+            "end": 567
+          },
+          "content": "The special effects looked cheap and outdated"
+        },
+        {
+          "term": "plotaphy",
+          "polarity": "negative",
+          "position": {
+            "start": 603,
+            "end": 617
+          },
+          "content": "and the cinematography lacked any creativity or flair"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 629,
+            "end": 639
+          },
+          "content": "and the cinematography lacked any creativity or flair"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 643,
+            "end": 648
+          },
+          "content": "and the cinematography lacked any creativity or flair"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 659,
+            "end": 669
+          },
+          "content": "Even the soundtrack felt out of place"
+        },
+        {
+          "term": "sound",
+          "polarity": "neutral",
+          "position": {
+            "start": 733,
+            "end": 739
+          },
+          "content": "often distracting rather than enhancing the scenes"
+        },
+        {
+          "term": "plot",
+          "polarity": "negative",
+          "position": {
+            "start": 754,
+            "end": 758
+          },
+          "content": "this film was a waste of time and money"
+        }
+      ]
+    }
+  ]
+}
