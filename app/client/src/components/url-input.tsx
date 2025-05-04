@@ -1,14 +1,25 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { Icon } from "@iconify/react";
 import Light from "./light";
 
 export default function UrlInput() {
+  const router = useRouter();
+  const [url, setUrl] = useState("");
+
+  const handleSubmit = () => {
+    router.push(`?url=${encodeURIComponent(url)}`);
+  };
+
   return (
     <div className="h-screen -mt-20 flex justify-center items-center">
       <div className="w-1/2">
         <div className="text-3xl text-center mb-8 text-gradient font-bold">Enter an URL to start aggregating</div>
         <div className="flex bg-formground rounded-2xl items-end">
-          <textarea placeholder="https://www.rottentomatoes.com/m/a_nightmare_semester_at_hcmus" className="w-full resize-none p-4 border-none outline-none overflow-y-scroll [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-primary" />
-          <button type="button" title="Go" className="p-4">
+          <textarea value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://www.rottentomatoes.com/m/a_nightmare_semester_at_hcmus" className="w-full resize-none p-4 border-none outline-none overflow-y-scroll [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-primary" />
+          <button onClick={handleSubmit} type="button" title="Go" className="p-4">
             <Icon icon="formkit:submit" className="text-3xl cursor-pointer" />
           </button>
         </div>

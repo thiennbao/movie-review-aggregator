@@ -15,14 +15,15 @@ const termColors: { [key: string]: string } = {
   sound: "bg-emerald-500/50",
 };
 
-export default function Reviews() {
+export default function Reviews({ url }: { url: string }) {
+  console.log(url);
   const [reviews, setReviews] = useState([] as Review[]);
 
   useEffect(() => {
     fetch("/mock-reviews.json")
       .then((res) => res.json())
       .then((data) => setReviews(data.reviews));
-  });
+  }, []);
 
   return (
     <div className="w-3/4 m-auto">
