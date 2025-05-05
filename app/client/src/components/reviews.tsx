@@ -2,6 +2,7 @@
 
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
 interface Review {
   user: string;
@@ -16,14 +17,16 @@ const termColors: { [key: string]: string } = {
 };
 
 export default function Reviews({ url }: { url: string }) {
-  console.log(url);
   const [reviews, setReviews] = useState([] as Review[]);
 
   useEffect(() => {
-    fetch("/mock-reviews.json")
-      .then((res) => res.json())
-      .then((data) => setReviews(data.reviews));
-  }, []);
+    const socket = io("localhost:5000");
+    socket.emit("ask_reviews", url);
+    socket.on("review", (data) => setReviews((reviews) => [...reviews, data]));
+    return () => {
+      socket.disconnect();
+    };
+  }, [url]);
 
   return (
     <div className="w-3/4 m-auto">
