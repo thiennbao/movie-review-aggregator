@@ -20,7 +20,7 @@ export default function Reviews({ url }: { url: string }) {
   }, [url]);
 
   return (
-    <div className="w-3/4 m-auto">
+    <div className="container px-4 xl:px-20">
       <h2 className="text-2xl font-bold text-gradient mb-4">Reviews</h2>
       <ExportButtons reviews={reviews} />
       <ReviewsTable reviews={reviews.slice((page - 1) * 10, page * 10)} />

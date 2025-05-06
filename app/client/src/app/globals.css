@@ -1,17 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --formground: #2a2a2a; /* add later */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a1a1a;
-    --foreground: #ededed;
-    --formground: #2a2a2a;
-  }
+  --background: #1a1a1a;
+  --foreground: #ededed;
+  --formground: #2a2a2a;
 }
 
 body {
@@ -35,3 +27,4 @@ body {
 .bg-gradient {
   @apply bg-gradient-to-r from-primary to-secondary;
 }
+

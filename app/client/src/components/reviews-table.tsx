@@ -15,7 +15,7 @@ const termColors: { [key: string]: string } = {
 
 export default function ReviewsTable({ reviews }: { reviews: Review[] }) {
   return (
-    <div className="w-full text-left divide-y-1 divide-primary/50 text-sm">
+    <div className="my-8 w-full text-left divide-y-1 divide-primary/50 text-sm">
       <div className="grid grid-cols-20 font-bold text-gradient *:p-4">
         <div>#</div>
         <div className="col-span-2">User</div>

@@ -4,7 +4,7 @@ import Papa from "papaparse";
 
 export default function ExportButtons({ reviews }: { reviews: Review[] }) {
   return (
-    <div className="flex gap-2 *:text-background *:px-4 *:py-1 *:rounded *:cursor-pointer">
+    <div className="my-8 flex gap-2 *:text-background *:px-4 *:py-1 *:rounded *:cursor-pointer">
       <button onClick={() => handleCopy(reviews)} className="bg-primary">
         Copy
       </button>
