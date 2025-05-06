@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import Pagination from "./pagination";
 import ReviewsTable, { Review } from "./reviews-table";
+import ExportButtons from "./export-buttons";
 
 export default function Reviews({ url }: { url: string }) {
   const [reviews, setReviews] = useState([] as Review[]);
@@ -21,7 +22,7 @@ export default function Reviews({ url }: { url: string }) {
   return (
     <div className="w-3/4 m-auto">
       <h2 className="text-2xl font-bold text-gradient mb-4">Reviews</h2>
-      <div>Some button here</div>
+      <ExportButtons reviews={reviews} />
       <ReviewsTable reviews={reviews.slice((page - 1) * 10, page * 10)} />
       <div className="flex justify-between">
         <div>
