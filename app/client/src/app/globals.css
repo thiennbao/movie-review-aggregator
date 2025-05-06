@@ -16,8 +16,8 @@ body {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-formground: var(--formground);
-  --color-primary: #ffd859;
-  --color-secondary: #52ce63;
+  --color-primary: #ff445b;
+  --color-secondary: #ead731;
 }
 
 .text-gradient {
@@ -27,4 +27,3 @@ body {
 .bg-gradient {
   @apply bg-gradient-to-r from-primary to-secondary;
 }
-

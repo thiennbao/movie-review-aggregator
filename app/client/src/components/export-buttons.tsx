@@ -8,10 +8,10 @@ export default function ExportButtons({ reviews }: { reviews: Review[] }) {
       <button onClick={() => handleCopy(reviews)} className="bg-primary">
         Copy
       </button>
-      <button onClick={() => handleExcel(reviews)} className="bg-secondary">
+      <button onClick={() => handleExcel(reviews)} className="bg-emerald-500">
         Excel
       </button>
-      <button onClick={() => handleCsv(reviews)} className="bg-secondary">
+      <button onClick={() => handleCsv(reviews)} className="bg-emerald-500">
         CSV
       </button>
     </div>
