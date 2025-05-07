@@ -16,7 +16,7 @@ import json
 import re
 import random
 from simpletransformers.retrieval import RetrievalModel, RetrievalArgs
-# from allennlp.nn.util import sequence_cross_entropy_with_logits
+from allennlp.nn.util import sequence_cross_entropy_with_logits
 from typing import List
 def tiny_value_of_dtype(dtype: torch.dtype):
     """

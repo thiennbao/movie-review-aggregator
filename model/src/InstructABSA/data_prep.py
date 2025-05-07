@@ -1,13 +1,21 @@
-from datasets import Dataset
-from datasets.dataset_dict import DatasetDict
+from datasets import Dataset #import lớp Dataset từ Hugging Face để chuyển DataFrame thành Dataset
+from datasets.dataset_dict import DatasetDict  # import DatasetDict để nhóm các Split (train/test/...)
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import json
 import random
 class DatasetLoader:
-    def __init__(self, train_df_id=None, test_df_id=None,
-                 train_df_ood=None, test_df_ood=None, sample_size = 1, val_df_id=None, val_df_ood=None):
-        
+    def __init__(self, train_df_id=None, test_df_id=None, train_df_ood=None, test_df_ood=None, sample_size = 1, val_df_id=None, val_df_ood=None):
+        """
+        Khởi tạo đối tượng, nhận vào các DataFrame trong/ngoài miền và tỉ lệ mẫu
+        * train_df_id: dataframe huấn luyện in-domain
+        * test_df_id: dataframe kiểm thử in-domain
+        * val_df_id: dataframe đánh giá in-domain
+        * train_df_ood: dataframe huấn luyện out-of-domain
+        * test_df_ood: dataframe kiểm thử out-of-domain
+        * val_df_ood: dataframe đánh giá out-of-domain
+        * sample_size: tỷ lệ lấy mẫu (frac)
+        """
         self.train_df_id = train_df_id.sample(frac = sample_size, random_state = 1999) if train_df_id is not None else train_df_id
         self.test_df_id = test_df_id
         self.train_df_ood = train_df_ood
@@ -16,15 +24,16 @@ class DatasetLoader:
         self.val_df_ood = val_df_ood
     def reconstruct_strings(self, df, col, num = 2):
         """
-        Reconstruct strings to dictionaries when loading csv/xlsx files.
+        Chuyển chuỗi lưu dict dạng csv thành list các dict
+        num=2 nếu mỗi dict có 2 key, num>2 nếu nhiều hơn.
         """
-        reconstructed_col = []
-        for text in df[col]:
-            if text != '[]' and isinstance(text, str):
-                text = text.replace('[', '').replace(']', '').replace('{', '').replace('}', '').split(", '")
-                req_list = []
-                reconstructed_dict = {}
-                for idx, pair in enumerate(text):
+        reconstructed_col = [] # danh sách kết quả cho cột
+        for text in df[col]: # duyệt từng giá trị trong cột col
+            if text != '[]' and isinstance(text, str): # nếu không phải chuỗi rỗng '[]'
+                text = text.replace('[', '').replace(']', '').replace('{', '').replace('}', '').split(", '") # Loại bỏ dấu ngoặc và tách chuỗi theo ", '"
+                req_list = [] # danh sách dict tái tạo
+                reconstructed_dict = {} # dict tạm
+                for idx, pair in enumerate(text): # duyệt từng cặp 'key:value'
                     if num == 2:
                         if idx % 2 == 0:
                             reconstructed_dict = {}

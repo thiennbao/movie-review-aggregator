@@ -1,6 +1,7 @@
 import os
 import warnings
 os.environ["WANDB_DISABLED"] = "true"
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 warnings.filterwarnings('ignore')
 import pandas as pd
 
@@ -132,9 +133,6 @@ if config.task == 'aoste' or config.task == 'unify':
     bos_instruction_id = instruct_handler.aoste[indomain]
     if ood_tr_data_path is not None or ood_te_data_path is not None:
         bos_instruction_ood = instruct_handler.aoste[outdomain]
-
-
-
 
 def create_dataset(id_tr_df, id_ev_df, ood_tr_df, ood_ev_df, config, id_te_df, ood_te_df,instruct_handler,bos_instruction_id):# 封装一下创建训练数据的过程
     loader = DatasetLoader(id_tr_df, id_ev_df, ood_tr_df, ood_ev_df, config.sample_size, id_te_df, ood_te_df)

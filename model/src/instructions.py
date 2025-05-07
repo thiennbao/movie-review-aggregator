@@ -1,58 +1,59 @@
 import os
-# from sklearn.cluster import KMeans
-# from rouge import Rouge
+os.environ["WANDB_DISABLED"] = "true"
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+warnings.filterwarnings('ignore')
+from sklearn.cluster import KMeans
+from rouge import Rouge
 import pandas as pd
 import random
 import numpy as np
+from sentence_transformers import SentenceTransformer
+def get_knowledge_set(raw_texts, r = 0.1):
 
+    rouge = Rouge()
+    total_num_sample = len(raw_texts)
+    num_selected = int(total_num_sample * r)
+    indexes = list(range(total_num_sample))
+    random.shuffle(indexes)
+    ref_index_list = []
+    cnt = 0
+    thred =0.7
+    for index in indexes:
+        if cnt == 0:
+            ref_index_list.append(index)
+            cnt+=1
+        else:
+            max_rouge_l = 0
+            for i in range(cnt):
+                a = raw_texts[index]
+                b = raw_texts[ref_index_list[i]]
+                score = rouge.get_scores(a, b)[0]["rouge-l"]['f']
+                max_rouge_l = max(max_rouge_l, score)
+            if max_rouge_l < thred:
+                ref_index_list.append(index)
+                cnt+=1
+        if cnt >= num_selected:
+            break
+    return ref_index_list
 
-# from sentence_transformers import SentenceTransformer
-# def get_knowledge_set(raw_texts, r = 0.1):
-#
-#     rouge = Rouge()
-#     total_num_sample = len(raw_texts)
-#     num_selected = int(total_num_sample * r)
-#     indexes = list(range(total_num_sample))
-#     random.shuffle(indexes)
-#     ref_index_list = []
-#     cnt = 0
-#     thred =0.7
-#     for index in indexes:
-#         if cnt == 0:
-#             ref_index_list.append(index)
-#             cnt+=1
-#         else:
-#             max_rouge_l = 0
-#             for i in range(cnt):
-#                 a = raw_texts[index]
-#                 b = raw_texts[ref_index_list[i]]
-#                 score = rouge.get_scores(a, b)[0]["rouge-l"]['f']
-#                 max_rouge_l = max(max_rouge_l, score)
-#             if max_rouge_l < thred:
-#                 ref_index_list.append(index)
-#                 cnt+=1
-#         if cnt >= num_selected:
-#             break
-#     return ref_index_list
-#
-# def get_cluster_centers(data, k = 5):
-#
-#     kmeans = KMeans(n_clusters = k)
-#     kmeans.fit(data)
-#     labels = kmeans.labels_ #输出每一样本的聚类的类簇标签
-#     centers = kmeans.cluster_centers_ #输出聚类的类簇中心点
-#     return centers, labels
+def get_cluster_centers(data, k = 5):
+
+    kmeans = KMeans(n_clusters = k)
+    kmeans.fit(data)
+    labels = kmeans.labels_ #输出每一样本的聚类的类簇标签
+    centers = kmeans.cluster_centers_ #输出聚类的类簇中心点
+    return centers, labels
 
 class InstructionsHandler:
     def __init__(self, config=None):
-        self.ate = {}
-        self.ote = {}
-        self.atsc = {}
-        self.aspe = {}
-        self.aooe = {}
-        self.aope={}
-        self.aoste = {}
-        self.aos={}
+        self.ate = {} # Aspect Term Extraction
+        self.ote = {} # Opinion Term Extraction
+        self.atsc = {} # Aspect Term Sentiment Classification
+        self.aspe = {} # Aspect Sentiment Polarity Extraction
+        self.aooe = {} # Aspect-Only Opinion Extraction
+        self.aope={} # Aspect-Opinion Pair Extraction
+        self.aoste = {} # Aspect-Opinion-Sentiment Extraction
+        self.aos={}  # Aspect-Only Sentiment
     #     self.aoste_def = "Definition: The output will be the aspects (explicit) the corresponding opinion terms (explicit) and the sentiment polarity (positive, negative, neutral) of the opinion term . In cases where there are no aspects the output should be noaspectterm:none:none."
     #     self.knowledge_set = {}
     #     self.knowledge_embeddings = {}

@@ -1,5 +1,4 @@
 from argparse import ArgumentParser
-
 class Config(object):
     """Wrapper class for model hyperparameters."""
     def __init__(self):
