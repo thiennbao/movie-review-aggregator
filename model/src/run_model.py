@@ -1,15 +1,30 @@
 import os
-import warnings
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+os.environ["TRANSFORMERS_NO_TF"] = "1"
 os.environ["WANDB_DISABLED"] = "true"
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+os.environ["TF_USE_LEGACY_KERAS"] = "1"
+os.environ["HF_HUB_DISABLE_XET"] = "1"
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+import warnings
 warnings.filterwarnings('ignore')
-import pandas as pd
 
+# Monkey-patch DPR to always load TF weights
+from transformers.models.dpr.modeling_dpr import DPREncoder
+_orig_dpr = DPREncoder.from_pretrained
+@classmethod
+def _dpr_with_tf(cls, *args, **kwargs):
+    kwargs.setdefault("from_tf", True)
+    return _orig_dpr(cls, *args, **kwargs)
+DPREncoder.from_pretrained = _dpr_with_tf
+
+import pandas as pd
 import torch
 from InstructABSA.data_prep import DatasetLoader
 from InstructABSA.utils import T5Generator, T5Classifier,reconstruct_strings,create_data_in_atsc_format
 from InstructABSA.config import Config
 from instructions import InstructionsHandler
+import ast
 
 try:
     use_mps = True if torch.has_mps else False
@@ -23,7 +38,7 @@ if config.inst_type == 1:
     instruct_handler.load_instruction_set1()
 else:
     instruct_handler.load_instruction_set2()
-
+eos_instruction = '\noutputs: '
 print('Task: ', config.task)
 
 if config.mode == 'train':
@@ -40,16 +55,14 @@ if config.experiment_name is not None and config.mode == 'train':
     question_encoder_name = config.question_encoder_name
     context_encoder_name = config.context_encoder_name
     model_out_path = config.output_dir
-    model_out_path = os.path.join(model_out_path, config.task,
-                                  f"{model_checkpoint.replace('/', '')}-{config.experiment_name}")
+    model_out_path = os.path.join(model_out_path, config.task, f"{model_checkpoint.replace('/', '')}-{config.experiment_name}")
 else:
     model_checkpoint = config.model_checkpoint
     question_encoder_name =config.question_encoder_name
     context_encoder_name= config.context_encoder_name
     model_out_path = config.model_checkpoint
 
-print('Mode set to: ', 'training' if config.mode == 'train' else ('inference' if config.mode == 'eval' \
-                                                                      else 'Individual sample inference'))
+print('Mode set to: ', 'training' if config.mode == 'train' else ('inference' if config.mode == 'eval' else 'Individual sample inference'))
 
 # Load the data
 id_tr_data_path = config.id_tr_data_path
@@ -63,9 +76,11 @@ if config.mode != 'cli':
     if id_tr_data_path is not None:
         id_tr_df = pd.read_csv(id_tr_data_path)
         id_tr_df = reconstruct_strings(id_tr_df, 'aspectTerms')
+        id_tr_df['aspectTerms'] = id_tr_df['aspectTerms'].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) and x.strip() else [])
     if id_te_data_path is not None:
         id_te_df = pd.read_csv(id_te_data_path)
         id_te_df = reconstruct_strings(id_te_df, 'aspectTerms')
+        id_te_df['aspectTerms'] = id_te_df['aspectTerms'].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) and x.strip() else [])
     if ood_tr_data_path is not None:
         ood_tr_df = pd.read_csv(ood_tr_data_path)
         ood_tr_df = reconstruct_strings(ood_tr_df, 'aspectTerms')
@@ -110,6 +125,8 @@ if config.task == 'ote':
 if config.task == 'atsc':
     definition = instruct_handler.atsc['definition']
 if config.task == 'aspe':
+    if 'definition' not in instruct_handler.aspe:
+        raise KeyError("Chưa có 'definition' cho task aspe trong InstructionsHandler")
     definition = instruct_handler.aspe['definition']
 if config.task == 'aoste':
     definition = instruct_handler.aoste['definition']
@@ -136,7 +153,7 @@ if config.task == 'aoste' or config.task == 'unify':
 
 def create_dataset(id_tr_df, id_ev_df, ood_tr_df, ood_ev_df, config, id_te_df, ood_te_df,instruct_handler,bos_instruction_id):# 封装一下创建训练数据的过程
     loader = DatasetLoader(id_tr_df, id_ev_df, ood_tr_df, ood_ev_df, config.sample_size, id_te_df, ood_te_df)
-    eos_instruction = '\noutput: '
+    eos_instruction = '\noutputs: '
     delim_instruction = ' The aspect is '
     if config.task == 'ate':
         if loader.train_df_id is not None:
@@ -199,7 +216,8 @@ def create_dataset(id_tr_df, id_ev_df, ood_tr_df, ood_ev_df, config, id_te_df, o
         _random = False
         if config.mode == 'train':
             _random = True
-        ex_data = pd.read_csv(train_data_path['lap14'])
+        train_data_path = config.id_tr_data_path
+        ex_data = pd.read_csv(train_data_path)
         if loader.train_df_id is not None:
             loader.train_df_id = loader.create_data_in_unify_format(loader.train_df_id, 'term', 'polarity', 'raw_text', 'aspectTerms', 'opinion', bos_instruction_id,
                                                                     eos_instruction, mode=instruct_handler, tt=config.k, _random=_random, ex_data=ex_data)
@@ -212,6 +230,7 @@ def create_dataset(id_tr_df, id_ev_df, ood_tr_df, ood_ev_df, config, id_te_df, o
         if loader.test_df_ood is not None:
             loader.test_df_ood = loader.create_data_in_unify_format(loader.test_df_ood, 'term', 'polarity', 'raw_text', 'aspectTerms', 'opinion', bos_instruction_ood, eos_instruction, mode=instruct_handler, tt=config.k, _random=_random, ex_data=ex_data)
     return loader
+
 if config.mode == 'train':
 # te_df = pd.read_csv("../Dataset/ASTE/lap14/dev.csv")
 # te_df = reconstruct_strings(te_df, 'aspectTerms')
@@ -232,12 +251,12 @@ if config.mode != 'cli':
     loader = create_dataset(id_tr_df, id_te_df, ood_tr_df, ood_te_df, config, id_te_df, ood_te_df,instruct_handler,bos_instruction_id)
     if config.task == 'atsc':
         loader.train_df_id['text'] = loader.train_df_id[['raw_text', 'de']].apply(
-            lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutput: ', axis=1)
+            lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutputs: ', axis=1)
         loader.test_df_id['text'] = loader.test_df_id[['raw_text', 'de']].apply(
-            lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutput: ', axis=1)
+            lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutputs: ', axis=1)
     else:
-        loader.train_df_id['text'] = id_tr_df[['raw_text','de']].apply(lambda x:  x[1] + "\nNow complete the following example-" + "\ninput: " +x[0] + '\noutput: ' , axis=1)
-        loader.test_df_id['text'] = id_te_df[['raw_text', 'de']].apply(lambda x: x[1] + "\nNow complete the following example-" + "\ninput: "+x[0] +'\noutput: ', axis=1)
+        loader.train_df_id['text'] = id_tr_df[['raw_text','de']].apply(lambda x:  x[1] + "\nNow complete the following example-" + "\ninput: " +x[0] + '\noutputs: ' , axis=1)
+        loader.test_df_id['text'] = id_te_df[['raw_text', 'de']].apply(lambda x: x[1] + "\nNow complete the following example-" + "\ninput: "+x[0] +'\noutputs: ', axis=1)
     # Tokenize dataset
     id_ds, id_tokenized_ds, ood_ds, ood_tokenized_ds = loader.set_data_for_training_semeval(
         t5_exp.tokenize_function_inputs)
@@ -257,16 +276,16 @@ if config.mode != 'cli':
             loader = create_dataset(id_tr_df, id_te_df, ood_tr_df, ood_te_df, config, id_te_df, ood_te_df, instruct_handler, bos_instruction_id)
             if config.task == 'atsc':
                 loader.train_df_id['text'] = loader.train_df_id[['raw_text', 'de']].apply(
-                    lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutput: ',
+                    lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutputs: ',
                     axis=1)
                 loader.test_df_id['text'] = loader.test_df_id[['raw_text', 'de']].apply(
-                    lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutput: ',
+                    lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutputs: ',
                     axis=1)
             else:
                 loader.train_df_id['text'] = id_tr_df[['raw_text', 'de']].apply(
-                    lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutput: ', axis=1)
+                    lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutputs: ', axis=1)
                 loader.test_df_id['text'] = id_te_df[['raw_text', 'de']].apply(
-                    lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutput: ', axis=1)
+                    lambda x: x[1] + "\nNow complete the following example-" + "\ninput: " + x[0] + '\noutputs: ', axis=1)
             # Tokenize dataset
             id_ds, id_tokenized_ds, ood_ds, ood_tokenized_ds = loader.set_data_for_training_semeval(t5_exp.tokenize_function_inputs)
             model_trainer = t5_exp.train(id_tokenized_ds, **training_args)
@@ -345,4 +364,4 @@ else:
     model_input = bos_instruction_id + config.test_input + eos_instruction
     input_ids = t5_exp.tokenizer(model_input, return_tensors="pt").input_ids
     outputs = t5_exp.model.generate(input_ids, max_length=512)#config.max_token_length)
-    print('Model output: ', t5_exp.tokenizer.decode(outputs[0], skip_special_tokens=True))
+    print('Model outputs: ', t5_exp.tokenizer.decode(outputs[0], skip_special_tokens=True))

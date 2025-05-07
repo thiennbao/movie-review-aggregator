@@ -10,7 +10,35 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\model\data\test_processed.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\model\data\train.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\model\data\train_processed.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\model\src\data\test_processed_cleaned.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\model\src\data\train_processed_cleaned.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
