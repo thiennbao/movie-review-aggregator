@@ -33,11 +33,11 @@ print('Task: ', config.task)
 
 if config.mode == 'train':
     if config.id_tr_data_path is None:
-        raise Exception('Please provide training data path for mode=training.')
+        raise Exception('Please provide training Data path for mode=training.')
     
 if config.mode == 'eval':
     if config.id_te_data_path is None and config.ood_te_data_path is None:
-        raise Exception('Please provide testing data path for mode=eval.')
+        raise Exception('Please provide testing Data path for mode=eval.')
 
 if config.experiment_name is not None and config.mode == 'train':
     print('Experiment Name: ', config.experiment_name)
@@ -48,10 +48,9 @@ else:
     model_checkpoint = config.model_checkpoint
     model_out_path = config.model_checkpoint
 
-print('Mode set to: ', 'training' if config.mode == 'train' else ('inference' if config.mode == 'eval' \
-                                                                  else 'Individual sample inference'))
+print('Mode set to: ', 'training' if config.mode == 'train' else ('inference' if config.mode == 'eval' else 'Individual sample inference'))
 
-# Load the data
+# Load the Data
 id_tr_data_path = config.id_tr_data_path
 ood_tr_data_path = config.ood_tr_data_path
 id_te_data_path = config.id_te_data_path
@@ -68,7 +67,7 @@ if config.mode != 'cli':
         ood_tr_df = pd.read_csv(ood_tr_data_path)
     if ood_te_data_path is not None:
         ood_te_df = pd.read_csv(ood_te_data_path)
-    print('Loaded data...')
+    print('Loaded Data...')
 else:
     print('Running inference on input: ', config.test_input)
 
@@ -177,8 +176,6 @@ if config.mode != 'cli':
             print('F1-Score: ', f1)
             if config.task == 'atsc':
                 print('Accuracy: ', accuracy)
-
-
         if id_tokenized_ds.get("test") is not None:
             id_te_pred_labels = t5_exp.get_labels(tokenized_dataset = id_tokenized_ds, sample_set = 'test', 
                                                   batch_size=config.per_device_eval_batch_size, 
@@ -194,7 +191,6 @@ if config.mode != 'cli':
             print('F1-Score: ', f1)
             if config.task == 'atsc':
                 print('Accuracy: ', accuracy)
-
         if ood_tokenized_ds.get("train") is not None:
             ood_tr_pred_labels = t5_exp.get_labels(tokenized_dataset = ood_tokenized_ds, sample_set = 'train', 
                                                    batch_size=config.per_device_eval_batch_size, 
@@ -210,7 +206,6 @@ if config.mode != 'cli':
             print('F1-Score: ', precision)
             if config.task == 'atsc':
                 print('Accuracy: ', accuracy)
-            
         if ood_tokenized_ds.get("test") is not None:
             ood_te_pred_labels = t5_exp.get_labels(tokenized_dataset = ood_tokenized_ds, sample_set = 'test', 
                                                    batch_size=config.per_device_eval_batch_size, 

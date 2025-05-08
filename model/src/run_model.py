@@ -43,11 +43,11 @@ print('Task: ', config.task)
 
 if config.mode == 'train':
     if config.id_tr_data_path is None:
-        raise Exception('Please provide training data path for mode=training.')
+        raise Exception('Please provide training Data path for mode=training.')
 
 if config.mode == 'eval':
     if config.id_te_data_path is None and config.ood_te_data_path is None:
-        raise Exception('Please provide testing data path for mode=eval.')
+        raise Exception('Please provide testing Data path for mode=eval.')
 
 if config.experiment_name is not None and config.mode == 'train':
     print('Experiment Name: ', config.experiment_name)
@@ -64,7 +64,7 @@ else:
 
 print('Mode set to: ', 'training' if config.mode == 'train' else ('inference' if config.mode == 'eval' else 'Individual sample inference'))
 
-# Load the data
+# Load the Data
 id_tr_data_path = config.id_tr_data_path
 ood_tr_data_path = config.ood_tr_data_path
 id_te_data_path = config.id_te_data_path
@@ -87,7 +87,7 @@ if config.mode != 'cli':
     if ood_te_data_path is not None:
         ood_te_df = pd.read_csv(ood_te_data_path)
         ood_te_df = reconstruct_strings(ood_te_df, 'aspectTerms')
-    print('Loaded data...')
+    print('Loaded Data...')
 else:
     print('Running inference on input: ', config.test_input)
 

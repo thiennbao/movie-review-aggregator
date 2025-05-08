@@ -25,7 +25,7 @@ class DatasetLoader:
                 for idx, pair in enumerate(text):
                     splitter = ': ' if ': ' in pair else ':'
                     if idx%2==0:
-                        reconstructed_dict = {} 
+                        reconstructed_dict = {}
                         reconstructed_dict[pair.split(splitter)[0].replace("'", '')] = pair.split(splitter)[1].replace("'", '')
                     else:
                         reconstructed_dict[pair.split(splitter)[0].replace("'", '')] = pair.split(splitter)[1].replace("'", '')
@@ -35,7 +35,6 @@ class DatasetLoader:
             reconstructed_col.append(req_list)
         df[col] = reconstructed_col
         return df
-
     def extract_rowwise_aspect_polarity(self, df, on, key, min_val = None):
         """
         Create duplicate records based on number of aspect term labels in the dataset.
@@ -79,7 +78,7 @@ class DatasetLoader:
     def create_data_in_ate_format(self, df, key, text_col, aspect_col, bos_instruction = '', 
                     eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -94,7 +93,7 @@ class DatasetLoader:
     def create_data_in_atsc_format(self, df, on, key, text_col, aspect_col, bos_instruction = '', 
                     delim_instruction = '', eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -106,7 +105,7 @@ class DatasetLoader:
     def create_data_in_aspe_format(self, df, key, label_key, text_col, aspect_col, bos_instruction = '', 
                                          eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -121,7 +120,7 @@ class DatasetLoader:
     def create_data_in_aooe_format(self, df, aspect_col, opinion_col, key, text_col, 
                                bos_instruction = '', delim_instruction = '', eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -133,7 +132,7 @@ class DatasetLoader:
     def create_data_in_aope_format(self, df, key, text_col, aspect_col, opinion_col,
                                          bos_instruction = '', eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         df['labels'] = df[[aspect_col, opinion_col]].apply(lambda x: ', '.join([f"{' '.join(i[key])}:{' '.join(j[key])}" for i, j in zip(x[0], x[1])]), axis=1)
         df['text'] = df[text_col].apply(lambda x: bos_instruction + x + eos_instruction)
@@ -142,36 +141,45 @@ class DatasetLoader:
     def create_data_in_aoste_format(self, df, key, label_key, text_col, aspect_col, opinion_col,
                                          bos_instruction = '', eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         label_map = {'POS':'positive', 'NEG':'negative', 'NEU':'neutral'}
         df['labels'] = df[[aspect_col, opinion_col]].apply(lambda x: ', '.join([f"{' '.join(i[key])}:{' '.join(j[key])}:{label_map[i[label_key]]}" for i, j in zip(x[0], x[1])]), axis=1)
         df['text'] = df[text_col].apply(lambda x: bos_instruction + x + eos_instruction)
         return df
 
-    def create_data_in_joint_task_format(self, df, ate_key, polarity_key, text_col, aspect_col,
+    def create_data_in_joint_task_format(self, df, ate_key, polarity_key,
+                                         text_col, aspect_col,
                                          bos_instruction='', delim_instruction='', eos_instruction=''):
-        """
-        Prepare data for joint ATE + ATSC: one row per aspect with both prompt and label.
-        """
         if df is None:
             return df
-        try:
-            _ = df.iloc[0][aspect_col][0][ate_key]
-        except:
+
+        # Convert strings to list[dict] nếu cần
+        if isinstance(df.iloc[0][aspect_col], str):
             df = self.reconstruct_strings(df, aspect_col)
-        df['count'] = df[aspect_col].apply(len)
-        df = df.loc[df.index.repeat(df['count'])]
+
+        # Explode mỗi aspect thành một hàng
+        df['count'] = df[aspect_col].apply(lambda x: len(x))
+        df = df.loc[df.index.repeat(df['count'])].copy()
         df['idx'] = df.groupby(level=0).cumcount()
+
+        # Tạo cột labels
         df['labels'] = df.apply(
-            lambda r: f"{r[aspect_col][r['idx']][ate_key]}:{r[aspect_col][r['idx']][polarity_key]}", axis=1
-        )
-        df['text'] = df.apply(
-            lambda
-                r: f"{bos_instruction}{r[text_col]}{delim_instruction}{r[aspect_col][r['idx']][ate_key]}{eos_instruction}",
+            lambda r: f"{r[aspect_col][r['idx']][ate_key]}:{r[aspect_col][r['idx']][polarity_key]}",
             axis=1
         )
-        return df
+
+        # Tạo cột text — note: lambda r: on same line
+        df['text'] = df.apply(
+            lambda r: (
+                f"{bos_instruction}{r[text_col]}"
+                f"{delim_instruction}{r[aspect_col][r['idx']][ate_key]}"
+                f"{eos_instruction}"
+            ),
+            axis=1
+        )
+
+        return df.drop(columns=['count', 'idx'])
 
     def set_data_for_training_semeval(self, tokenize_function):
         """

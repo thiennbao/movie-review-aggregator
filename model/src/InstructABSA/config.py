@@ -60,7 +60,7 @@ class Config(object):
         parser.add_argument('-ood_tr_data_path', type=str)
         parser.add_argument('-ood_te_data_path', type=str)
         parser.add_argument('-output_path', type=str)
-        parser.add_argument('-sample_size', help='For sampling fraction of train data', default=1.0, type=float)
+        parser.add_argument('-sample_size', help='For sampling fraction of train Data', default=1.0, type=float)
         parser.add_argument('-evaluation_strategy', help='no/epoch/steps', default='epoch', type=str)
         parser.add_argument('-learning_rate', help='learning rate', default=5e-5, type=float)
         parser.add_argument('-per_device_train_batch_size', help='per_device_train_batch_size', default=16, type=int)

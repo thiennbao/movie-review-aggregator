@@ -152,7 +152,7 @@ class DatasetLoader:
     def create_data_in_ate_format(self, df, key, text_col, aspect_col, bos_instruction = '', 
                     eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -167,7 +167,7 @@ class DatasetLoader:
     def create_data_in_ote_format(self, df, key, text_col, aspect_col, bos_instruction = '',
                     eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -183,7 +183,7 @@ class DatasetLoader:
     def create_data_in_aooe_format(self, df, on, key, key2,text_col, aspect_col, bos_instruction = '',
                     delim_instruction = '', eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -201,7 +201,7 @@ class DatasetLoader:
     def create_data_in_atsc_format(self, df, on, key, text_col, aspect_col, bos_instruction = '', 
                     delim_instruction = '', eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -219,7 +219,7 @@ class DatasetLoader:
     def create_data_in_aspe_format(self, df, key, label_key, text_col, aspect_col, bos_instruction = '', 
                                          eos_instruction = '', num = 2):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -235,7 +235,7 @@ class DatasetLoader:
     def create_data_in_aope_format(self, df, key, key2, text_col, aspect_col, bos_instruction = '',
                                          eos_instruction = '',):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         if df is None:
             return
@@ -250,7 +250,7 @@ class DatasetLoader:
     def create_data_in_aos_format(self, df, key, label_key, text_col, aspect_col, key2,
                                          bos_instruction = '', eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         df = self.reconstruct_strings(df, aspect_col, num=3)
         if df is None:
@@ -266,7 +266,7 @@ class DatasetLoader:
     def create_data_in_aoste_format(self, df, key, label_key, text_col, aspect_col, key2,
                                          bos_instruction = '', eos_instruction = ''):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         # label_map = {'POS':'positive', 'NEG':'negative', 'NEU':'neutral'}
 
@@ -279,7 +279,7 @@ class DatasetLoader:
     def create_data_in_unify_format(self, df, key, label_key, text_col, aspect_col, key2,
                                          bos_instruction = '', eos_instruction = '', mode='test',tt=0,_random=True,ex_data = None):
         """
-        Prepare the data in the input format required.
+        Prepare the Data in the input format required.
         """
         bos_instruction = mode.aoste['bos_instruct1']
         eos_instruction = mode.aoste['eos_instruct']

@@ -3,6 +3,62 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\instructABSA\Data\test.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\instructABSA\Data\train.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\instructABSA\Dataset\SemEval14\Test\Laptops_Test.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\instructABSA\Dataset\SemEval14\Test\Restaurants_Test.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\instructABSA\Dataset\SemEval14\Train\Laptops_Train.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\instructABSA\Dataset\SemEval14\Train\Restaurants_Train.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\instructABSA\Dataset\SemEval15\Test\Restaurants_Test.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\instructABSA\Dataset\SemEval15\Train\Restaurants_Train.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\instructABSA\Dataset\SemEval16\Test\Restaurants_Test.csv">
           <value>
             <Attribute>
@@ -31,28 +87,14 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\model\data\test.csv">
+        <entry key="\model\src\data\test.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\model\data\test_processed.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\model\data\train.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\model\data\train_processed.csv">
+        <entry key="\model\src\data\test_processed.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -60,6 +102,13 @@
           </value>
         </entry>
         <entry key="\model\src\data\test_processed_cleaned.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\model\src\data\train.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

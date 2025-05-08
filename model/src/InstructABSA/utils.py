@@ -20,7 +20,7 @@ from simpletransformers.retrieval import RetrievalModel, RetrievalArgs
 from typing import List
 def tiny_value_of_dtype(dtype: torch.dtype):
     """
-    Returns a moderately tiny value for a given PyTorch data type that is used to avoid numerical
+    Returns a moderately tiny value for a given PyTorch Data type that is used to avoid numerical
     issues such as division by zero.
     This is different from `info_value_of_dtype(dtype).tiny` because it causes some NaN bugs.
     Only supports floating point dtypes.
@@ -127,7 +127,7 @@ def sequence_cross_entropy_with_logits(
                 [1.0 - float(alpha), float(alpha)], dtype=weights.dtype, device=weights.device
             )
 
-        elif isinstance(alpha, (list, numpy.ndarray, torch.Tensor)):
+        elif isinstance(alpha, (list, np.ndarray, torch.Tensor)):
 
             # shape : (c,)
             alpha_factor = torch.tensor(alpha, dtype=weights.dtype, device=weights.device)
@@ -254,7 +254,7 @@ def extract_rowwise_aspect_polarity(df, on, key, min_val=None):
     return df
 def create_data_in_atsc_format(df, on='aspectTerms', key='term', text_col = 'raw_text', aspect_col='aspect'):
     """
-    Prepare the data in the input format required.
+    Prepare the Data in the input format required.
     """
     if df is None:
         return
@@ -571,7 +571,7 @@ class T5Generator:
         ev_num_sample = len(ev_input)
 
         to_predict = tr_input
-        predicted_passages, *_ = self.retriever.predict(to_predict, prediction_passages=self.passages,retrieve_n_docs=10)
+        predicted_passages, *_ = self.retriever.predict(to_predict, prediction_passages=self.passages,retrieve_n_docs=10, passages_only=True)
         train_data = []
         for i in tqdm(range(tr_num_sample)):
             # 计算每个样本与passages库的分数，最高的作为pos（排除自身），最低的（貌似随便一个也可以）作为neg
@@ -599,7 +599,7 @@ class T5Generator:
                     break
             train_data.append(tmp)
         to_predict = ev_input
-        predicted_passages, *_ = self.retriever.predict(to_predict, prediction_passages=self.passages,retrieve_n_docs=10)
+        predicted_passages, *_ = self.retriever.predict(to_predict, prediction_passages=self.passages,retrieve_n_docs=10, passages_only=True)
         eval_data = []
         for i in tqdm(range(ev_num_sample)):
             # 计算每个样本与passages库的分数，最高的作为pos（排除自身），最低的（貌似随便一个也可以）作为neg
@@ -640,7 +640,7 @@ class T5Generator:
         self.retriever.num_train_epochs = num
     def select_examples(self, raw_texts, k=1):
         to_predict = raw_texts
-        predicted_passages, *_ = self.retriever.predict(to_predict, prediction_passages=self.passages, retrieve_n_docs=k+1)
+        predicted_passages, *_ = self.retriever.predict(to_predict, prediction_passages=self.passages, retrieve_n_docs=k+1, passages_only=True)
         res = []
         key1 = 'input:'
         key2 = '\noutput:'

@@ -63,21 +63,21 @@ class InstructionsHandler:
 
         self.aspe['bos_instruct1'] = """Definition: The output will be the aspects (both implicit and explicit) and the aspects sentiment polarity. In cases where there are no aspects the output should be noaspectterm:none.
         Positive example 1-
-        input: I charge it at night and skip taking the cord with me because of the good battery life.
-        output: battery life:positive, 
+        input: I absolutely loved the cinematography and the soundtrack elevated every scene.
+        output: cinematography:positive, soundtrack:positive,
         Positive example 2-
-        input: I even got my teenage son one, because of the features that it offers, like, iChat, Photobooth, garage band and more!.
-        output: features:positive, iChat:positive, Photobooth:positive, garage band:positive
+        input: The performances were stellar and the direction was flawless.
+        output: performances:positive, direction:positive
         Now complete the following example-
         input: """
         
         self.aspe['bos_instruct2'] = """Definition: The output will be the aspects (both implicit and explicit) and the aspects sentiment polarity. In cases where there are no aspects the output should be noaspectterm:none.
         Positive example 1-
-        input: With the great variety on the menu , I eat here often and never get bored.
-        output: menu:positive
+        input: The storyline was gripping and the special effects were breathtaking.
+        output: storyline:positive, special effects:positive
         Positive example 2- 
-        input: Great food, good size menu, great service and an unpretensious setting.
-        output: food:positive, menu:positive, service:positive, setting:positive
+        input: The pacing felt tight and the character development was superb.
+        output: pacing:positive, character development:positive
         Now complete the following example-
         input: """
         self.aspe['delim_instruct'] = ''
@@ -260,45 +260,45 @@ class InstructionsHandler:
 
         self.aspe['bos_instruct1'] = """Definition: The output will be the aspects (both implicit and explicit) and the aspects sentiment polarity. In cases where there are no aspects the output should be noaspectterm:none.
         Positive example 1-
-        input: I charge it at night and skip taking the cord with me because of the good battery life.
-        output: battery life:positive, 
+        input: The cinematography was stunning and the score was moving.
+        output: cinematography:positive, score:positive, 
         Positive example 2-
-        input: I even got my teenage son one, because of the features that it offers, like, iChat, Photobooth, garage band and more!.
-        output: features:positive, iChat:positive, Photobooth:positive, garage band:positive
+        input: I loved the performances and the dialogue felt natural.
+        output: performances:positive, dialogue:positive
         Negative example 1-
-        input: Speaking of the browser, it too has problems.
-        output: browser:negative
+        input: The acting was wooden and the script was cliché.
+        output: acting:negative, script:negative
         Negative example 2-
-        input: The keyboard is too slick.
-        output: keyboard:negative
+        input: The special effects looked fake and the soundtrack was distracting.
+        output: special effects:negative, soundtrack:negative
         Neutral example 1-
-        input: I took it back for an Asus and same thing- blue screen which required me to remove the battery to reset.
-        output: battery:neutral
+        input: The runtime was long but not unbearable.
+        output: runtime:neutral
         Neutral example 2-
-        input: Nightly my computer defrags itself and runs a virus scan.
-        output: virus scan:neutral
+        input: The plot was average and the pacing was steady.
+        output: plot:neutral, pacing:neutral
         Now complete the following example-
         input: """
         
         self.aspe['bos_instruct2'] = """Definition: The output will be the aspects (both implicit and explicit) and the aspects sentiment polarity. In cases where there are no aspects the output should be noaspectterm:none.
         Positive example 1-
-        input: With the great variety on the menu , I eat here often and never get bored.
-        output: menu:positive
+        input: The visual effects were breathtaking and the score complemented every scene.
+        output: visual effects:positive, score:positive
         Positive example 2- 
-        input: Great food, good size menu, great service and an unpretensious setting.
-        output: food:positive, menu:positive, service:positive, setting:positive
+        input: The movie's direction, acting, soundtrack, and cinematography were all outstanding.
+        output: direction:positive, acting:positive, soundtrack:positive, cinematography:positive
         Negative example 1-
-        input: They did not have mayonnaise, forgot our toast, left out ingredients (ie cheese in an omelet), below hot temperatures and the bacon was so over cooked it crumbled on the plate when you touched it.
-        output: toast:negative, mayonnaise:negative, bacon:negative, ingredients:negative, plate:negative
+        input: The pacing dragged in the middle and the dialogue was clunky.
+        output: pacing:negative, dialogue:negative
         Negative example 2-
-        input: The seats are uncomfortable if you are sitting against the wall on wooden benches.
-        output: seats:negative
+        input: The special effects looked cheap and the editing was jarring.
+        output: special effects:negative, editing:negative
         Neutral example 1-
-        input: I asked for seltzer with lime, no ice.
-        output: seltzer with lime:neutral
+        input: The runtime was long but offered some memorable moments.
+        output: runtime:neutral
         Neutral example 2-
-        input: They wouldnt even let me finish my glass of wine before offering another.
-        output: glass of wine:neutral
+        input: The cinematography was standard and the story was predictable.
+        output: cinematography:neutral, story:neutral
         Now complete the following example-
         input: """
         self.aspe['delim_instruct'] = ''
