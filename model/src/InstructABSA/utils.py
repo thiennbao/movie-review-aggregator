@@ -1,11 +1,6 @@
-import os
-os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
-os.environ["TRANSFORMERS_NO_TF"] = "1"
-os.environ["HF_HUB_ENABLE_XET"] = "1"
 import numpy as np
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import torch
-import transformers
 from torch.utils.data import DataLoader
 from torch.nn.utils.rnn import pad_sequence
 from torch import Tensor, nn
@@ -132,7 +127,7 @@ def sequence_cross_entropy_with_logits(
                 [1.0 - float(alpha), float(alpha)], dtype=weights.dtype, device=weights.device
             )
 
-        elif isinstance(alpha, (list, np.ndarray, torch.Tensor)):
+        elif isinstance(alpha, (list, numpy.ndarray, torch.Tensor)):
 
             # shape : (c,)
             alpha_factor = torch.tensor(alpha, dtype=weights.dtype, device=weights.device)
@@ -280,7 +275,7 @@ def score_function(tokenizer,model,d,e,x,y):
         input_ids = model.prepare_inputs_for_generation(input_.input_ids)
         model.eval()
         with torch.no_grad():
-            # outputs = model(input_ids = input_.input_ids,**input_ids)
+            # output = model(input_ids = input_.input_ids,**input_ids)
             output = model(**input_ids)
         model.train()
         # 填充对齐logits和target
@@ -426,15 +421,6 @@ def score_function(tokenizer,model,d,e,x,y):
 #             )
 #         else:
 #             self.prediction_passages = None
-
-def safe_join_terms(x):
-    parts = []
-    for i in x:
-        # chỉ lấy những dict thực sự chứa đủ key
-        if isinstance(i, dict) and 'term' in i and 'polarity' in i:
-            parts.append(f"{i['term']}:{i['polarity']}")
-    return ', '.join(parts)
-
 class T5Generator:
     def __init__(self, model_checkpoint,question_encoder_name='',context_encoder_name=''):
         model_args = RetrievalArgs()
@@ -471,7 +457,7 @@ class T5Generator:
         if task == 'aoste':
             tr_output = list(tr_df['aspectTerms'].apply(lambda x: ', '.join([f"{i['term']}:{i['opinion']}:{i['polarity']}" for i in x])))
         if task == 'aspe':
-            tr_output = list(tr_df['aspectTerms'].apply(safe_join_terms))
+            tr_output = list(tr_df['aspectTerms'].apply(lambda x: ', '.join([f"{i['term']}:{i['polarity']}" for i in x])))
         if task == 'ate':
             tr_output = list(tr_df['aspectTerms'].apply(lambda x: ', '.join([f"{i['term']}" for i in x])))
         if task == 'atsc':
@@ -480,7 +466,7 @@ class T5Generator:
             tr_output = list(tmp['labels'])
         tr_num_sample = len(tr_input)
         for i in range(tr_num_sample):
-            passage = 'input: ' + tr_input[i] + '\noutputs: ' + tr_output[i]
+            passage = 'input: ' + tr_input[i] + '\noutput: ' + tr_output[i]
             self.passages.append(passage)
         # if task != 'atsc':
         #     ev_input = list(ev_df['raw_text'])
@@ -596,7 +582,7 @@ class T5Generator:
             tmp = {}
             tmp['query_text'] = tr_input[i]
             key1 = 'input:'
-            key2 = '\noutputs:'
+            key2 = '\noutput:'
             regex = r'%s(.*?)%s' % (key1, key2)
             high_s = random.sample(high_s,3)
             for j in high_s:
@@ -625,7 +611,7 @@ class T5Generator:
             tmp = {}
             tmp['query_text'] = ev_input[i]
             key1 = 'input:'
-            key2 = '\noutputs:'
+            key2 = '\noutput:'
             regex = r'%s(.*?)%s' % (key1, key2)
             for j in high_s:
                 result = re.findall(regex, predicted_passages[i][j], re.S)[0].strip()
@@ -654,11 +640,10 @@ class T5Generator:
         self.retriever.num_train_epochs = num
     def select_examples(self, raw_texts, k=1):
         to_predict = raw_texts
-        predicted_passages, *_ = self.retriever.predict(to_predict, prediction_passages=self.passages,
-                                                        retrieve_n_docs=k+1)
+        predicted_passages, *_ = self.retriever.predict(to_predict, prediction_passages=self.passages, retrieve_n_docs=k+1)
         res = []
         key1 = 'input:'
-        key2 = '\noutputs:'
+        key2 = '\noutput:'
         regex = r'%s(.*?)%s' % (key1, key2)
         for i in range(len(predicted_passages)):
             done = True
@@ -773,6 +758,7 @@ class T5Generator:
                         # if pred_val in gt_val or gt_val in pred_val:
                         #     tp+=1
                         #     break
+
         else:
             for gt, pred in zip(y_true, y_pred):
                 gt_list = gt.split(',')
@@ -799,6 +785,7 @@ class T5Generator:
                         except:
                             continue
 
+
                         try:
                             pr_op = pred_val.split(':')[1].strip()
                         except:
@@ -817,6 +804,7 @@ class T5Generator:
         p = tp/total_pred
         r = tp/total_gt
         return p, r, 2*p*r/(p+r),None
+
 
 class T5Classifier:
     def __init__(self, model_checkpoint):
