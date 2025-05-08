@@ -137,15 +137,19 @@ class IMDBCrawler:
             base_url += "/"
         return base_url + "reviews/"
 
-    def open_spoilers_and_parse_page(self, spoiler_selector: str) -> tuple[BeautifulSoup, str]:
+    async def open_spoilers_and_parse_page(self, spoiler_selector: str, websocket) -> tuple[BeautifulSoup, str]:
         """Open spoiler buttons and parse the page with BeautifulSoup."""
         spoiler_buttons = self.browser.find_elements(By.CLASS_NAME, spoiler_selector)
+        cnt = 0
         for button in spoiler_buttons:
+            cnt += 1
             if button.is_displayed():
                 try:
                     WebDriverWait(self.browser, 5).until(
                         EC.element_to_be_clickable(button)
                     )
+                    if cnt % 5 == 0:
+                        await websocket.send_json({"INFO": "Handling spoiler button, continuing..."})  # Use websocket instance
                     self.browser.execute_script("arguments[0].click();", button)
                 except TimeoutException:
                     logger.info("Spoiler button not clickable, continuing...")
@@ -262,7 +266,7 @@ class IMDBCrawler:
                     break
 
             # Process initial reviews after skipping
-            soup, movie_name = self.open_spoilers_and_parse_page("review-spoiler-button")
+            soup, movie_name = await self.open_spoilers_and_parse_page("review-spoiler-button", websocket)
             review_cards = soup.find_all("article", class_="user-review-item")
             start_idx = page_size * skip_pages
             
@@ -303,7 +307,7 @@ class IMDBCrawler:
                     await asyncio.sleep(5)
                     break
 
-                soup, movie_name = self.open_spoilers_and_parse_page("review-spoiler-button")
+                soup, movie_name = await self.open_spoilers_and_parse_page("review-spoiler-button", websocket)
                 review_cards = soup.find_all("article", class_="user-review-item")
 
                 reviews = []

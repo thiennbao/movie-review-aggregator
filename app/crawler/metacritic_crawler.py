@@ -184,6 +184,19 @@ class MetacriticCrawler:
             logger.error(f"Error handling spoiler: {e}")
             return "No review text"
 
+    async def send_periodic_notification(self, websocket, interval=5):
+        """Tác vụ gửi thông báo định kỳ qua WebSocket mỗi `interval` giây."""
+        try:
+            while True:
+                await websocket.send_json({"INFO": "Still waiting for page to load..."})
+                await asyncio.sleep(interval)
+        except asyncio.CancelledError:
+            # Khi tác vụ bị hủy, gửi thông báo cuối (tùy chọn)
+            await websocket.send_json({"INFO": "Periodic notification stopped"})
+            raise
+        
+    
+
     async def get_reviews_ws(self, review_url: str, reviews_range: list, websocket: WebSocket, role: str = "critic") -> None:
         """Fetch reviews for a specific movie from Metacritic and send via WebSocket."""
         if not validators.url(review_url):
@@ -218,13 +231,20 @@ class MetacriticCrawler:
             for current_role in roles:
                 role_url = role_urls[current_role]
                 logger.info(f"Fetching {current_role} reviews: {role_url}")
-
+                await websocket.send_json({"INFO": f"Fetching {current_role} reviews..."})  # Send status update
                 # Load the page
                 try:
                     self.browser.get(role_url)
-                    WebDriverWait(self.browser, 20).until(
-                        EC.presence_of_element_located((By.CLASS_NAME, "c-siteReview_main"))
-                    )
+                    time = 0
+                    while time <= 30:
+                        if WebDriverWait(self.browser, 5).until(
+                            EC.presence_of_element_located((By.CLASS_NAME, "c-siteReview_main"))
+                        ):
+                            break
+                        time += 5
+                        await websocket.send_json({"INFO": f"Waiting for {current_role} reviews to load..."})
+                        await asyncio.sleep(5)  # Wait for the page to load
+                        
                 except TimeoutException:
                     try:
                         if WebDriverWait(self.browser, 20).until(
@@ -235,7 +255,7 @@ class MetacriticCrawler:
                             continue  # Skip to next role
                     except TimeoutException:
                         logger.error("Failed to load review page")
-                        await websocket.send_json({"error": "Failed to load review page"})
+                        await websocket.send_json({"error": "c"})
                         return
 
                 # Infinite scroll handling
@@ -252,12 +272,14 @@ class MetacriticCrawler:
                     review_cards = soup.find_all("div", class_="c-siteReview")
                     current_reviews = len(review_cards)
                     self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                    await websocket.send_json({"status": f"Skipping to {current_role} reviews..."})  # Send status update
+                    await websocket.send_json({"INFO": f"Skipping to {current_role} reviews..."})  # Send status update
                     await asyncio.sleep(5)  # Wait for new reviews to load
                     new_soup = BeautifulSoup(self.browser.page_source, "lxml")
                     new_review_cards = new_soup.find_all("div", class_="c-siteReview")
                     if len(new_review_cards) <= current_reviews:
                         logger.info(f"Reached the end of reviews for {current_role} role during skipping")
+                        await websocket.send_json({"INFO": f"No more reviews for {current_role} available"})
+                        await asyncio.sleep(5)
                         break
                     scroll_attempts += 1
                     logger.info(f"Skipped scroll {scroll_attempts}/{skip_count}")
@@ -344,6 +366,7 @@ class MetacriticCrawler:
                         json_data = {"batch_num": batch_num, "reviews": reviews, "count": len(reviews)}
                         json.dumps(json_data)
                         await websocket.send_json(json_data)
+                        # await asyncio.sleep(5)  # Optional delay to avoid overwhelming the client
                         try:
                             confirmation = await asyncio.wait_for(websocket.receive_json(), timeout=30.0)
                             if confirmation.get("status") == "received" and confirmation.get("batch_num") == batch_num:
@@ -452,6 +475,7 @@ class MetacriticCrawler:
                             json_data = {"batch_num": batch_num, "reviews": reviews, "count": len(reviews)}
                             json.dumps(json_data)
                             await websocket.send_json(json_data)
+                            # await asyncio.sleep(5)  # Wait for the client to process the data
                             try:
                                 confirmation = await asyncio.wait_for(websocket.receive_json(), timeout=30.0)
                                 if confirmation.get("status") == "received" and confirmation.get("batch_num") == batch_num:
@@ -491,24 +515,3 @@ class MetacriticCrawler:
 
 if __name__ == "__main__":
     crawler = MetacriticCrawler()
-    # base_url = "https://www.metacritic.com/browse/movie/all/all/all-time/new/?releaseYearMin=1910&releaseYearMax=2025&page="
-
-    # movie_list = {}
-
-    # # Crawl one page for testing
-    # new_movies = crawler.get_movie_list(base_url, 1)
-    # movie_list.update(new_movies)
-
-    review_links = crawler.convert_to_review_urls(["https://www.metacritic.com/movie/army-of-shadows/"])
-
-    print(review_links)
-    reviews = []
-    for item in review_links:
-        role = "critic" if "critic-reviews" in item["href"] else "user"
-        print("Role" + role)
-        movie_reviews = crawler.get_reviews(item["href"], role)
-        reviews.extend(movie_reviews)
-
-    print(f"Total reviews collected: {len(reviews)}")
-    for i, review in enumerate(reviews[:3]):
-        print(f"Review {i+1}: {review}")
