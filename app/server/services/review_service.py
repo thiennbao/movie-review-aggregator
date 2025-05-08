@@ -246,6 +246,7 @@ async def fetch_and_store_reviews_ws(url: str, source: str, reviews_range: Optio
         return
 
     # Fetch and stream reviews
+    reviews_count = 0
     async for batch in fetch_reviews_with_websocket_stream(url, source, [new_start, end], max_retries=5, timeout=600.0):
         if "error" in batch:
             logger.error(f"Error fetching reviews: {batch['error']}")
@@ -253,6 +254,7 @@ async def fetch_and_store_reviews_ws(url: str, source: str, reviews_range: Optio
             return
 
         reviews = batch.get("reviews", [])
+        reviews_count += len(reviews)
         if not reviews:
             continue
 
@@ -284,11 +286,12 @@ async def fetch_and_store_reviews_ws(url: str, source: str, reviews_range: Optio
             return
 
         # Yield batch to client
-        yield {
-            "batch_num": batch.get("batch_num"),
-            "reviews": modified_reviews,
-            "count": len(modified_reviews)
-        }
+        if reviews_count + new_start > start:
+            yield {
+                "batch_num": batch.get("batch_num"),
+                "reviews": modified_reviews,
+                "count": len(modified_reviews)
+            }
 
 async def query_reviews(movie_name: Optional[str] = None, source: Optional[str] = None, limit: int = 100, reviews_range: Optional[List[int]] = None) -> dict:
     """
