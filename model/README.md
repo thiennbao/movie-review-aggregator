@@ -1,19 +1,21 @@
-# Instruction Tuning with Retrieval-based Examples Ranking for Aspect-based Sentiment Analysis
+# InstructABSA: Instruction learning for Aspect Based Sentiment Classification [NAACL - 2024]
 
+## 💥 New Features Coming
+- We will be adding LoRA and PTuning based finetuning methods for parameter efficient finetuning.
+- We will be updating the task list to add 3 new tasks viz. aspect based opinion extraction (ABPE), aspect opinion pair extraction (AOPE) and aspect opinion sentiment triplet extraction (AOSTE).
+- Revisions to paper to include more systematic ablation studies.
 
-![Model](https://raw.githubusercontent.com/thiennbao/movie-review-aggregator/refs/heads/model-rnd/model/images/Figure_1.jpg)
+## Introduction
 
-For a target sample, for example, *The _falafel_ was slightly **overcooked** and **dry**, but the _chicken_ was **satisfactory***, the example *The _price_ was too **high**, but the _cab_ was **amazing*** can be appropriate. They share a similar syntactic structure, which can contribute to imitation and generation. However, such an example is unsuitable for another sample, for example, *The _staff_ displays **arrogance**, and the _prices_ are considerably **high** for Brooklyn standards*. Because the opinion of **high** in the example may finally impact the judgment of the aspect _price_ of the target. Furthermore, the sample *We **enjoyed** our _visit_ and utilized buses and cabs for transportation* seems to have little relevance to the example above. However, the aspect _cab_ may be incorrectly considered an aspect term based on the prompt of the word _cab_ in the example.
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/instructabsa-instruction-learning-for-aspect/aspect-extraction-on-semeval-2014-task-4-sub-2)](https://paperswithcode.com/sota/aspect-extraction-on-semeval-2014-task-4-sub-2?p=instructabsa-instruction-learning-for-aspect)
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/instructabsa-instruction-learning-for-aspect/aspect-extraction-on-semeval-2014-task-4-sub-1)](https://paperswithcode.com/sota/aspect-extraction-on-semeval-2014-task-4-sub-1?p=instructabsa-instruction-learning-for-aspect)
 
-## Requirements
-Install all required python dependencies:
-```
-pip install -r requirements.txt
-```
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/instructabsa-instruction-learning-for-aspect/sentiment-analysis-on-semeval-2014-task-4)](https://paperswithcode.com/sota/sentiment-analysis-on-semeval-2014-task-4?p=instructabsa-instruction-learning-for-aspect)
 
-## Datasets
+This repository is the official implementation of the [paper](https://arxiv.org/abs/2302.08624). As part of our approach we show the efficacy of instruction tuned language models. This approach surpasses previous SOTA on downstream ABSA subtasks by significant margin.
 
+## Dataset Requirements
 This section describes the format of the data required for the training and evaluation of the datasets using our approach. For all subtasks, the field names should match exactly as shown and have the same datatypes. The fields to be present in the raw dataset are as follows:
 
 -- ```raw_text```: This is the reviews section (str)
@@ -29,39 +31,70 @@ An example dataset is shown below and also in the [Datasets](https://github.com/
 | The cab ride was amazing but the service was pricey  | [{'term':'cab ride', 'polarity':'positive'}, {'term':'service', 'polarity':'negative'}]  |
 | I ordered the Barbeque Pizza | [{'term':'noaspectterm', 'polarity':'none'}] |
 
-## Instructions
+## Model Checkpoints
 
-### Train
-```
-python ../run_model.py -mode train -model_checkpoint google/flan-t5-base \
--experiment_name aste_res14 -task aoste -output_dir ../Models \
--inst_type 2 \
--set_instruction_key 2 \
--id_tr_data_path ../Dataset/ASTE/res14/train.csv \
--id_te_data_path ../Dataset/ASTE/res14/dev.csv \
--per_device_train_batch_size 2 -per_device_eval_batch_size 2 -num_train_epochs 4 \
+All the model weights can be found [here](https://huggingface.co/kevinscaria). The best performing models for each ABSA subtask based on our experiments are presented in the table below:
+| Task  | Model Name | Dataset Trained | Model Type | Instruction Configuration |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| ATE| kevinscaria/ate_tk-instruct-base-def-pos-neg-neut-combined | SemEval 2014 Laptops + Restaurants | InstructABSA-2 | Definition + 2 pos + 2 neg + 2 neut examples |
+| ATSC| kevinscaria/atsc_tk-instruct-base-def-pos-combined | SemEval 2014 Laptops + Restaurants | InstructABSA-1 | Definition + 2 pos examples |
+| Joint Task| kevinscaria/joint_tk-instruct-base-def-pos-neg-neut-combined | SemEval 2014 Laptops + Restaurants | InstructABSA-2 | Definition + 2 pos + 2 neg + 2 neut examples |
+
+### A sample inference notebook is found [here](https://github.com/kevinscaria/InstructABSA/blob/main/inference_notebook.ipynb).
+
+## Aspect Term Extraction
+
+The ATE models can be trained from scratch or alternatively can be used to run inference on your datasets directly. This can be done through CLI (check the [Scripts](https://github.com/kevinscaria/InstructABSA/tree/main/Scripts) folder) or by adapting your code similar to run_model.py. An example shell command to run inference on individual samples is shown below.
+
+A sample notebook for training and evluating ATE can be found [here](https://github.com/kevinscaria/InstructABSA/blob/main/ATE_Training_&_Inference.ipynb).
+
+To evaluate the ATE subtask on a single input using CLI run the following:
+```shell
+python run_model.py -mode cli -task ate \
+-model_checkpoint kevinscaria/ate_tk-instruct-base-def-pos-neg-neut-combined \
+-test_input 'The cab ride was amazing but the service was pricey'
 ```
 
+## Aspect Term Sentiment Classification
 
-### Eval
+The ATSC models can be trained from scratch or alternatively can be used to run inference on your datasets directly. This can be done through CLI (check the [Scripts](https://github.com/kevinscaria/InstructABSA/tree/main/Scripts) folder) or by adapting your code similar to run_model.py. An example shell command to run inference on individual samples is shown below.
+
+To evaluate the ATSC subtask on a single input using CLI run the following:
+```shell
+python run_model.py -mode cli -task atsc \
+-model_checkpoint kevinscaria/atsc_tk-instruct-base-def-pos-neg-neut-combined \
+-test_input 'The ambience was amazing but the waiter was rude|ambience'
 ```
-python ../run_model.py -mode eval -model_checkpoint ../Models/aoste/googleflan-t5-base-aste_res14 \
--experiment_name aste_res14 -task aoste -output_path ../Output \
--inst_type 2 \
--set_instruction_key 2 \
--id_tr_data_path ../Dataset/ASTE/res14/train.csv \
--id_te_data_path ../Dataset/ASTE/res14/test.csv \
--per_device_train_batch_size 16 -per_device_eval_batch_size 16 -num_train_epochs 4 \
--k 4
+Note the ```|``` delimiter that is used to pass the aspect term for which the polarity is to be extracted.
+
+
+## Joint Tasks
+
+The Joint task models can be trained from scratch or alternatively can be used to run inference on your datasets directly. This can be done through CLI (check the [Scripts](https://github.com/kevinscaria/InstructABSA/tree/main/Scripts) folder) or by adapting your code similar to run_model.py. An example shell command to run inference on individual samples is shown below.
+
+A sample notebook for training and evluating Joint Task can be found [here](https://github.com/kevinscaria/InstructABSA/blob/main/JointTask_Training_&_Inference.ipynb).
+
+To evaluate the Joint Task on a single input using CLI run the following:
+```shell
+python run_model.py -mode cli -task joint \
+-model_checkpoint kevinscaria/joint_tk-instruct-base-def-pos-neg-neut-combined \
+-test_input 'The cab ride was amazing but the service was pricey'
 ```
+## Aspect Based Opinion Extraction ⬆️
+
+## Aspect Opinion Pair Extraction ⬆️
+
+## Aspect Opinion Sentiment Triplet Extraction ⬆️
 
 ## BibTeX Entry and Citation Info
 
-```
-@article{zheng2024instruction,
-  title={Instruction Tuning with Retrieval-based Examples Ranking for Aspect-based Sentiment Analysis},
-  author={Zheng, Guangmin and Wang, Jin and Yu, Liang-Chih and Zhang, Xuejie},
-  journal={arXiv preprint arXiv:2405.18035},
-  year={2024}
+If you find our work useful, please cite our work: 
+
+```bibtex
+article{scaria2023instructabsa,
+  title={InstructABSA: Instruction Learning for Aspect Based Sentiment Analysis},
+  author={Scaria, Kevin and Gupta, Himanshu and Sawant, Saurabh Arjun and Mishra, Swaroop and Baral, Chitta},
+  journal={arXiv preprint arXiv:2302.08624},
+  year={2023}
 }
 ```

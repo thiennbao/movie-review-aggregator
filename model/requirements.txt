@@ -1,13 +1,5 @@
-transformers
 torch>1.8
+transformers
 datasets
 evaluate
 sentencepiece
-scikit-learn
-accelerate
-sentence-transformers
-rouge
-
-allennlp
-simpletransformers==0.63.11
-tensorboardX
