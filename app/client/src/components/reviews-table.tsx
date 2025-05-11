@@ -4,13 +4,13 @@ export interface Review {
   id: number;
   user: string;
   date: string;
-  aspects: [{ term: string; content: string; polarity: string }];
+  results: [{ aspects: string[]; content: string; polarities: string[] }];
 }
 
-const termColors: { [key: string]: string } = {
-  plot: "bg-red-500/50",
-  character: "bg-amber-500/50",
-  sound: "bg-emerald-500/50",
+const polarityColors: { [key: string]: string } = {
+  negative: "bg-red-500/50",
+  neutral: "bg-amber-500/50",
+  positive: "bg-emerald-500/50",
 };
 
 export default function ReviewsTable({ reviews }: { reviews: Review[] }) {
@@ -28,16 +28,17 @@ export default function ReviewsTable({ reviews }: { reviews: Review[] }) {
           <div className="col-span-2">{review.user}</div>
           <div className="col-span-2">{review.date}</div>
           <div className="col-span-15 text-justify">
-            {review.aspects.map((aspect, index) => (
-              <span key={index} className={`${termColors[aspect.term]} rounded px-1 relative group`}>
-                {aspect.content}
-                {aspect.term && (
-                  <span className="bg-inherit absolute bottom-full left-0 p-2 rounded-xl hidden group-hover:block">
-                    {aspect.polarity === "positive" && <Icon icon="mingcute:happy-fill" width="24" height="24" />}
-                    {aspect.polarity === "neutral" && <Icon icon="garden:face-neutral-fill-16" width="24" height="24" />}
-                    {aspect.polarity === "negative" && <Icon icon="mingcute:unhappy-fill" width="24" height="24" />}
+            {review.results.map((result, index) => (
+              <span key={index} className={`rounded px-1 relative group ${result.polarities[0] !== "none" && "bg-formground"} mr-1`}>
+                {result.content}
+                {result.aspects.map((aspect: string, index: number) => (
+                  <span key={index} className={`${polarityColors[result.polarities[index]]} px-1 ml-1 rounded`}>
+                    {aspect}
+                    {result.polarities[index] === "positive" && <Icon icon="mingcute:happy-fill" width="16" height="16" className="inline align-middle ml-1" />}
+                    {result.polarities[index] === "neutral" && <Icon icon="garden:face-neutral-fill-16" width="14" height="14" className="inline align-middle ml-1" />}
+                    {result.polarities[index] === "negative" && <Icon icon="mingcute:unhappy-fill" width="16" height="16" className="inline align-middle ml-1" />}
                   </span>
-                )}
+                ))}
               </span>
             ))}
           </div>

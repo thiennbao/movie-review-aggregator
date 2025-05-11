@@ -2,9 +2,9 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import re
 import asyncio
-from imdb_crawler import IMDBCrawler
-from metacritic_crawler import MetacriticCrawler
-from rotten_crawler import RottenTomatoesCrawler
+from crawlers.imdb_crawler import IMDBCrawler
+from crawlers.metacritic_crawler import MetacriticCrawler
+from crawlers.rotten_crawler import RottenTomatoesCrawler
 import uvicorn
 
 # Initialize FastAPI app
