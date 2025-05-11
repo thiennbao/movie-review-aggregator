@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 class RottenTomatoesCrawler:
     def __init__(
         self,
-        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "D://NLP//chromedriver-win64//chromedriver-win64//chromedriver.exe"),
+        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "C://Users//thiennbao//Downloads//chromedriver-win64//chromedriver.exe"),
         state_file: str = os.getenv("STATE_FILE", "rotten_state.json"),
     ):
         """Initialize the crawler with a path to chromedriver."""
@@ -218,7 +218,7 @@ class RottenTomatoesCrawler:
 
         review = {
             "movie_name": movie_name,
-            "author": user_name,
+            "author_name": user_name,
             "review": comment,
             "link": review_url.split("reviews")[0],
             "review_date": review_date,

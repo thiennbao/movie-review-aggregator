@@ -42,11 +42,11 @@ def save_review(review):
         conn = get_db_connection()
         cursor = conn.cursor()
         query = f"""
-            insert into reviews (id, url, "user", date, results)
-            values (%s, %s, %s, %s, %s)
+            insert into reviews (id, url, "user", date, content, results)
+            values (%s, %s, %s, %s, %s, %s)
             on conflict (id) do nothing
         """
-        cursor.execute(query, (review["id"], review["url"], review["user"], review["date"], json.dumps(review["results"])))
+        cursor.execute(query, (review["id"], review["url"], review["user"], review["date"], review["content"], json.dumps(review["results"])))
         conn.commit()
         conn.close()
     except Exception as e:

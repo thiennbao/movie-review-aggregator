@@ -31,7 +31,7 @@ _device    = None
 
 task_name = 'joint_task'
 experiment_name = 'aspe-absa2'
-model_checkpoint = 'PhatLe12344/InstructABSAFineTune'
+model_checkpoint = 'PhatLe12344/InstructABSAFineTune-fp16'
 print('Model checkpoint from Hugging Face Hub:', model_checkpoint)
 
 instr = InstructionsHandler()
@@ -138,14 +138,23 @@ def predict(request: ReviewRequest) -> PredictionResponse:
         grouped[content]["polarities"].append(pol)
         grouped[content]["positions"].append((start, end))
 
-    # 5. Tạo danh sách kết quả cuối
+    # 5. Build result list, dedup identical (asp, pol, pos)
     result_items: List[UnifiedAspectPolarity] = []
     for content, data in grouped.items():
-        # 5.1. Kết hợp và sắp xếp các aspect trong nhóm theo vị trí bắt đầu
-        combined = list(zip(data["aspects"], data["polarities"], data["positions"]))
-        combined.sort(key=lambda x: x[2][0])
-        aspects, polarities, positions = zip(*combined)
-        # 5.2. Khởi tạo UnifiedAspectPolarity với dữ liệu đã sắp xếp
+        # zip into triples
+        triples = list(zip(data["aspects"], data["polarities"], data["positions"]))
+        # dedupe while preserving order
+        seen = set()
+        unique_triples = []
+        for asp, pol, pos in triples:
+            key = (asp, pol, pos)
+            if key not in seen:
+                seen.add(key)
+                unique_triples.append((asp, pol, pos))
+        # sort by start index
+        unique_triples.sort(key=lambda x: x[2][0])
+        # unzip back
+        aspects, polarities, positions = zip(*unique_triples) if unique_triples else ([], [], [])
         result_items.append(
             UnifiedAspectPolarity(
                 aspects=list(aspects),
@@ -155,7 +164,6 @@ def predict(request: ReviewRequest) -> PredictionResponse:
             )
         )
 
-    # 6. Trả về response với raw_output và kết quả gom nhóm
     return PredictionResponse(raw_output=raw_out, results=result_items)
 
 # Endpoint root để kiểm tra

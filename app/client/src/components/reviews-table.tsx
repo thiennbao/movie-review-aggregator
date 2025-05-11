@@ -2,8 +2,10 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 
 export interface Review {
   id: number;
+  url: string;
   user: string;
   date: string;
+  content: string;
   results: [{ aspects: string[]; content: string; polarities: string[] }];
 }
 
@@ -24,7 +26,7 @@ export default function ReviewsTable({ reviews }: { reviews: Review[] }) {
       </div>
       {reviews.map((review, index) => (
         <div key={index} className="grid grid-cols-20 *:m-4">
-          <div>{review.id}</div>
+          <div>{index + 1}</div>
           <div className="col-span-2">{review.user}</div>
           <div className="col-span-2">{review.date}</div>
           <div className="col-span-15 text-justify">
@@ -34,9 +36,15 @@ export default function ReviewsTable({ reviews }: { reviews: Review[] }) {
                 {result.aspects.map((aspect: string, index: number) => (
                   <span key={index} className={`${polarityColors[result.polarities[index]]} px-1 ml-1 rounded`}>
                     {aspect}
-                    {result.polarities[index] === "positive" && <Icon icon="mingcute:happy-fill" width="16" height="16" className="inline align-middle ml-1" />}
-                    {result.polarities[index] === "neutral" && <Icon icon="garden:face-neutral-fill-16" width="14" height="14" className="inline align-middle ml-1" />}
-                    {result.polarities[index] === "negative" && <Icon icon="mingcute:unhappy-fill" width="16" height="16" className="inline align-middle ml-1" />}
+                    {result.polarities[index] === "positive" && (
+                      <Icon icon="mingcute:happy-fill" width="16" height="16" className="inline align-middle ml-1" />
+                    )}
+                    {result.polarities[index] === "neutral" && (
+                      <Icon icon="garden:face-neutral-fill-16" width="14" height="14" className="inline align-middle ml-1" />
+                    )}
+                    {result.polarities[index] === "negative" && (
+                      <Icon icon="mingcute:unhappy-fill" width="16" height="16" className="inline align-middle ml-1" />
+                    )}
                   </span>
                 ))}
               </span>
