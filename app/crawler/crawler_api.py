@@ -42,10 +42,9 @@ async def fetch_reviews(request: ReviewRequest):
     try:
         # Extract and validate request data
         url = request.url.rstrip('/')
-        source = request.source.lower()
         reviews_range = request.range
 
-        if not url or not source:
+        if not url:
             raise HTTPException(status_code=400, detail="Missing url or source")
 
         if not isinstance(reviews_range, list) or len(reviews_range) != 2:
@@ -57,6 +56,14 @@ async def fetch_reviews(request: ReviewRequest):
                 raise HTTPException(status_code=400, detail="Invalid range: start must be >= 0 and end > start")
         except (ValueError, TypeError):
             raise HTTPException(status_code=400, detail="Range values must be integers")
+        
+        source = "imdb"
+        if "imdb" in url:
+            source = "imdb"
+        elif "rottentomatoes" in url:
+            source = "rottentomatoes"
+        elif "metacritic" in url:
+            source = "metacritic"
 
         # Validate URL format for the spécifique source
         if source == "imdb" and not is_valid_imdb_url(url):

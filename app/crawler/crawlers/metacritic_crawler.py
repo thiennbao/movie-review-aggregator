@@ -234,11 +234,10 @@ class MetacriticCrawler:
                     self.browser.get(role_url)
                     WebDriverWait(self.browser, 30).until(
                             EC.presence_of_element_located((By.CLASS_NAME, "c-siteReview_main"))
-                        )
-
+                    )
                 except TimeoutException:
                     try:
-                        if WebDriverWait(self.browser, 20).until(
+                        if WebDriverWait(self.browser, 60).until(
                             EC.presence_of_element_located((By.CLASS_NAME, "c-pageProductReviews_message"))
                         ):
                             logger.info(f"No {current_role} reviews available")
@@ -248,7 +247,6 @@ class MetacriticCrawler:
                         return
 
                 page_size = 50
-                processed_reviews = set()
                 max_scroll_attempts = 50
                 scroll_attempts = 0
 
@@ -326,9 +324,7 @@ class MetacriticCrawler:
                         elif current_role == "user" and author:
                             author = author.text.strip()
 
-                    review_key = f"{comment}:{author}"
-                    if review_key not in processed_reviews:
-                        review = {
+                    review = {
                             "movie_name": movie_name,
                             "review": comment,
                             "score": score,
@@ -336,22 +332,20 @@ class MetacriticCrawler:
                             "author_name": author,
                             "review_date": date if date != "N/A" and date != "" else None,
                             "role": current_role,
-                        }
-                        all_reviews.append(review)
-
-                        reviews.append(review)
-                        processed_reviews.add(review_key)
-                        total_reviews_processed += 1
-                        start_idx += 1
+                    }
+                    all_reviews.append(review)
+                    reviews.append(review)
+                    total_reviews_processed += 1
+                    start_idx += 1
 
                 if reviews:
                     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
-                    logger.info(f"[{timestamp}] Preparing to send {len(reviews)} reviews (Batch {batch_num})")
+                    # logger.info(f"[{timestamp}] Preparing to send {len(reviews)} reviews (Batch {batch_num})")
                     try:
                         # json_data = {"batch_num": batch_num, "reviews": reviews, "count": len(reviews)}
                         # json.dumps(json_data)
                         # await sio.emit('review_batch', json_data, to=sid)
-                        logger.info(f"[{timestamp}] Sent {len(reviews)} reviews (Batch {batch_num})")
+                        # logger.info(f"[{timestamp}] Sent {len(reviews)} reviews (Batch {batch_num})")
                         batch_num += 1
                         start_idx += len(reviews)
                     except Exception as e:
@@ -419,9 +413,7 @@ class MetacriticCrawler:
                             elif current_role == "user" and author:
                                 author = author.text.strip()
 
-                        review_key = f"{comment}:{author}"
-                        if review_key not in processed_reviews:
-                            review = {
+                        review = {
                                 "movie_name": movie_name,
                                 "review": comment,
                                 "score": score,
@@ -429,13 +421,15 @@ class MetacriticCrawler:
                                 "author_name": author,
                                 "review_date": date if date != "N/A" and date != "" else None,
                                 "role": current_role,
-                            }
+                        }
 
-                            reviews.append(review)
-                            all_reviews.append(review)
-                            processed_reviews.add(review_key)
-                            total_reviews_processed += 1
-                            start_idx += 1
+                        reviews.append(review)
+                        all_reviews.append(review)
+                        total_reviews_processed += 1
+                        start_idx += 1
+                        
+                        if total_reviews_processed >= target_reviews:
+                            break
 
                     if reviews:
                         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
@@ -460,7 +454,7 @@ class MetacriticCrawler:
                     start = start - len(review_cards) if start - len(review_cards) > 0 else 0
                     end = end - len(review_cards)
                     start_idx = start
-                else:
+                if total_reviews_processed >= target_reviews:
                     break
             return all_reviews
 
