@@ -23,9 +23,10 @@ from model.InstructABSA.utils import T5Generator, T5Classifier
 from model.instructions import InstructionsHandler
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+import re
 
 task_name = 'joint_task'
 experiment_name = 'aspe-absa2'
@@ -49,18 +50,24 @@ eos   = instr.aspe['eos_instruct']
 class ReviewRequest(BaseModel):
     review: str
 
-class AspectPolarity(BaseModel):
-    aspect: str
-    polarity: str
+class UnifiedAspectPolarity(BaseModel):
+    aspects: List[str]
+    polarities: List[str]
+    positions: List[Tuple[int, int]]  # list of (start, end) in content
+    content: str
 
 class PredictionResponse(BaseModel):
     raw_output: str
-    results: List[AspectPolarity]
+    results: List[UnifiedAspectPolarity]
 
 # Khởi tạo FastAPI
 app = FastAPI(
     title="InstructABSA API",
     description="API để phân tích aspect-polarity từ câu review",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
 )
 
 def load_model():
@@ -98,18 +105,55 @@ def absa_inference_single(text: str, bos_instruction: str, delim_instruction: st
     return decoded, results
 
 # Endpoint
-@app.post("/predict", response_model=PredictionResponse)
-def predict(request: ReviewRequest):
+@app.post("/predict", response_model=PredictionResponse, tags=["absa"], response_model_exclude_none=True)
+def predict(request: ReviewRequest) -> PredictionResponse:
+    # 1. Read and validate input review text
     text = request.review.strip()
     if not text:
+        # Nếu review rỗng, trả về HTTP 400
         raise HTTPException(status_code=400, detail="Review text cannot be empty.")
 
+    # 2. Gọi hàm inference để lấy raw_output và cặp (aspect, polarity)
     raw_out, pairs = absa_inference_single(text, bos, delim, eos)
-    # Sử dụng vị trí xuất hiện trong review để sort
-    positions = {asp: text.lower().find(asp.lower()) for asp, _ in pairs}
-    sorted_pairs = sorted(pairs, key=lambda x: positions.get(x[0], float('inf')))
-    result_items = [AspectPolarity(aspect=asp, polarity=pol) for asp, pol in sorted_pairs]
 
+    # 3. Tách toàn bộ review thành câu con dựa trên dấu . ! ?
+    sentence_re = re.compile(r'(?<=[.!?])\s*')
+    sentences = sentence_re.split(text)
+
+    # 4. Gom nhóm các cặp theo từng câu (content) và tính vị trí trong content
+    grouped: Dict[str, Dict[str, List]] = {}
+    for asp, pol in pairs:
+        # 4.1. Xác định câu chứa aspect (nếu không tìm thấy thì dùng toàn review)
+        content = next((s for s in sentences if asp.lower() in s.lower()), text).strip()
+        # 4.2. Tính vị trí start và end của aspect trong câu content
+        start = content.lower().find(asp.lower())
+        end = start + len(asp) if start != -1 else -1
+        # 4.3. Khởi tạo group nếu câu chưa có
+        if content not in grouped:
+            grouped[content] = {"aspects": [], "polarities": [], "positions": []}
+        # 4.4. Thêm aspect, polarity và position vào nhóm
+        grouped[content]["aspects"].append(asp)
+        grouped[content]["polarities"].append(pol)
+        grouped[content]["positions"].append((start, end))
+
+    # 5. Tạo danh sách kết quả cuối
+    result_items: List[UnifiedAspectPolarity] = []
+    for content, data in grouped.items():
+        # 5.1. Kết hợp và sắp xếp các aspect trong nhóm theo vị trí bắt đầu
+        combined = list(zip(data["aspects"], data["polarities"], data["positions"]))
+        combined.sort(key=lambda x: x[2][0])
+        aspects, polarities, positions = zip(*combined)
+        # 5.2. Khởi tạo UnifiedAspectPolarity với dữ liệu đã sắp xếp
+        result_items.append(
+            UnifiedAspectPolarity(
+                aspects=list(aspects),
+                polarities=list(polarities),
+                positions=list(positions),
+                content=content
+            )
+        )
+
+    # 6. Trả về response với raw_output và kết quả gom nhóm
     return PredictionResponse(raw_output=raw_out, results=result_items)
 
 # Endpoint root để kiểm tra

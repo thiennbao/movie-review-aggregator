@@ -13,8 +13,6 @@ os.environ["TF_USE_LEGACY_KERAS"]      = "1"
 os.environ["HF_HUB_DISABLE_XET"]       = "1"
 os.environ['TF_CPP_MIN_LOG_LEVEL']     = '2'
 
-# Nếu bạn để main.py ở client/, không cần chỉnh sys.path
-# sys.path.insert(0, os.path.dirname(__file__))
 
 from client.ui import render_header, input_form, render_output
 
