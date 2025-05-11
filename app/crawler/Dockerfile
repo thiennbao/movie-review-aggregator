@@ -41,11 +41,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy application files
-COPY crawler_api.py .
-COPY imdb_crawler.py .
-COPY metacritic_crawler.py .
-COPY rotten_crawler.py .
-COPY requirements.txt .
+COPY . .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt

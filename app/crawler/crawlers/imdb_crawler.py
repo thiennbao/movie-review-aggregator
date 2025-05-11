@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import WebDriverException, TimeoutException
+from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException
 import time
 from bs4 import BeautifulSoup
 import os
@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 class IMDBCrawler:
     def __init__(
         self,
-        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "C://Users//thiennbao//Downloads//chromedriver-win64//chromedriver.exe"),
+        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "D://NLP//chromedriver-win64//chromedriver-win64//chromedriver.exe"),
         state_file: str = os.getenv("STATE_FILE", "rotten_state.json"),
     ):
         """Initialize the crawler with a path to chromedriver."""
@@ -135,28 +135,35 @@ class IMDBCrawler:
 
     async def open_spoilers_and_parse_page(self, spoiler_selector: str, start_idx: int) -> tuple[BeautifulSoup, str]:
         """Open spoiler buttons starting from start_idx and parse the page with BeautifulSoup."""
-        soup = BeautifulSoup(self.browser.page_source, "html.parser")
-        review_cards = soup.find_all("article", class_="user-review-item")
-
-        spoiler_buttons = self.browser.find_elements(By.CLASS_NAME, spoiler_selector)
+        # Get all review cards using Selenium
+        review_cards = self.browser.find_elements(By.CSS_SELECTOR, "article.user-review-item")
 
         if start_idx >= len(review_cards):
             logger.info(f"start_idx {start_idx} exceeds number of review cards {len(review_cards)}. Returning current page.")
+            soup = BeautifulSoup(self.browser.page_source, "html.parser")
             movie_name_elem = soup.find("section", class_="ipc-page-section")
             movie_name = movie_name_elem.find("h2").text.strip() if movie_name_elem else "Unknown Movie"
             return soup, movie_name
 
-        for idx, button in enumerate(spoiler_buttons[start_idx:]):
-            if button.is_displayed():
-                try:
+        # Click spoiler buttons for review cards starting from start_idx
+        for idx, review_card in enumerate(review_cards[start_idx:]):
+            try:
+                # Find the spoiler button within the review card
+                spoiler_button = review_card.find_element(By.CLASS_NAME, spoiler_selector)
+                if spoiler_button.is_displayed():
                     WebDriverWait(self.browser, 5).until(
-                        EC.element_to_be_clickable(button)
+                        EC.element_to_be_clickable(spoiler_button)
                     )
-                    self.browser.execute_script("arguments[0].click();", button)
-                except TimeoutException:
-                    logger.info(f"Spoiler button at index {start_idx + idx} not clickable, continuing...")
-                    continue
+                    self.browser.execute_script("arguments[0].click();", spoiler_button)
+                    # logger.info(f"Clicked spoiler button at index {start_idx + idx}")
+            except (TimeoutException, NoSuchElementException):
+                # logger.info(f"No clickable spoiler button at index {start_idx + idx}, continuing...")
+                continue
+            except Exception as e:
+                logger.warning(f"Error clicking spoiler button at index {start_idx + idx}: {e}")
+                continue
 
+        # Parse the page after clicking spoilers
         soup = BeautifulSoup(self.browser.page_source, "html.parser")
         movie_name_elem = soup.find("section", class_="ipc-page-section")
         movie_name = movie_name_elem.find("h2").text.strip() if movie_name_elem else "Unknown Movie"
