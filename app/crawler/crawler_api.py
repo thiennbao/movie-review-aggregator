@@ -18,7 +18,6 @@ rotten_crawler = RottenTomatoesCrawler()
 # Pydantic model for request validation
 class ReviewRequest(BaseModel):
     url: str
-    source: str
     range: list[int] = [0, 100]
 
 def is_valid_imdb_url(url: str) -> bool:

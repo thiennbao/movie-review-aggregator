@@ -19,12 +19,16 @@ export default function ExportButtons({ reviews }: { reviews: Review[] }) {
 }
 
 const handleCopy = (reviews: Review[]) => {
-  const text = JSON.stringify(reviews, null, 2);
+  const text = JSON.stringify(
+    reviews.map((review) => ({ ...review, results: JSON.stringify(review.results) })),
+    null,
+    2
+  );
   navigator.clipboard.writeText(text);
 };
 
-const handleExcel = (reivews: Review[]) => {
-  const worksheet = xlsx.utils.json_to_sheet(reivews);
+const handleExcel = (reviews: Review[]) => {
+  const worksheet = xlsx.utils.json_to_sheet(reviews.map((review) => ({ ...review, results: JSON.stringify(review.results) })));
   const workbook = xlsx.utils.book_new();
   xlsx.utils.book_append_sheet(workbook, worksheet, "Sheet1");
   xlsx.writeFile(workbook, "data.xlsx");
@@ -32,7 +36,7 @@ const handleExcel = (reivews: Review[]) => {
 };
 
 const handleCsv = (reviews: Review[]) => {
-  const csv = Papa.unparse(reviews);
+  const csv = Papa.unparse(reviews.map((review) => ({ ...review, results: JSON.stringify(review.results) })));
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
