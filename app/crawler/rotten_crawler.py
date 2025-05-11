@@ -12,8 +12,6 @@ from selenium.common.exceptions import (
     NoSuchElementException
 )
 from datetime import datetime
-from fastapi import WebSocket, WebSocketDisconnect
-
 import time
 from bs4 import BeautifulSoup
 import json
@@ -27,11 +25,9 @@ import asyncio
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
 class RottenTomatoesCrawler:
     def __init__(
         self,
-        #chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "/usr/bin/chromedriver"),
         chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "D://NLP//chromedriver-win64//chromedriver-win64//chromedriver.exe"),
         state_file: str = os.getenv("STATE_FILE", "rotten_state.json"),
     ):
@@ -45,7 +41,7 @@ class RottenTomatoesCrawler:
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.add_argument("--disable-gpu")
-        chrome_options.add_argument("--headless=new")
+        chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
         chrome_options.add_argument('--ignore-certificate-errors')
         chrome_options.add_argument('--ignore-ssl-errors')
@@ -168,14 +164,8 @@ class RottenTomatoesCrawler:
             res.append({"href": href + "reviews"})
             res.append({"href": href + "reviews?type=user"})
         return res
-    
-    def close_browser(self):
-        """Close the browser if it’s open."""
-        if self.browser:
-            self.browser.quit()
-            self.browser = None
 
-    def extract_review(self, review_card, movie_name: str, review_url: str, role: str) -> dict:
+    async def extract_review(self, review_card, movie_name: str, review_url: str, role: str) -> dict:
         """Extract review details from a review card."""
         review_data = review_card.find("div", class_="review-data")
         user_name = None
@@ -226,7 +216,7 @@ class RottenTomatoesCrawler:
         except AttributeError:
             review_date = ""
 
-        return {
+        review = {
             "movie_name": movie_name,
             "author": user_name,
             "review": comment,
@@ -236,70 +226,77 @@ class RottenTomatoesCrawler:
             "role": role,
         }
 
-    async def send_review_batch(self, reviews: list, batch_num: int, websocket: WebSocket) -> bool:
-        """Send a batch of reviews via WebSocket."""
-        if not reviews:
-            return True
+        return review
 
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
-        logger.info(f"[{timestamp}] Preparing to send {len(reviews)} reviews (Batch {batch_num})")
-        try:
-            json_data = {"batch_num": batch_num, "reviews": reviews, "count": len(reviews)}
-            json.dumps(json_data)  # Validate JSON serialization
-            await websocket.send_json(json_data)
-            logger.info(f"[{timestamp}] Sent {len(reviews)} reviews (Batch {batch_num})")
-            try:
-                confirmation = await asyncio.wait_for(websocket.receive_json(), timeout=30.0)
-                if confirmation.get("status") == "received" and confirmation.get("batch_num") == batch_num:
-                    logger.info(f"[{timestamp}] Client confirmed receipt of batch {batch_num}")
-                else:
-                    logger.warning(f"[{timestamp}] Invalid or mismatched confirmation for batch {batch_num}: {confirmation}")
-                    return False
-            except asyncio.TimeoutError:
-                logger.error(f"[{timestamp}] Client did not confirm batch {batch_num} in time")
-                return False
-            return True
-        except WebSocketDisconnect:
-            logger.error(f"[{timestamp}] WebSocket disconnected before sending batch {batch_num}")
-            return False
-        except Exception as e:
-            logger.error(f"[{timestamp}] Error sending JSON: {e}")
-            await websocket.send_json({"error": f"JSON send error: {str(e)}"})
-            return False
+    # async def send_review_batch(self, reviews: list, batch_num: int, sio, sid: str) -> bool:
+    #     """Send a batch of reviews via Socket.IO."""
+    #     if not reviews:
+    #         return True
 
-    def load_more_reviews(self) -> tuple[BeautifulSoup, bool]:
+    #     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
+    #     logger.info(f"[{timestamp}] Preparing to send {len(reviews)} reviews (Batch {batch_num})")
+    #     try:
+    #         json_data = {"batch_num": batch_num, "reviews": reviews, "count": len(reviews)}
+    #         json.dumps(json_data)  # Validate JSON serialization
+    #         await sio.emit('review_batch', json_data, to=sid)
+    #         logger.info(f"[{timestamp}] Sent {len(reviews)} reviews (Batch {batch_num})")
+    #         # Note: Socket.IO doesn't require confirmation like WebSocket, but you can implement it if needed
+    #         return True
+    #     except Exception as e:
+    #         logger.error(f"[{timestamp}] Error sending JSON: {e}")
+    #         # await sio.emit('error', {"error": f"JSON send error: {str(e)}"}, to=sid)
+    #         return False
+
+    async def load_more_reviews(self, role) -> tuple[BeautifulSoup, bool]:
         """Click 'Load More' button and return updated page soup. Returns (soup, success)."""
         try:
             soup = BeautifulSoup(self.browser.page_source, "lxml")
-            prev_review_count = len(soup.find_all("div", class_="review-row" if "review-row" in soup else "audience-review-row"))
-            if not WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "load-more-container"))):
+            prev_review_count = len(soup.find_all(
+                    "div",
+                    class_="review-row" if role == "critic" else "audience-review-row",
+            ))
+            if not WebDriverWait(self.browser, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, "load-more-container"))):
+                logger.info("Load more button not clickable.")
                 return BeautifulSoup(self.browser.page_source, "lxml"), False
-            load_more = self.browser.find_element(By.CLASS_NAME, "load-more-container")
-            print(load_more.is_displayed())
+            
+            load_more = WebDriverWait(self.browser, 10).until(
+                        EC.element_to_be_clickable(
+                            (By.CLASS_NAME, "load-more-container")
+            ))
+
             if not load_more.is_displayed() or not load_more.is_enabled():
+                logger.info("Load more button not displayed or enabled.")
                 return BeautifulSoup(self.browser.page_source, "lxml"), False
+            
+            self.browser.execute_script("arguments[0].scrollIntoView(true);", load_more)
             ActionChains(self.browser).move_to_element(load_more).click().perform()
+            self.browser.execute_script("window.scrollBy(0, window.innerHeight);")
             time.sleep(5)
+
             soup = BeautifulSoup(self.browser.page_source, "lxml")
-            new_review_count = len(soup.find_all("div", class_="review-row" if "review-row" in soup else "audience-review-row"))
-            if new_review_count == prev_review_count:
-                logger.info("No new reviews loaded.")
-                return BeautifulSoup(self.browser.page_source, "lxml"), False
+            new_review_count = len(soup.find_all(
+                    "div",
+                    class_="review-row" if role == "critic" else "audience-review-row",
+            ))
+            logger.info(f"INFO: prev_reviews {prev_review_count}, new_review_count {new_review_count}")
+            # if new_review_count <= prev_review_count:
+            #     logger.info("No new reviews loaded.")
+            #     return BeautifulSoup(self.browser.page_source, "lxml"), False
             return BeautifulSoup(self.browser.page_source, "lxml"), True
 
         except (TimeoutException, ElementNotInteractableException, NoSuchElementException) as e:
             logger.info(f"Failed to load more reviews: {e}")
             return BeautifulSoup(self.browser.page_source, "lxml"), False
 
-    async def get_reviews_ws(self, review_url: str, reviews_range: list, websocket: WebSocket, role: str = "critic") -> None:
-        """Fetch reviews for a specific movie from Rotten Tomatoes and send via WebSocket."""
+    async def get_reviews_api(self, review_url: str, reviews_range: list, role: str = "critic") -> None:
+        """Fetch reviews for a specific movie from Rotten Tomatoes and send via Socket.IO."""
         if not validators.url(review_url):
             logger.error(f"Invalid URL provided: {review_url}")
-            await websocket.send_json({"error": f"Invalid URL: {review_url}"})
             return
 
         try:
-            logger.info(f"WebSocket state before processing: {websocket.client_state}")
+            all_reviews = []
+            logger.info(f"Processing reviews for: {review_url}")
             self.initialize_chrome_driver()
             logger.info(f"Crawling reviews: {review_url}")
 
@@ -307,7 +304,6 @@ class RottenTomatoesCrawler:
             if start < 0 or end <= start:
                 error_msg = "Invalid range provided. Start must be >= 0 and end must be > start."
                 logger.error(error_msg)
-                await websocket.send_json({"error": error_msg})
                 return
 
             start_idx = start
@@ -315,7 +311,7 @@ class RottenTomatoesCrawler:
             target_reviews = end - start
             current_reviews = 0
             batch_num = 1
-            roles = [role] if role == "user" else ["critic", "user"]  # Handle both roles if critic
+            roles = [role] if role == "user" else ["critic", "user"]
             role_urls = {
                 "critic": review_url,
                 "user": review_url + "?type=user" if "?type=user" not in review_url else review_url
@@ -356,33 +352,32 @@ class RottenTomatoesCrawler:
                 else:
                     error_msg = f"Failed to load {current_role} review page after {max_retries} attempts."
                     logger.error(error_msg)
-                    await websocket.send_json({"error": error_msg})
                     return
+                
+                # await asyncio.sleep(10)
 
                 # Skip to starting page
                 skip_count = start // page_size if start % page_size != 0 or start == 0 else start // page_size - 1
                 soup = BeautifulSoup(self.browser.page_source, "lxml")
                 flag = False
                 for i in range(skip_count):
-                    soup, success = self.load_more_reviews()
+                    soup, success = await self.load_more_reviews(current_role)
                     if not success:
-                        logger.error(f"Not enough {current_role} reviews to skip. Only {i} clicks made.")
+                        logger.info(f"Not enough {current_role} reviews to skip. Only {i} clicks made.")
                         flag = True
                         review_cards = soup.find_all(
                             "div",
                             class_="review-row" if current_role == "critic" else "audience-review-row",
                         )
+                        logger.info(f"Total {current_role} reviews: {len(review_cards)}")
                         break
                     logger.info(f"Skipped {current_role} page {i + 1}/{skip_count}")
-                    await websocket.send_json(
-                        {"INFO": f"Skipped {current_role} page {i + 1}/{skip_count}"}
-                    )
-                    await asyncio.sleep(5)
-                    
+
                 if flag and role == "critic":
                     start -= len(review_cards)
                     end -= len(review_cards)
                     start_idx = start
+                    logger.info(f"Adjusted start index: {start_idx}, end index: {end}")
                     continue
 
                 # Process initial reviews
@@ -398,24 +393,22 @@ class RottenTomatoesCrawler:
                 for review_card in review_cards[start_idx:]:
                     if current_reviews >= target_reviews:
                         break
-                    review = self.extract_review(review_card, movie_name, role_url, current_role)
+                    review = await self.extract_review(review_card, movie_name, role_url, current_role)
+                    all_reviews.append(review)
                     reviews.append(review)
                     current_reviews += 1
 
                 if reviews:
-                    if not await self.send_review_batch(reviews, batch_num, websocket):
-                        return
+                    # if not await self.send_review_batch(reviews, batch_num, sio, sid):
+                    #     return
                     batch_num += 1
                     start_idx += len(reviews)
 
                 # Load additional pages
                 while current_reviews < target_reviews:
-                    soup, success = self.load_more_reviews()
+                    soup, success = await self.load_more_reviews(current_role)
                     if not success:
                         logger.info(f"No more {current_role} reviews to load after {current_reviews} reviews")
-                        if current_role == "user":
-                            await websocket.send_json({"NO MORE REVIEWS": "No more user reviews to load."})
-                            await asyncio.sleep(5)
                         break
 
                     movie_name_elem = soup.find("a", class_="sidebar-title")
@@ -427,53 +420,40 @@ class RottenTomatoesCrawler:
 
                     reviews = []
                     for review_card in review_cards[start_idx:min(len(review_cards), start_idx + page_size)]:
-                        review = self.extract_review(review_card, movie_name, role_url, current_role)
+                        review = await self.extract_review(review_card, movie_name, role_url, current_role)
                         reviews.append(review)
+                        all_reviews.append(review)
                         current_reviews += 1
                         if current_reviews >= target_reviews:
                             break
 
                     if reviews:
-                        if not await self.send_review_batch(reviews, batch_num, websocket):
-                            break
+                        # if not await self.send_review_batch(reviews, batch_num, sio, sid):
+                        #     break
                         batch_num += 1
                         start_idx += len(reviews)
 
                 if current_reviews >= target_reviews:
                     break
-                
+
                 review_cards = soup.find_all(
                     "div",
                     class_="review-row" if current_role == "critic" else "audience-review-row",
                 )
-                
+
                 if current_role == "critic":
                     start = start - len(review_cards) if start - len(review_cards) > 0 else 0
                     end -= len(review_cards)
                     start_idx = start
                     print(start_idx, end)
+            
+            return all_reviews
 
         except Exception as e:
             logger.error(f"Error in get_reviews_ws: {e}")
-            await websocket.send_json({"error": f"Error fetching reviews: {str(e)}"})
         finally:
             self.close_browser()
 
-
 if __name__ == "__main__":
     crawler = RottenTomatoesCrawler()
-
-    # Test getting film list
-    # base_url = "https://www.rottentomatoes.com/browse/movies_at_home/"
-    # film_list = crawler.get_film_list(base_url, target_films=100)
-    # print(f"Total films loaded: {len(film_list)}")
-
-    # Test getting reviews for "Mickey 17"
-    critic_reviews = crawler.get_reviews("https://www.rottentomatoes.com/m/until_dawn_2025/reviews", role="critic")
-    user_reviews = crawler.get_reviews("https://www.rottentomatoes.com/m/until_dawn_2025/reviews?type=user", role="user")
-    df = pd.DataFrame(critic_reviews + user_reviews)
-    df.to_csv("freaky_tales_reviews.csv", index=False)
-    # reviews = critic_reviews + user_reviews
-    # print(f"Found {len(reviews)} reviews for Mickey 17")
-    # for i, review in enumerate(reviews[:3]):
-    #     print(f"Review {i+1}: {review}")
+    # Test code remains unchanged

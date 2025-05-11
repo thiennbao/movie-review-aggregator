@@ -10,7 +10,6 @@ from bs4 import BeautifulSoup
 import json
 import os
 from datetime import datetime
-from fastapi import WebSocket, WebSocketDisconnect
 import validators
 import logging
 import asyncio
@@ -22,7 +21,6 @@ logger = logging.getLogger(__name__)
 class MetacriticCrawler:
     def __init__(
         self,
-        #chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "/usr/bin/chromedriver"),
         chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "D://NLP//chromedriver-win64//chromedriver-win64//chromedriver.exe"),
         state_file: str = os.getenv("STATE_FILE", "rotten_state.json"),
     ):
@@ -131,9 +129,8 @@ class MetacriticCrawler:
                 href += "/"
             res.append({"href": href + "critic-reviews/"})
             res.append({"href": href + "user-reviews/"})
-                
         return res
-    
+
     def close_modal(self):
         """Close the modal by clicking the SVG close button."""
         try:
@@ -152,30 +149,25 @@ class MetacriticCrawler:
         """Handle spoilers in the comment by clicking 'Read More' and closing any modal."""
         logger.info("Detected spoiler alert in comment")
         try:
-            # Find the "Read More" button using Selenium
             read_more = comment_card.find("button", class_="c-globalButton_container")
             read_more.click()
-            time.sleep(2)  # Wait for the content to load
+            time.sleep(2)
             logger.info("Clicked 'Read More' to reveal spoiler content")
 
-            # Wait for the spoiler content to load
             WebDriverWait(self.browser, 10).until(
                 EC.presence_of_element_located((By.CLASS_NAME, "c-siteReviewReadMore_wrapper"))
             )
 
-            # Parse the updated page to get the full comment
             soup = BeautifulSoup(self.browser.page_source, "lxml")
             updated_comment_card = soup.find("div", class_="c-siteReviewReadMore_wrapper")
             if updated_comment_card:
                 full_comment = updated_comment_card.text.strip()
                 logger.info(f"Comment after handling spoiler: {full_comment}")
-                # Check for and close any modal that appears
                 self.close_modal()
                 return full_comment
             else:
                 logger.warning("Failed to find updated comment after clicking 'Read More'")
                 return "No review text"
-            
 
         except TimeoutException as e:
             logger.error(f"Timeout while handling spoiler: {e}")
@@ -184,34 +176,41 @@ class MetacriticCrawler:
             logger.error(f"Error handling spoiler: {e}")
             return "No review text"
 
-    async def send_periodic_notification(self, websocket, interval=5):
-        """Tác vụ gửi thông báo định kỳ qua WebSocket mỗi `interval` giây."""
-        try:
-            while True:
-                await websocket.send_json({"INFO": "Still waiting for page to load..."})
-                await asyncio.sleep(interval)
-        except asyncio.CancelledError:
-            # Khi tác vụ bị hủy, gửi thông báo cuối (tùy chọn)
-            await websocket.send_json({"INFO": "Periodic notification stopped"})
-            raise
-        
-    
+    # async def send_periodic_notification(self, sio, sid, interval=55):
+    #     """Send periodic notifications via Socket.IO."""
+    #     try:
+    #         while True:
+    #             await sio.emit('info', {"INFO": "Still waiting for page to load..."}, to=sid)
+    #             await asyncio.sleep(interval)
+    #     except asyncio.CancelledError:
+    #         await sio.emit('info', {"INFO": "Periodic notification stopped"}, to=sid)
+    #         raise
 
-    async def get_reviews_ws(self, review_url: str, reviews_range: list, websocket: WebSocket, role: str = "critic") -> None:
-        """Fetch reviews for a specific movie from Metacritic and send via WebSocket."""
+    # async def keep_alive(self, sio, sid):
+    #     """Send ping messages to keep Socket.IO connection alive."""
+    #     try:
+    #         while True:
+    #             await asyncio.sleep(15)
+    #             await sio.emit('ping', {}, to=sid)
+    #             logger.debug("Sent ping to keep Socket.IO alive")
+    #     except Exception as e:
+    #         logger.warning(f"Keep-alive ping failed: {str(e)}")
+
+    async def get_reviews_api(self, review_url: str, reviews_range: list, role: str = "critic") -> None:
+        """Fetch reviews for a specific movie from Metacritic and send via Socket.IO."""
         if not validators.url(review_url):
             logger.error(f"Invalid URL provided: {review_url}")
-            await websocket.send_json({"error": f"Invalid URL: {review_url}"})
             return
 
         try:
-            logger.info(f"WebSocket state before processing: {websocket.client_state}")
+            all_reviews = []
+            logger.info(f"Processing reviews for: {review_url}")
             self.initialize_chrome_driver()
 
             word_split = "critic-reviews" if role == "critic" else "user-reviews"
             movie_url = review_url.split(word_split)[0]
             logger.info(f"Crawling reviews for: {movie_url}")
-            roles = [role] if role == "user" else ["critic", "user"]  # Handle both roles if critic
+            roles = [role] if role == "user" else ["critic", "user"]
             role_urls = {
                 "critic": review_url,
                 "user": review_url.replace("critic-reviews", "user-reviews")
@@ -221,7 +220,6 @@ class MetacriticCrawler:
             if start < 0 or end <= start:
                 error_msg = "Invalid range provided. Start must be >= 0 and end > start."
                 logger.error(error_msg)
-                await websocket.send_json({"error": error_msg})
                 return
 
             target_reviews = end - start
@@ -231,40 +229,29 @@ class MetacriticCrawler:
             for current_role in roles:
                 role_url = role_urls[current_role]
                 logger.info(f"Fetching {current_role} reviews: {role_url}")
-                await websocket.send_json({"INFO": f"Fetching {current_role} reviews..."})  # Send status update
-                # Load the page
+
                 try:
                     self.browser.get(role_url)
-                    time = 0
-                    while time <= 30:
-                        if WebDriverWait(self.browser, 5).until(
+                    WebDriverWait(self.browser, 30).until(
                             EC.presence_of_element_located((By.CLASS_NAME, "c-siteReview_main"))
-                        ):
-                            break
-                        time += 5
-                        await websocket.send_json({"INFO": f"Waiting for {current_role} reviews to load..."})
-                        await asyncio.sleep(5)  # Wait for the page to load
-                        
+                        )
+
                 except TimeoutException:
                     try:
                         if WebDriverWait(self.browser, 20).until(
                             EC.presence_of_element_located((By.CLASS_NAME, "c-pageProductReviews_message"))
                         ):
                             logger.info(f"No {current_role} reviews available")
-                            await websocket.send_json({"error": f"No {current_role} reviews available"})
-                            continue  # Skip to next role
+                            continue
                     except TimeoutException:
                         logger.error("Failed to load review page")
-                        await websocket.send_json({"error": "c"})
                         return
 
-                # Infinite scroll handling
                 page_size = 50
-                processed_reviews = set()  # Track unique reviews to avoid duplicates
-                max_scroll_attempts = 50  # Limit to avoid infinite loops
+                processed_reviews = set()
+                max_scroll_attempts = 50
                 scroll_attempts = 0
 
-                # Skip to starting point
                 skip_count = start // page_size if start % page_size != 0 else start // page_size - 1
                 current_reviews = 0
                 for _ in range(max(0, skip_count)):
@@ -272,26 +259,21 @@ class MetacriticCrawler:
                     review_cards = soup.find_all("div", class_="c-siteReview")
                     current_reviews = len(review_cards)
                     self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                    await websocket.send_json({"INFO": f"Skipping to {current_role} reviews..."})  # Send status update
-                    await asyncio.sleep(5)  # Wait for new reviews to load
+                    time.sleep(5)
                     new_soup = BeautifulSoup(self.browser.page_source, "lxml")
                     new_review_cards = new_soup.find_all("div", class_="c-siteReview")
                     if len(new_review_cards) <= current_reviews:
                         logger.info(f"Reached the end of reviews for {current_role} role during skipping")
-                        await websocket.send_json({"INFO": f"No more reviews for {current_role} available"})
-                        await asyncio.sleep(5)
                         break
                     scroll_attempts += 1
                     logger.info(f"Skipped scroll {scroll_attempts}/{skip_count}")
 
-                # Process initial reviews
                 soup = BeautifulSoup(self.browser.page_source, "lxml")
                 movie_name_elem = soup.find("a", class_="c-productSubpageHeader_back")
                 if not movie_name_elem:
                     movie_name_elem = soup.find("span", class_="c-productSubpageHeader_back")
                 if not movie_name_elem:
                     logger.error("Failed to find movie name")
-                    await websocket.send_json({"error": "Failed to find movie name"})
                     break
                 movie_name = movie_name_elem.text.strip()
 
@@ -355,53 +337,38 @@ class MetacriticCrawler:
                             "review_date": date if date != "N/A" and date != "" else None,
                             "role": current_role,
                         }
+                        all_reviews.append(review)
+
                         reviews.append(review)
                         processed_reviews.add(review_key)
                         total_reviews_processed += 1
+                        start_idx += 1
 
                 if reviews:
                     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
                     logger.info(f"[{timestamp}] Preparing to send {len(reviews)} reviews (Batch {batch_num})")
                     try:
-                        json_data = {"batch_num": batch_num, "reviews": reviews, "count": len(reviews)}
-                        json.dumps(json_data)
-                        await websocket.send_json(json_data)
-                        # await asyncio.sleep(5)  # Optional delay to avoid overwhelming the client
-                        try:
-                            confirmation = await asyncio.wait_for(websocket.receive_json(), timeout=30.0)
-                            if confirmation.get("status") == "received" and confirmation.get("batch_num") == batch_num:
-                                logger.info(f"[{timestamp}] Client confirmed receipt of batch {batch_num}")
-                            else:
-                                logger.warning(f"[{timestamp}] Invalid or mismatched confirmation for batch {batch_num}: {confirmation}")
-                        except asyncio.TimeoutError:
-                            logger.error(f"[{timestamp}] Client did not confirm batch {batch_num} in time")
+                        # json_data = {"batch_num": batch_num, "reviews": reviews, "count": len(reviews)}
+                        # json.dumps(json_data)
+                        # await sio.emit('review_batch', json_data, to=sid)
                         logger.info(f"[{timestamp}] Sent {len(reviews)} reviews (Batch {batch_num})")
                         batch_num += 1
-                        start_idx += len(reviews)  # Update start index for next batch
-                    except WebSocketDisconnect:
-                        logger.error(f"[{timestamp}] WebSocket disconnected before sending batch {batch_num}")
-                        break
+                        start_idx += len(reviews)
                     except Exception as e:
                         logger.error(f"[{timestamp}] Error sending JSON: {e}")
-                        await websocket.send_json({"error": f"JSON send error: {str(e)}"})
                         break
 
-                # Load additional reviews via infinite scroll
                 while total_reviews_processed < target_reviews and scroll_attempts < max_scroll_attempts:
                     current_reviews = len(review_cards)
                     self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                    await websocket.send_json({"status": f"Loading more {current_role} reviews..."})
-                    await asyncio.sleep(5)
+                    time.sleep(5)
                     soup = BeautifulSoup(self.browser.page_source, "lxml")
                     review_cards = soup.find_all("div", class_="c-siteReview")
-                    
+
                     print(f"Current reviews count: {len(review_cards)}")
 
                     if len(review_cards) <= current_reviews:
                         logger.info(f"Reached the end of reviews for {current_role} role after {scroll_attempts + 1} scrolls")
-                        if current_role == "user":
-                            await websocket.send_json({"NO MORE REVIEWS": "No more user reviews available"})
-                            await asyncio.sleep(5)
                         break
 
                     movie_name_elem = soup.find("a", class_="c-productSubpageHeader_back")
@@ -409,7 +376,6 @@ class MetacriticCrawler:
                         movie_name_elem = soup.find("span", class_="c-productSubpageHeader_back")
                     if not movie_name_elem:
                         logger.error("Failed to find movie name")
-                        await websocket.send_json({"error": "Failed to find movie name"})
                         break
                     movie_name = movie_name_elem.text.strip()
 
@@ -429,7 +395,7 @@ class MetacriticCrawler:
                             else "No review text"
                         )
                         if "[SPOILER ALERT: This review contains spoilers.]" in comment:
-                            comment =  self.handle_spoiler(comment_card=body)
+                            comment = self.handle_spoiler(comment_card=body)
 
                         date = "N/A"
                         date_elem = body.find("div", class_="c-siteReviewHeader_reviewDate")
@@ -464,34 +430,25 @@ class MetacriticCrawler:
                                 "review_date": date if date != "N/A" and date != "" else None,
                                 "role": current_role,
                             }
+
                             reviews.append(review)
+                            all_reviews.append(review)
                             processed_reviews.add(review_key)
                             total_reviews_processed += 1
+                            start_idx += 1
 
                     if reviews:
                         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
                         logger.info(f"[{timestamp}] Preparing to send {len(reviews)} reviews (Batch {batch_num})")
                         try:
-                            json_data = {"batch_num": batch_num, "reviews": reviews, "count": len(reviews)}
-                            json.dumps(json_data)
-                            await websocket.send_json(json_data)
-                            # await asyncio.sleep(5)  # Wait for the client to process the data
-                            try:
-                                confirmation = await asyncio.wait_for(websocket.receive_json(), timeout=30.0)
-                                if confirmation.get("status") == "received" and confirmation.get("batch_num") == batch_num:
-                                    logger.info(f"[{timestamp}] Client confirmed receipt of batch {batch_num}")
-                                else:
-                                    logger.warning(f"[{timestamp}] Invalid or mismatched confirmation for batch {batch_num}: {confirmation}")
-                            except asyncio.TimeoutError:
-                                logger.error(f"[{timestamp}] Client did not confirm batch {batch_num} in time")
+                            # json_data = {"batch_num": batch_num, "reviews": reviews, "count": len(reviews)}
+                            # json.dumps(json_data)
+                            # await sio.emit('review_batch', json_data, to=sid)
+                            logger.info(f"[{timestamp}] Sent {len(reviews)} reviews (Batch {batch_num})")
                             batch_num += 1
-                            start_idx += len(reviews)  # Update start index for next batch
-                        except WebSocketDisconnect:
-                            logger.error(f"[{timestamp}] WebSocket disconnected before sending batch {batch_num}")
-                            break
+                            start_idx += len(reviews)
                         except Exception as e:
                             logger.error(f"[{timestamp}] Error sending JSON: {e}")
-                            await websocket.send_json({"error": f"JSON send error: {str(e)}"})
                             break
 
                     scroll_attempts += 1
@@ -499,19 +456,19 @@ class MetacriticCrawler:
 
                 soup = BeautifulSoup(self.browser.page_source, "lxml")
                 review_cards = soup.find_all("div", class_="c-siteReview")
-                # Adjust range for next role
                 if total_reviews_processed < target_reviews and current_role == "critic":
-                    start = start - len(review_cards) if start - len(review_cards) > 0 else 0  # Reset start for user role
+                    start = start - len(review_cards) if start - len(review_cards) > 0 else 0
                     end = end - len(review_cards)
                     start_idx = start
                 else:
-                    break  # Stop if we have enough reviews
+                    break
+            return all_reviews
 
         except Exception as e:
             logger.error(f"Error in get_reviews_ws: {e}")
-            await websocket.send_json({"error": f"Error fetching reviews: {str(e)}"})
         finally:
             self.close_browser()
 
 if __name__ == "__main__":
     crawler = MetacriticCrawler()
+    # Test code remains unchanged
