@@ -185,15 +185,14 @@ class T5Classifier:
         dataloader = DataLoader(tokenized_dataset[sample_set], batch_size=batch_size, collate_fn=collate_fn)
         predicted_output = []
         self.model.to(self.device)
-        self.model.eval()
         print('Model loaded to: ', self.device)
-        with torch.no_grad():
-            for batch in tqdm(dataloader):
-                batch = batch.to(self.device)
-                output_ids = self.model.generate(batch)
-                output_texts = self.tokenizer.batch_decode(output_ids, skip_special_tokens=True)
-                for output_text in output_texts:
-                    predicted_output.append(output_text)
+
+        for batch in tqdm(dataloader):
+            batch = batch.to(self.device)
+            output_ids = self.model.generate(batch)
+            output_texts = self.tokenizer.batch_decode(output_ids, skip_special_tokens=True)
+            for output_text in output_texts:
+                predicted_output.append(output_text)
         return predicted_output
     
     def get_metrics(self, y_true, y_pred):

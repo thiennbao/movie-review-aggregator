@@ -33,7 +33,7 @@ def call_api(review_text: str) -> Tuple[str, List[Dict[str, Tuple[int, int]]]]:
     """Gửi review đến API, nhận raw_output và danh sách entries"""
     payload = {"review": review_text}
     try:
-        resp = requests.post(PREDICT_URL, json=payload, timeout=30)
+        resp = requests.post(PREDICT_URL, json=payload, timeout=120)
         resp.raise_for_status()
         data = resp.json()
     except requests.RequestException as e:

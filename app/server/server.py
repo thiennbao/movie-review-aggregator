@@ -31,11 +31,8 @@ _device    = None
 
 task_name = 'joint_task'
 experiment_name = 'aspe-absa2'
-model_checkpoint = 'kevinscaria/joint_tk-instruct-base-def-pos-neg-neut-combined'
-print('Experiment Name: ', experiment_name)
-model_out_path = './model/Models'
-model_out_path = os.path.join(model_out_path, task_name, f"{model_checkpoint.replace('/', '')}-{experiment_name}")
-print('Model output path: ', model_out_path)
+model_checkpoint = 'PhatLe12344/InstructABSAFineTune'
+print('Model checkpoint from Hugging Face Hub:', model_checkpoint)
 
 instr = InstructionsHandler()
 instr.load_instruction_set2()
@@ -69,7 +66,7 @@ app = FastAPI(
 def load_model():
     global _tokenizer, _model, _device
     if _model is None or _tokenizer is None:
-        t5_exp = T5Generator(model_out_path, max_new_tokens=128)
+        t5_exp = T5Generator(model_checkpoint, max_new_tokens=128)
         _tokenizer = t5_exp.tokenizer
         _model     = t5_exp.model.to(t5_exp.device)
         _device    = t5_exp.device
