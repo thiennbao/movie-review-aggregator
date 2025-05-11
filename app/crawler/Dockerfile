@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy application files
-COPY web_socket.py .
+COPY crawler_api.py .
 COPY imdb_crawler.py .
 COPY metacritic_crawler.py .
 COPY rotten_crawler.py .
@@ -54,7 +54,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
 # Expose port
-EXPOSE 5000
+EXPOSE 6000
 
 # Run the FastAPI app with increased shared memory
-CMD ["uvicorn", "web_socket:app", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["uvicorn", "crawler_api:app", "--host", "0.0.0.0", "--port", "6000"]
