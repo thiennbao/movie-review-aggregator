@@ -1,1 +1,1 @@
-# Folder for model server
+# Folder for web server
