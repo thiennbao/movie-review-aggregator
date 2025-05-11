@@ -16,17 +16,18 @@ sys.path.insert(0, PROJECT_ROOT)
 
 import warnings
 warnings.filterwarnings('ignore')
-import pandas as pd
 
-from model.InstructABSA.data_prep import DatasetLoader
-from model.InstructABSA.utils import T5Generator, T5Classifier
+from model.InstructABSA.utils import T5Generator
 from model.instructions import InstructionsHandler
 import torch
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from typing import List, Tuple, Dict
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import re
+
+_tokenizer = None
+_model     = None
+_device    = None
 
 task_name = 'joint_task'
 experiment_name = 'aspe-absa2'
@@ -35,10 +36,6 @@ print('Experiment Name: ', experiment_name)
 model_out_path = './model/Models'
 model_out_path = os.path.join(model_out_path, task_name, f"{model_checkpoint.replace('/', '')}-{experiment_name}")
 print('Model output path: ', model_out_path)
-
-_tokenizer: AutoTokenizer | None = None
-_model: AutoModelForSeq2SeqLM | None = None
-_device = "cuda" if torch.cuda.is_available() else "cpu"
 
 instr = InstructionsHandler()
 instr.load_instruction_set2()
@@ -69,39 +66,47 @@ app = FastAPI(
     redoc_url="/redoc",
     openapi_url="/openapi.json"
 )
-
 def load_model():
-    print (f"Loading model from {model_out_path}")
-    global _tokenizer, _model
+    global _tokenizer, _model, _device
     if _model is None or _tokenizer is None:
-        t5_exp = T5Generator(model_out_path)
+        t5_exp = T5Generator(model_out_path, max_new_tokens=128)
         _tokenizer = t5_exp.tokenizer
-        _model = t5_exp.model.to(t5_exp.device)
-    return _tokenizer, _model
+        _model     = t5_exp.model.to(t5_exp.device)
+        _device    = t5_exp.device
+    return _tokenizer, _model, _device
 
-def absa_inference_single(text: str, bos_instruction: str, delim_instruction: str, eos_instruction: str):
-    """
-    Thực hiện ABSA inference cho một câu review.
-    Trả về tuple (raw_output, list of (aspect, polarity)).
-    """
-    tokenizer, model = load_model()
-    prompt = f"{bos_instruction}{text}{delim_instruction}"
-    inputs = tokenizer(prompt, return_tensors='pt', truncation=True, max_length=512)
-    inputs = inputs.to(_device)
-    outputs = model.generate(
-        **inputs,
-        max_length=128,
-        num_beams=4,
-        early_stopping=True,
-        use_cache=True
-    )
+# Single inference function
+def absa_inference_single(text: str, bos_instruction: str, delim_instruction: str, eos_instruction: str) -> Tuple[str, List[Tuple[str, str]]]:
+    tokenizer, model, device = load_model()
+    # build prompt
+    prompt = f"{bos_instruction}{text}{delim_instruction}{eos_instruction}"
+    # tokenize without fixed max length, cap at model capacity
+    inputs = tokenizer(
+        prompt,
+        return_tensors='pt',
+        add_special_tokens=True,
+        truncation=True,
+        max_length=tokenizer.model_max_length
+    ).to(device)
+    # dynamic max_length: prompt_len + max_new_tokens
+    prompt_len = inputs['input_ids'].shape[1]
+    max_length = prompt_len + 128
+    model.eval()
+    with torch.no_grad():
+        outputs = model.generate(
+            **inputs,
+            max_length=max_length,
+            num_beams=4,
+            early_stopping=True,
+            use_cache=True
+        )
     decoded = tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
-    print("Decoded: ", decoded)
+    # parse aspect:polarity
     results = []
-    for segment in decoded.split(','):
-        if ':' in segment:
-            asp, pol = segment.split(':', 1)
-            results.append((asp.strip(), pol.strip()))
+    for seg in decoded.split(','):
+        if ':' in seg:
+            a, p = seg.split(':', 1)
+            results.append((a.strip(), p.strip()))
     return decoded, results
 
 # Endpoint

@@ -1,82 +1,120 @@
 # ui.py
-import requests
-import streamlit as st
-import re
+import requests  # Thư viện HTTP cho API calls
+import streamlit as st  # Thư viện Streamlit cho UI
+import re  # Xử lý regex
 from typing import List, Dict, Tuple
+from html import escape  # Escape HTML để tránh XSS
 
-API_URL = "http://localhost:8000/predict"
+# ========= Cấu hình endpoint =========
+BASE_URL = "http://localhost:8000"
+PREDICT_URL = f"{BASE_URL}/predict"  # Endpoint dự đoán
+HEALTH_URL = f"{BASE_URL}/"         # Endpoint health-check
 
-# Mapping polarity to icon và màu nền
-POLARITY_ICON = {
-    'positive': '😊',
-    'neutral': '😐',
-    'negative': '☹️'
+# Cấu hình màu và icon theo polarity
+POLARITY_SETTINGS = {
+    'positive': {'icon': '😊', 'color': '#C8E6C9'},  # xanh lá
+    'neutral':  {'icon': '😐', 'color': '#FFECB3'},  # vàng
+    'negative': {'icon': '☹️', 'color': '#FFCDD2'}   # đỏ
 }
-COLOR_LIST = ['#FFECB3', '#C8E6C9', '#BBDEFB', '#F8BBD0', '#D1C4E9']
+# Palette màu cho câu (sentence-level), không trùng với màu polarity
+SENTENCE_COLORS = ['#B3E5FC', '#B2EBF2', '#E1BEE7', '#D7CCC8', '#F5F5F5']
 
 
 def check_api() -> bool:
-    """Kiểm tra healthcheck của FastAPI"""
+    """Kiểm tra kết nối đến FastAPI"""
     try:
-        r = requests.get(API_URL.replace('/predict','/'))
-        return r.status_code == 200
+        response = requests.get(HEALTH_URL, timeout=5)
+        return response.status_code == 200
     except requests.RequestException:
         return False
 
 
-def call_api(review_text: str) -> Tuple[str, List[Dict[str, Tuple[str, Tuple[int,int]]]]]:
-    """Gọi API và trả về raw_output cùng list entries chứa aspect, polarity và position"""
+def call_api(review_text: str) -> Tuple[str, List[Dict[str, Tuple[int, int]]]]:
+    """Gửi review đến API, nhận raw_output và danh sách entries"""
     payload = {"review": review_text}
-    resp = requests.post(API_URL, json=payload, timeout=30)
-    resp.raise_for_status()
-    data = resp.json()
-    raw = data.get("raw_output", "")
+    try:
+        resp = requests.post(PREDICT_URL, json=payload, timeout=30)
+        resp.raise_for_status()
+        data = resp.json()
+    except requests.RequestException as e:
+        st.error(f"Lỗi khi gọi API: {e}")
+        return "", []
+
+    raw_output = data.get("raw_output", "")
     entries = []
     for item in data.get('results', []):
-        for asp, pol, pos in zip(item['aspects'], item['polarities'], item['positions']):
-            entries.append({'aspect': asp, 'polarity': pol, 'position': pos})
-    return raw, entries
+        aspects = item.get('aspects', [])
+        polarities = item.get('polarities', [])
+        positions = item.get('positions', [])
+        for asp, pol, pos in zip(aspects, polarities, positions):
+            entries.append({'aspect': asp, 'polarity': pol, 'position': tuple(pos)})
+    return raw_output, entries
 
 
 def render_header():
-    """Thiết lập tiêu đề và cấu hình trang"""
+    """Hiển thị tiêu đề và cấu hình trang"""
     st.set_page_config(page_title="InstructABSA Demo", layout="centered")
-    st.title("📝 InstructABSA")
-    st.markdown("Nhập review dưới đây, nhấn **Phân tích** để highlight các aspect terms và hiển thị sentiment icon.")
+    st.title("📝 InstructABSA Demo")
+    st.markdown("Nhập review và nhấn **Phân tích** để xem kết quả highlight và sentiment.")
 
 
 def input_form() -> str:
-    """Nhận câu review từ người dùng"""
-    return st.text_area("Review:", height=150, placeholder="Nhập một câu đánh giá...")
+    """Nhận input review từ người dùng"""
+    return st.text_area("Review", height=150, placeholder="Nhập câu đánh giá...")
 
 
-def render_output(raw_output: str, entries: List[Dict], review_text: str):
-    """Hiển thị raw_output và câu review với highlight + icon sentiment"""
-    # Kết quả thô
+def render_output(raw_output: str, entries: List[Dict[str, Tuple[int, int]]], review_text: str):
+    """Hiển thị raw_output và highlight review"""
+    # Hiển thị raw_output
     st.subheader("Kết quả thô:")
     st.code(raw_output)
 
     # Highlight review
     st.subheader("Review với highlights:")
-    highlighted = review_text
-    # Map mỗi aspect sang màu
-    color_map = {}
-    for idx, e in enumerate(entries):
-        asp = e['aspect']
-        if asp not in color_map:
-            color_map[asp] = COLOR_LIST[idx % len(COLOR_LIST)]
+    text = escape(review_text)
 
-    # Sắp xếp để tránh ghi đè lẫn nhau
-    for e in sorted(entries, key=lambda x: len(x['aspect']), reverse=True):
-        asp = e['aspect']
-        pol = e['polarity']
-        color = color_map[asp]
-        icon = POLARITY_ICON.get(pol, '')
-        span = (
-            f"<span style='background-color:{color}; padding:2px; border-radius:4px;' "
-            f"title='{pol} {icon}'>{asp} <sup>{icon}</sup></span>"
+    # Tách câu (còn giữ nguyên cách thể hiện liên tục)
+    sentence_re = re.compile(r'([^.!?]+[.!?]?)')
+    sentences = [s for s in sentence_re.findall(text) if s.strip()]
+
+    parts = []
+    for idx, sentence in enumerate(sentences):
+        # Kiểm tra entry trong câu
+        matches = [e for e in entries if sentence.lower().find(escape(e['aspect']).lower()) >= 0]
+        if not matches:
+            # Không highlight nếu không có aspect
+            parts.append(sentence)
+            continue
+
+        # Highlight aspect tại vị trí
+        segs, last = [], 0
+        matches = sorted(matches, key=lambda x: x['position'][0])
+        for e in matches:
+            start, end = e['position']
+            if start < 0 or end <= start:
+                continue
+            # Thêm đoạn trước aspect
+            segs.append(sentence[last:start])
+            # Span highlight cho aspect
+            pol_conf = POLARITY_SETTINGS.get(e['polarity'], {})
+            color = pol_conf.get('color', '#FFFFFF')
+            icon = pol_conf.get('icon', '')
+            segs.append(
+                f"<span style='background-color:{color}; padding:2px; border-radius:4px; cursor:help;'"
+                f" title='{e['polarity']}'>"
+                f"{sentence[start:end]} <sup>{icon}</sup></span>"
+            )
+            last = end
+        segs.append(sentence[last:])
+        highlighted = "".join(segs)
+
+        # Wrap câu đã highlight với màu sentence-level
+        sent_color = SENTENCE_COLORS[idx % len(SENTENCE_COLORS)]
+        parts.append(
+            f"<span style='background-color:{sent_color}; padding:2px; border-radius:4px;'>"
+            f"{highlighted}</span>"
         )
-        # Replace với regex để insensitive và chính xác
-        highlighted = re.sub(re.escape(asp), span, highlighted, flags=re.IGNORECASE)
 
-    st.markdown(highlighted, unsafe_allow_html=True)
+    # Kết hợp thành một đoạn văn liền mạch
+    html = "".join(parts)
+    st.markdown(html, unsafe_allow_html=True)
