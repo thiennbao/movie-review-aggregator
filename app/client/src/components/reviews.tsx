@@ -12,8 +12,9 @@ export default function Reviews({ url }: { url: string }) {
 
   useEffect(() => {
     const socket = io("localhost:5000");
-    socket.emit("ask_reviews", url);
+    socket.emit("ask_reviews", {url, range: [0, 50]});
     socket.on("review", (data) => setReviews((reviews) => [...reviews, data]));
+    
     return () => {
       socket.disconnect();
     };

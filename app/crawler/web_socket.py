@@ -2,9 +2,9 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from pydantic import BaseModel, HttpUrl
 from typing import Literal
 import re
-from imdb_crawler import IMDBCrawler
-from metacritic_crawler import MetacriticCrawler
-from rotten_crawler import RottenTomatoesCrawler
+from crawlers.imdb_crawler import IMDBCrawler
+from crawlers.metacritic_crawler import MetacriticCrawler
+from crawlers.rotten_crawler import RottenTomatoesCrawler
 
 app = FastAPI(title="Movie Reviews API", description="API to fetch movie reviews from IMDb, Metacritic, and Rotten Tomatoes")
 
