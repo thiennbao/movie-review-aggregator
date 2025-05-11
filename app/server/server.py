@@ -89,6 +89,7 @@ def absa_inference_single(text: str, bos_instruction: str, delim_instruction: st
         use_cache=True
     )
     decoded = tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+    print("Decoded: ", decoded)
     results = []
     for segment in decoded.split(','):
         if ':' in segment:
@@ -102,9 +103,14 @@ def predict(request: ReviewRequest):
     text = request.review.strip()
     if not text:
         raise HTTPException(status_code=400, detail="Review text cannot be empty.")
-    raw, pairs = absa_inference_single(text, bos, delim, eos)
-    items = [AspectPolarity(aspect=a, polarity=p) for a, p in pairs]
-    return PredictionResponse(raw_output=raw, results=items)
+
+    raw_out, pairs = absa_inference_single(text, bos, delim, eos)
+    # Sử dụng vị trí xuất hiện trong review để sort
+    positions = {asp: text.lower().find(asp.lower()) for asp, _ in pairs}
+    sorted_pairs = sorted(pairs, key=lambda x: positions.get(x[0], float('inf')))
+    result_items = [AspectPolarity(aspect=asp, polarity=pol) for asp, pol in sorted_pairs]
+
+    return PredictionResponse(raw_output=raw_out, results=result_items)
 
 # Endpoint root để kiểm tra
 @app.get("/", include_in_schema=False)
