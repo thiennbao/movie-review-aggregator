@@ -3,119 +3,126 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\instructABSA\Data\test.csv">
+        <entry key="\app\model\Data\test.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Data\train.csv">
+        <entry key="\app\model\Data\train.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Dataset\SemEval14\Test\Laptops_Test.csv">
+        <entry key="\app\model\Dataset\SemEval14\Test\Laptops_Test.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Dataset\SemEval14\Test\Restaurants_Test.csv">
+        <entry key="\app\model\Dataset\SemEval14\Test\Restaurants_Test.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Dataset\SemEval14\Train\Laptops_Train.csv">
+        <entry key="\app\model\Dataset\SemEval14\Train\Laptops_Train.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Dataset\SemEval14\Train\Restaurants_Train.csv">
+        <entry key="\app\model\Dataset\SemEval14\Train\Restaurants_Train.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Dataset\SemEval15\Test\Restaurants_Test.csv">
+        <entry key="\app\model\Dataset\SemEval15\Test\Hotels_Test.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Dataset\SemEval15\Train\Restaurants_Train.csv">
+        <entry key="\app\model\Dataset\SemEval15\Test\Restaurants_Test.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Dataset\SemEval16\Test\Restaurants_Test.csv">
+        <entry key="\app\model\Dataset\SemEval15\Train\Restaurants_Train.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Dataset\SemEval16\Train\Restaurants_Train.csv">
+        <entry key="\app\model\Dataset\SemEval16\Test\Restaurants_Test.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Output\check_dummy_id_test.csv">
+        <entry key="\app\model\Dataset\SemEval16\Train\Restaurants_Train.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\app\model\Output\check_dummy_id_test.csv">
           <value>
             <Attribute>
               <option name="separator" value=":" />
             </Attribute>
           </value>
         </entry>
-        <entry key="\instructABSA\Output\check_dummy_id_train.csv">
+        <entry key="\app\model\Output\check_dummy_id_train.csv">
           <value>
             <Attribute>
               <option name="separator" value=":" />
             </Attribute>
           </value>
         </entry>
-        <entry key="\model\src\data\test.csv">
+        <entry key="\model\Dataset\SemEval14\Test\Laptops_Test.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\model\src\data\test_processed.csv">
+        <entry key="\model\Dataset\SemEval14\Train\Laptops_Train.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\model\src\data\test_processed_cleaned.csv">
+        <entry key="\model\Dataset\SemEval15\Test\Restaurants_Test.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\model\src\data\train.csv">
+        <entry key="\model\Dataset\SemEval15\Train\Restaurants_Train.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\model\src\data\train_processed_cleaned.csv">
+        <entry key="\model\Dataset\SemEval16\Train\Restaurants_Train.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

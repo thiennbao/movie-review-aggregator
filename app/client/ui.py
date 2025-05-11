@@ -1,4 +1,3 @@
-# ui.py
 import streamlit as st
 
 def render_header():
@@ -15,9 +14,9 @@ def input_form():
 def render_output(raw_output: str, pairs: list[tuple[str,str]]):
     st.subheader("Kết quả thô:")
     st.code(raw_output)
-    st.subheader("Các cặp Aspect–Polarity:")
-    if not pairs:
-        st.info("Không tìm thấy cặp nào.")
-    else:
-        for asp, pol in pairs:
-            st.markdown(f"- **{asp}** → *{pol}*")
+    # st.subheader("Các cặp Aspect–Polarity:")
+    # if not pairs:
+    #     st.info("Không tìm thấy cặp nào.")
+    # else:
+    #     for asp, pol in pairs:
+    #         st.markdown(f"- **{asp}** : *{pol}*")
