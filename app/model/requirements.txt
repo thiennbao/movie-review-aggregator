@@ -1,0 +1,9 @@
+torch
+torchvision
+torchaudio
+transformers
+datasets
+evaluate
+sentencepiece
+scikit-learn
+fastapi[standard]
