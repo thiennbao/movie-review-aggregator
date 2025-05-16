@@ -2,5 +2,6 @@
 __pycache__
 .DS_Store
 .gitignore
+.dockerignore
 Dockerfile
 README.md
