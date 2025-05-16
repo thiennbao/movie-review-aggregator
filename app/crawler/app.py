@@ -1,14 +1,12 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import re
-import asyncio
 from crawlers.imdb_crawler import IMDBCrawler
 from crawlers.metacritic_crawler import MetacriticCrawler
 from crawlers.rotten_crawler import RottenTomatoesCrawler
-import uvicorn
 
 # Initialize FastAPI app
-app = FastAPI()
+app = FastAPI(docs_url="/docs")
 
 # Initialize crawlers
 imdb_crawler = IMDBCrawler()
@@ -90,6 +88,4 @@ async def fetch_reviews(request: ReviewRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error processing request: {str(e)}")
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=6000)
+    

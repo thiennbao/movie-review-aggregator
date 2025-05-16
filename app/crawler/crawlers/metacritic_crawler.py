@@ -7,12 +7,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException
 import time
 from bs4 import BeautifulSoup
-import json
 import os
 from datetime import datetime
 import validators
 import logging
-import asyncio
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)

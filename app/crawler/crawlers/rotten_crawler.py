@@ -11,15 +11,11 @@ from selenium.common.exceptions import (
     WebDriverException,
     NoSuchElementException
 )
-from datetime import datetime
 import time
 from bs4 import BeautifulSoup
-import json
 import os
 import validators
-import pandas as pd
 import logging
-import asyncio
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)

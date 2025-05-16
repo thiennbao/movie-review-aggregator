@@ -9,7 +9,6 @@ import time
 from bs4 import BeautifulSoup
 import os
 import logging
-import asyncio
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)

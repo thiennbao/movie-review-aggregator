@@ -6,3 +6,11 @@ services:
     ports:
       - 8000:8000
     restart: unless-stopped
+
+  crawler:
+    container_name: crawler
+    build:
+      context: ./crawler
+    ports:
+      - 7000:7000
+    restart: unless-stopped
