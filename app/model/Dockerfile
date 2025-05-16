@@ -10,4 +10,4 @@ RUN find /app/.venv \( -type d -a -name test -o -name tests \) -o \( -type f -a 
 ENV PATH="/app/.venv/bin:$PATH"
 
 RUN python app.py
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
