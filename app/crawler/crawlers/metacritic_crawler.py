@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 class MetacriticCrawler:
     def __init__(
         self,
-        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "C://Users//thiennbao//Downloads//chromedriver-win64//chromedriver.exe"),
+        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH"),
         state_file: str = os.getenv("STATE_FILE", "rotten_state.json"),
     ):
         """Initialize the crawler with a path to chromedriver."""
