@@ -1,9 +1,8 @@
-torch
-torchvision
-torchaudio
-transformers
-datasets
-evaluate
-sentencepiece
-scikit-learn
 fastapi[standard]
+numpy
+scikit-learn
+tqdm
+torch
+transformers
+
+--extra-index-url https://download.pytorch.org/whl/cpu

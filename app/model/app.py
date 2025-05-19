@@ -170,3 +170,8 @@ def predict(request: ReviewRequest) -> PredictionResponse:
 @app.get("/", include_in_schema=False)
 def root():
     return {"message": "InstructABSA API is running."}
+
+if __name__ == "__main__":
+    print("🧪 Loading model...")
+    load_model()
+    print("🌱 Successfully")

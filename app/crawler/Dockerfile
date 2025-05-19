@@ -1,56 +1,35 @@
-FROM python:3.9
+# BUILD STAGE
+FROM python:3.9-slim AS builder
 
-# Install system dependencies, Chrome, ChromeDriver, and debugging tools
-RUN apt-get update && apt-get install -y \
-    wget \
-    unzip \
-    libglib2.0-0 \
-    libnss3 \
-    libgconf-2-4 \
-    libfontconfig1 \
-    libx11-6 \
-    libx11-xcb1 \
-    libxi6 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxrandr2 \
-    libxtst6 \
-    libatk1.0-0 \
-    libatk-bridge2.0-0 \
-    libpango-1.0-0 \
-    libcairo2 \
-    libasound2 \
-    libgbm1 \
-    libgtk-3-0 \
-    libxshmfence1 \
-    libu2f-udev \
-    procps \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
-    && apt-get update && apt-get install -y \
-    google-chrome-stable \
-    && wget https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.59/linux64/chromedriver-linux64.zip \
-    && unzip chromedriver-linux64.zip \
-    && mv chromedriver-linux64/chromedriver /usr/bin/chromedriver \
-    && chmod +x /usr/bin/chromedriver \
-    && rm -rf chromedriver-linux64.zip \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends wget unzip curl gnupg2 build-essential python3-dev libffi-dev
+RUN wget https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.59/linux64/chrome-linux64.zip
+RUN unzip chrome-linux64.zip && mv chrome-linux64 /opt/chrome
 
-# Set working directory
+RUN wget https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.59/linux64/chromedriver-linux64.zip
+RUN unzip chromedriver-linux64.zip && mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
+RUN chmod +x /usr/bin/chromedriver
+
 WORKDIR /app
-
-# Copy application files
 COPY . .
+RUN python -m venv .venv
+RUN .venv/bin/pip install --no-cache-dir -r requirements.txt
+RUN find /app/.venv \( -type d -a -name test -o -name tests \) -o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) -exec rm -rf '{}' \+
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Set environment variable for ChromeDriver
+# RUN STAGE
+FROM python:3.9-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends libglib2.0-0 libnss3 libx11-6 libxrandr2 libxcomposite1 libxdamage1 libxshmfence1 libgbm1 libgtk-3-0 libasound2
+RUN rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /opt/chrome /opt/chrome
+COPY --from=builder /usr/bin/chromedriver /usr/bin/chromedriver
+COPY --from=builder /app /app
+
+ENV CHROME_BIN=/opt/chrome/chrome
 ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
+ENV PATH="/app/.venv/bin:$PATH"
+ENV PATH="/opt/chrome:$PATH"
 
-# Expose port
-EXPOSE 6000
-
-# Run the FastAPI app with increased shared memory
-CMD ["uvicorn", "crawler_api:app", "--host", "0.0.0.0", "--port", "6000"]
+WORKDIR /app
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7000"]

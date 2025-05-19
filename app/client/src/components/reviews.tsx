@@ -17,7 +17,7 @@ export default function Reviews({ url }: { url: string }) {
 
   useEffect(() => {
     setIsPending(true);
-    const socket = io("localhost:5000");
+    const socket = io(process.env.NEXT_PUBLIC_SERVER_URL);
     socket.emit("ask_reviews", { url, range: [range - RECORD_PER_LOAD, range] });
     socket.on("review", (data) => setReviews((reviews) => [...reviews, data]));
 

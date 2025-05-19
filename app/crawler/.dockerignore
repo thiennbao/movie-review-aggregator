@@ -1,0 +1,9 @@
+.venv
+__pycache__
+.DS_Store
+.gitignore
+.dockerignore
+.env
+.env.template
+Dockerfile
+README.md
