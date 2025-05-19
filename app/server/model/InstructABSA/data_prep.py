@@ -145,6 +145,7 @@ class DatasetLoader:
         """
         label_map = {'POS':'positive', 'NEG':'negative', 'NEU':'neutral'}
         df['labels'] = df[[aspect_col, opinion_col]].apply(lambda x: ', '.join([f"{' '.join(i[key])}:{' '.join(j[key])}:{label_map[i[label_key]]}" for i, j in zip(x[0], x[1])]), axis=1)
+        df.loc[df['labels'] == '', 'labels'] = 'noaspectterm:none:none'
         df['text'] = df[text_col].apply(lambda x: bos_instruction + x + eos_instruction)
         return df
 
