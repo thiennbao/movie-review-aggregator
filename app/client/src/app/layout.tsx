@@ -8,7 +8,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Rotten Potatoes",
+  title: "Rotten Apple",
   description: "A tool for collecting and statisticizing movie reviews from IMDb, Rotten Tomatoes and Metacritic",
 };
 

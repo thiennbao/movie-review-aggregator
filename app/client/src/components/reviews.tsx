@@ -8,7 +8,7 @@ import ExportButtons from "./export-buttons";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 export default function Reviews({ url }: { url: string }) {
-  const RECORD_PER_LOAD = 10;
+  const RECORD_PER_LOAD = 25;
 
   const [reviews, setReviews] = useState([] as Review[]);
   const [range, setRange] = useState(RECORD_PER_LOAD);
