@@ -1,5 +1,0 @@
-[server]
-fileWatcherType = "poll"
-
-[runner]
-fileWatcherIgnore = ["**/site-packages/torch/**"]
