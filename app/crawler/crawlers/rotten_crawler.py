@@ -11,15 +11,11 @@ from selenium.common.exceptions import (
     WebDriverException,
     NoSuchElementException
 )
-from datetime import datetime
 import time
 from bs4 import BeautifulSoup
-import json
 import os
 import validators
-import pandas as pd
 import logging
-import asyncio
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -28,7 +24,7 @@ logger = logging.getLogger(__name__)
 class RottenTomatoesCrawler:
     def __init__(
         self,
-        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "C://Users//thiennbao//Downloads//chromedriver-win64//chromedriver.exe"),
+        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH"),
         state_file: str = os.getenv("STATE_FILE", "rotten_state.json"),
     ):
         """Initialize the crawler with a path to chromedriver."""

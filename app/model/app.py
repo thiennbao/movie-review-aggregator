@@ -29,16 +29,16 @@ _tokenizer = None
 _model     = None
 _device    = None
 
-task_name = 'joint_task'
+task_name = 'aoste'
 experiment_name = 'aspe-absa2'
-model_checkpoint = 'PhatLe12344/InstructABSAFineTune-fp16'
+model_checkpoint = 'PhatLe12344/AOSTE_InstructABSA'
 print('Model checkpoint from Hugging Face Hub:', model_checkpoint)
 
 instr = InstructionsHandler()
 instr.load_instruction_set2()
-bos   = instr.aspe['bos_instruct1']
-delim = instr.aspe['delim_instruct']
-eos   = instr.aspe['eos_instruct']
+bos   = instr.aoste['bos_instruct1']
+delim = instr.aoste['delim_instruct']
+eos   = instr.aoste['eos_instruct']
 
 # Pydantic schema
 class ReviewRequest(BaseModel):
@@ -46,8 +46,10 @@ class ReviewRequest(BaseModel):
 
 class UnifiedAspectPolarity(BaseModel):
     aspects: List[str]
+    opinions: List[str]
     polarities: List[str]
-    positions: List[Tuple[int, int]]  # list of (start, end) in content
+    positions_aspects: List[Tuple[int, int]]  # list of (start, end) in content
+    positions_opinions: List[Tuple[int, int]]  # list of (start, end) in content
     content: str
 
 class PredictionResponse(BaseModel):
@@ -72,8 +74,23 @@ def load_model():
         _device    = t5_exp.device
     return _tokenizer, _model, _device
 
+def get_word_positions_1idx(content: str, phrase: str) -> Tuple[int, int]:
+    """
+    Trả về vị trí start/end của `phrase` trong `content`,
+    đếm theo từ (space-separated), 1-based index.
+    Nếu không tìm thấy, trả về (-1, -1).
+    """
+    words = content.split()
+    phrase_words = phrase.split()
+
+    for idx in range(len(words) - len(phrase_words) + 1):
+        if words[idx:idx+len(phrase_words)] == phrase_words:
+            # Chuyển sang 1-based:
+            return idx + 1, idx + len(phrase_words)
+    return -1, -1
+
 # Single inference function
-def absa_inference_single(text: str, bos_instruction: str, delim_instruction: str, eos_instruction: str) -> Tuple[str, List[Tuple[str, str]]]:
+def absa_inference_single(text: str, bos_instruction: str, delim_instruction: str, eos_instruction: str) -> Tuple[str, List[Tuple[str, str, str]]]:
     tokenizer, model, device = load_model()
     # build prompt
     prompt = f"{bos_instruction}{text}{delim_instruction}{eos_instruction}"
@@ -94,16 +111,21 @@ def absa_inference_single(text: str, bos_instruction: str, delim_instruction: st
             **inputs,
             max_length=max_length,
             num_beams=4,
+            num_return_sequences=4,
             early_stopping=True,
             use_cache=True
         )
     decoded = tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+    print("DEBUG decoded:", decoded)
     # parse aspect:polarity
-    results = []
-    for seg in decoded.split(','):
-        if ':' in seg:
-            a, p = seg.split(':', 1)
-            results.append((a.strip(), p.strip()))
+    results: List[Tuple[str, str, str]] = []
+    for seg in decoded.split(","):
+        parts = [p.strip() for p in seg.split(":")]
+        # Chỉ xử lý khi đúng 3 phần
+        if len(parts) == 3:
+            aspect, opinion, polarity = parts
+            results.append((aspect, opinion, polarity))
+
     return decoded, results
 
 # Endpoint
@@ -116,7 +138,7 @@ def predict(request: ReviewRequest) -> PredictionResponse:
         raise HTTPException(status_code=400, detail="Review text cannot be empty.")
 
     # 2. Gọi hàm inference để lấy raw_output và cặp (aspect, polarity)
-    raw_out, pairs = absa_inference_single(text, bos, delim, eos)
+    raw_output, triples = absa_inference_single(text, bos, delim, eos)
 
     # 3. Tách toàn bộ review thành câu con dựa trên dấu . ! ?
     sentence_re = re.compile(r'(?<=[.!?])\s*')
@@ -124,49 +146,66 @@ def predict(request: ReviewRequest) -> PredictionResponse:
 
     # 4. Gom nhóm các cặp theo từng câu (content) và tính vị trí trong content
     grouped: Dict[str, Dict[str, List]] = {}
-    for asp, pol in pairs:
+    for asp, opin, pol in triples:
         # 4.1. Xác định câu chứa aspect (nếu không tìm thấy thì dùng toàn review)
-        content = next((s for s in sentences if asp.lower() in s.lower()), text).strip()
-        # 4.2. Tính vị trí start và end của aspect trong câu content
-        start = content.lower().find(asp.lower())
-        end = start + len(asp) if start != -1 else -1
-        # 4.3. Khởi tạo group nếu câu chưa có
+        content = next(
+            (s for s in sentences if asp.lower() in s.lower() and opin.lower() in s.lower()),
+            text
+        ).strip()
         if content not in grouped:
-            grouped[content] = {"aspects": [], "polarities": [], "positions": []}
+            grouped[content] = {
+                "aspects": [], "opinions": [], "polarities": [],
+                "pos_aspect": [], "pos_opin": []
+            }
+        # 4.2. Tính vị trí start và end của aspect trong câu content
+        start_asp, end_asp = get_word_positions_1idx(content, asp)
+        start_op, end_op = get_word_positions_1idx(content, opin)
+        # 4.3. Khởi tạo group nếu câu chưa có
+
         # 4.4. Thêm aspect, polarity và position vào nhóm
         grouped[content]["aspects"].append(asp)
+        grouped[content]["opinions"].append(opin)
         grouped[content]["polarities"].append(pol)
-        grouped[content]["positions"].append((start, end))
+        grouped[content]["pos_aspect"].append((start_asp, end_asp))
+        grouped[content]["pos_opin"].append((start_op, end_op))
 
     # 5. Build result list, dedup identical (asp, pol, pos)
-    result_items: List[UnifiedAspectPolarity] = []
+    results: List[UnifiedAspectPolarity] = []
     for content, data in grouped.items():
-        # zip into triples
-        triples = list(zip(data["aspects"], data["polarities"], data["positions"]))
         # dedupe while preserving order
         seen = set()
-        unique_triples = []
-        for asp, pol, pos in triples:
-            key = (asp, pol, pos)
+        unique = []
+        for a, o, p, pa, po in zip(
+                data["aspects"], data["opinions"], data["polarities"],
+                data["pos_aspect"], data["pos_opin"]
+        ):
+            key = (a, o, p, pa, po)
             if key not in seen:
                 seen.add(key)
-                unique_triples.append((asp, pol, pos))
+                unique.append((a, o, p, pa, po))
         # sort by start index
-        unique_triples.sort(key=lambda x: x[2][0])
+        unique.sort(key=lambda x: x[3][0] if x[3][0] >= 0 else float('inf'))
         # unzip back
-        aspects, polarities, positions = zip(*unique_triples) if unique_triples else ([], [], [])
-        result_items.append(
+        aspects, opinions, polarities, pos_as, pos_op = zip(*unique) if unique else ([], [], [], [], [])
+        results.append(
             UnifiedAspectPolarity(
                 aspects=list(aspects),
+                opinions=list(opinions),
                 polarities=list(polarities),
-                positions=list(positions),
+                positions_aspects=list(pos_as),
+                positions_opinions=list(pos_op),
                 content=content
             )
         )
 
-    return PredictionResponse(raw_output=raw_out, results=result_items)
+    return PredictionResponse(raw_output=raw_output, results=results)
 
 # Endpoint root để kiểm tra
 @app.get("/", include_in_schema=False)
 def root():
     return {"message": "InstructABSA API is running."}
+
+if __name__ == "__main__":
+    print("🧪 Loading model...")
+    load_model()
+    print("🌱 Successfully")

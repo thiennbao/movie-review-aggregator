@@ -6,7 +6,16 @@ export interface Review {
   user: string;
   date: string;
   content: string;
-  results: [{ aspects: string[]; content: string; polarities: string[] }];
+  results: [
+    {
+      aspects: string[];
+      opinions: string[];
+      polarities: string[];
+      positions_aspects: number[];
+      positions_opinions: number[][];
+      content: string;
+    }
+  ];
 }
 
 const polarityColors: { [key: string]: string } = {
@@ -35,16 +44,16 @@ export default function ReviewsTable({ reviews }: { reviews: Review[] }) {
                 {result.content}
                 {result.aspects.map((aspect: string, index: number) => (
                   <span key={index} className={`${polarityColors[result.polarities[index]]} px-1 ml-1 rounded`}>
-                    {aspect}
                     {result.polarities[index] === "positive" && (
-                      <Icon icon="mingcute:happy-fill" width="16" height="16" className="inline align-middle ml-1" />
+                      <Icon icon="mingcute:happy-fill" width="16" height="16" className="inline align-middle mr-1" />
                     )}
                     {result.polarities[index] === "neutral" && (
-                      <Icon icon="garden:face-neutral-fill-16" width="14" height="14" className="inline align-middle ml-1" />
+                      <Icon icon="garden:face-neutral-fill-16" width="14" height="14" className="inline align-middle mr-1" />
                     )}
                     {result.polarities[index] === "negative" && (
-                      <Icon icon="mingcute:unhappy-fill" width="16" height="16" className="inline align-middle ml-1" />
+                      <Icon icon="mingcute:unhappy-fill" width="16" height="16" className="inline align-middle mr-1" />
                     )}
+                    Aspect: {aspect}. Opinion: {result.opinions[index]}
                   </span>
                 ))}
               </span>

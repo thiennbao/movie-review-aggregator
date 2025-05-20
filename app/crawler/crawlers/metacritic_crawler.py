@@ -7,12 +7,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import WebDriverException, TimeoutException, NoSuchElementException
 import time
 from bs4 import BeautifulSoup
-import json
 import os
 from datetime import datetime
 import validators
 import logging
-import asyncio
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -21,7 +19,7 @@ logger = logging.getLogger(__name__)
 class MetacriticCrawler:
     def __init__(
         self,
-        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH", "C://Users//thiennbao//Downloads//chromedriver-win64//chromedriver.exe"),
+        chromedriver_path: str = os.getenv("CHROMEDRIVER_PATH"),
         state_file: str = os.getenv("STATE_FILE", "rotten_state.json"),
     ):
         """Initialize the crawler with a path to chromedriver."""
