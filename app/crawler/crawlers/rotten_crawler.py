@@ -275,9 +275,9 @@ class RottenTomatoesCrawler:
                     class_="review-row" if role == "critic" else "audience-review-row",
             ))
             logger.info(f"INFO: prev_reviews {prev_review_count}, new_review_count {new_review_count}")
-            # if new_review_count <= prev_review_count:
-            #     logger.info("No new reviews loaded.")
-            #     return BeautifulSoup(self.browser.page_source, "lxml"), False
+            if new_review_count <= prev_review_count:
+                logger.info("No new reviews loaded.")
+                return BeautifulSoup(self.browser.page_source, "lxml"), False
             return BeautifulSoup(self.browser.page_source, "lxml"), True
 
         except (TimeoutException, ElementNotInteractableException, NoSuchElementException) as e:
