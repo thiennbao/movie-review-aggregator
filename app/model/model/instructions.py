@@ -135,11 +135,11 @@ class InstructionsHandler:
 
         self.aoste['bos_instruct1'] = """Definition: The output will be the aspects (both implicit and explicit) the corresponding opinion/describing terms and the sentiment polarity (positive, negative, neutral) of the opinion term . In cases where there are no aspects the output should be noaspectterm:none:none.
         Positive example 1-
-        input: I charge it at night and skip taking the cord with me because of the good battery life.
-        output: battery life:good:positive 
+        input: I was absolutely captivated by the gripping plot, and the lead actor delivered a truly unforgettable performance.
+        output: plot:gripping:positive, performance:unforgettable:positive
         Positive example 2-
-        input: it is of high quality , has a killer GUI , is extremely stable , is highly expandable , is bundled with lots of very good applications , is easy to use , and is absolutely gorgeous.
-        output: quality:high:positive, GUI:killer:positive, applications:good:positive, use:easy:positive 
+        input: The stunning cinematography and evocative soundtrack elevated every scene, making the film a visual and auditory masterpiece.
+        output: cinematography:stunning:positive, soundtrack:evocative:positive, film:masterpiece:positive
         Now complete the following example-
         input: """
         
@@ -404,23 +404,23 @@ class InstructionsHandler:
 
         self.aoste['bos_instruct1'] = """Definition: The output will be the aspects (both implicit and explicit) the corresponding opinion/describing terms and the sentiment polarity (positive, negative, neutral) of the opinion term . In cases where there are no aspects the output should be noaspectterm:none:none.
         Positive example 1-
-        input: I charge it at night and skip taking the cord with me because of the good battery life.
-        output: battery life:good:positive 
+        input: The film’s breathtaking visuals and seamless CGI created an immersive world I never wanted to leave.
+        output: visuals:breathtaking:positive, CGI:seamless:positive, world:immersive:positive 
         Positive example 2-
-        input: it is of high quality , has a killer GUI , is extremely stable , is highly expandable , is bundled with lots of very good applications , is easy to use , and is absolutely gorgeous.
-        output: quality:high:positive, GUI:killer:positive, applications:good:positive, use:easy:positive
+        input: The lead actor’s nuanced performance and the sharp, witty dialogue kept me engaged from start to finish.
+        output: performance:nuanced:positive, dialogue:sharp:positive, engagement:kept me engaged:positive
         Negative example 1-
-        input: A month or so ago , the freaking motherboard just died .
-        output: motherboard:freaking:negative, motherboard:freaking:negative
+        input: The pacing was painfully slow, and the plot felt disjointed and underdeveloped.
+        output: pacing:painfully slow:negative, plot:disjointed:negative, plot:underdeveloped:negative
         Negative example 2-
-        input: I had always used PCs and been constantly frustrated by the crashing and the poorly designed operating systems that were never very intuitive .
-        output: operating systems:poorly designed, operating systems:intuitive
+        input: Despite the star-studded cast, the writing was cliché and the characters lacked any real depth.
+        output: writing:cliché:negative, characters:lacked depth:negative
         Neutral example 1-
-        input: It has a 10 hour battery life when you 're doing web browsing and word editing , making it perfect for the classroom or office , and in terms of gaming and movie playing it 'll have a battery life of just over 5 hours .
-        output: web browsing:perfect:neutral, word editing:perfect:neutral
+        input: The soundtrack was appropriate and the cinematography was competent, but nothing stood out as particularly memorable.
+        output: soundtrack:appropriate:neutral, cinematography:competent:neutral
         Neutral example 2-
-        input: no complaints with their desktop , and maybe because it just sits on your desktop , and you do n't carry it around , which could jar the hard drive , or the motherboard .
-        output: hard drive:jar:neutral, motherboard:jar:neutral
+        input: It’s a serviceable thriller with a few tense moments, though it doesn’t break new ground in the genre.
+        output: thriller:serviceable:neutral, moments:tense:neutral
         Now complete the following example-
         input: """
         
@@ -445,5 +445,5 @@ class InstructionsHandler:
         output: mlocationeal:Ok:neutral, ambience:Ok:neutral
         Now complete the following example-
         input: """
-        self.aoste['delim_instruct'] = ''
+        self.aoste['delim_instruct'] = ','
         self.aoste['eos_instruct'] = ' \noutput:'
