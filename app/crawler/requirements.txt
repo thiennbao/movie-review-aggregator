@@ -1,10 +1,5 @@
-beautifulsoup4
 fastapi[standard]
-lxml
-numpy
-pandas
-pydantic
 selenium
-uvicorn
+beautifulsoup4
 validators
-aiohttp
+lxml

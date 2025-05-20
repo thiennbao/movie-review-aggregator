@@ -8,6 +8,9 @@ export default function ExportButtons({ reviews }: { reviews: Review[] }) {
       <button onClick={() => handleCopy(reviews)} className="bg-primary">
         Copy
       </button>
+      <button onClick={() => handleJson(reviews)} className="bg-amber-300">
+        JSON
+      </button>
       <button onClick={() => handleExcel(reviews)} className="bg-emerald-500">
         Excel
       </button>
@@ -19,11 +22,7 @@ export default function ExportButtons({ reviews }: { reviews: Review[] }) {
 }
 
 const handleCopy = (reviews: Review[]) => {
-  const text = JSON.stringify(
-    reviews.map((review) => ({ ...review, results: JSON.stringify(review.results) })),
-    null,
-    2
-  );
+  const text = JSON.stringify(reviews, null, 2);
   navigator.clipboard.writeText(text);
 };
 
@@ -42,5 +41,16 @@ const handleCsv = (reviews: Review[]) => {
   const a = document.createElement("a");
   a.href = url;
   a.download = "data.csv";
+  a.click();
+};
+
+const handleJson = (reviews: Review[]) => {
+  const text = JSON.stringify(reviews, null, 2);
+  const bytes = new TextEncoder().encode(text);
+  const blob = new Blob([bytes], { type: "application/json;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "data.json";
   a.click();
 };
