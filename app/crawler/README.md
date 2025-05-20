@@ -1,13 +1,13 @@
 # Movie Review Aggregator
 
-## Model service
+## Crawler service
 
 ### How to run locally
 
 1. Go into the server directory:
 
    ```sh
-   cd app/model
+   cd app/crawler
    ```
 
 2. Create a virtual environment:
@@ -28,8 +28,14 @@
    pip install -r requirements.txt
    ```
 
-5. Start the service:
+5. Create a file named `.env` following the format in `.env.template` file:
+
+   ```xml
+   CHROMEDRIVER_PATH=<path_to_your_chromedriver.exe_file>
+   ```
+
+6. Start the service:
 
    ```sh
-   fastapi dev app.py --host 0.0.0.0 --port 8000
+   fastapi dev app.py --host 0.0.0.0 --port 7000
    ```
